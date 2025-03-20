@@ -117,5 +117,8 @@ run/
 lib/
 logs/
 
+# datagen cache is not needed
+src/main/generated/.cache
+
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
