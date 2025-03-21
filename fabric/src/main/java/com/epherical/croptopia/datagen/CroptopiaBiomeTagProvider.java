@@ -95,7 +95,7 @@ public class CroptopiaBiomeTagProvider extends TagsProvider<Biome> {
         }
     }
 
-    public record BiomeTagPair(TagKey<Biome> biome, TagKey<Biome>... categories) {
+    protected record BiomeTagPair(TagKey<Biome> biome, TagKey<Biome>... categories) {
         // nothing else needed
     }
 
