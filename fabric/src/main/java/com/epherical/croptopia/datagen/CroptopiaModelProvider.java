@@ -1,8 +1,10 @@
 package com.epherical.croptopia.datagen;
 
+import com.epherical.croptopia.blocks.CroptopiaCropBlock;
 import com.epherical.croptopia.blocks.LeafCropBlock;
 import com.epherical.croptopia.common.MiscNames;
 import com.epherical.croptopia.register.Content;
+import com.epherical.croptopia.register.helpers.FarmlandCrop;
 import com.epherical.croptopia.register.helpers.TreeCrop;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -22,6 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.Property;
 
 import java.util.Optional;
+import java.util.function.UnaryOperator;
 
 public class CroptopiaModelProvider extends FabricModelProvider {
 
@@ -32,6 +35,7 @@ public class CroptopiaModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(final BlockModelGenerators gens) {
         generateTreeCropModels(gens);
+        generateFarmlandCropModels(gens);
     }
 
     private void generateTreeCropModels(final BlockModelGenerators gens) {
@@ -67,6 +71,11 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         createTreeCropBlock(gens, Content.PLUM, oakLeaves, white);
         createTreeCropBlock(gens, Content.STARFRUIT, oakLeaves, pink);
         createTreeCropBlock(gens, Content.WALNUT, darkOakLeaves, yellow);
+    }
+
+    private void generateFarmlandCropModels(final BlockModelGenerators gens) {
+//        createFarmlandCropBlock(gens, Content.ARTICHOKE, true);
+//        createFarmlandCropBlock(gens, Content.ASPARAGUS, false);
     }
 
     @Override
@@ -161,5 +170,55 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         });
         gens.blockStateOutput.accept(MultiVariantGenerator.multiVariant(treeCrop.asBlock()).with(propertyDispatch));
         gens.createCrossBlockWithDefaultItem(treeCrop.getSaplingBlock(), BlockModelGenerators.TintState.TINTED);
+    }
+
+    protected void createFarmlandCropBlock(final BlockModelGenerators gens, final FarmlandCrop farmlandCrop, final boolean cross) {
+        final TextureMapping texture0 = cross
+                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage0"))
+                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage0"));
+        final TextureMapping texture1 = cross
+                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage1"))
+                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage1"));
+        final TextureMapping texture2 = cross
+                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage2"))
+                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage2"));
+        final TextureMapping texture3 = cross
+                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage3"))
+                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage3"));
+        final ModelTemplate modelTemplate = cross
+                ? new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/crop_cross")), Optional.empty(), TextureSlot.CROSS)
+                : ModelTemplates.CROP;
+        final Property<Integer> ageProperty = ((CroptopiaCropBlock)farmlandCrop.asBlock()).getAgeProperty();
+        // the following is mainly copied from BlockModelGenerators#createCropBlock
+        final Int2ObjectMap<ResourceLocation> int2ObjectMap = new Int2ObjectOpenHashMap<>();
+        final UnaryOperator<Integer> ageReduction = age -> switch (age) {
+            case 0 -> 0;
+            case 1, 2, 3 -> 1;
+            case 4, 5, 6 -> 2;
+            case 7 -> 3;
+            default -> throw new IllegalArgumentException("Unsupported age: " + age);
+        };
+        final PropertyDispatch propertyDispatch = PropertyDispatch.property(ageProperty).generate((integer) -> {
+            final int reducedAge = ageReduction.apply(integer);
+            final ResourceLocation resourceLocation = int2ObjectMap.computeIfAbsent(reducedAge, (j) -> gens.createSuffixedVariant(farmlandCrop.asBlock(), "_stage" + reducedAge, modelTemplate,
+                    rl -> {
+                        if (rl.getPath().endsWith("_stage0")) {
+                            return texture0;
+                        }
+                        if (rl.getPath().endsWith("_stage1")) {
+                            return texture1;
+                        }
+                        if (rl.getPath().endsWith("_stage2")) {
+                            return texture2;
+                        }
+                        if (rl.getPath().endsWith("_stage3")) {
+                            return texture3;
+                        }
+                        throw new IllegalArgumentException("Unknown Identifier: " + rl);
+                    }));
+            return Variant.variant().with(VariantProperties.MODEL, resourceLocation);
+        });
+        gens.blockStateOutput.accept(MultiVariantGenerator.multiVariant(farmlandCrop.asBlock()).with(propertyDispatch));
+
     }
 }
