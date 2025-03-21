@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:tea_leaves"
+      "tag": "c:tea_leaves"
     }
   ],
   "result": {

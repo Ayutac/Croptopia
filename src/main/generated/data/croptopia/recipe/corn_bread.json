@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:corn"
+      "tag": "c:corn"
     }
   },
   "pattern": [

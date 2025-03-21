@@ -6,7 +6,7 @@
       "item": "minecraft:sunflower"
     },
     "2": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "3": {
       "item": "croptopia:pepper"

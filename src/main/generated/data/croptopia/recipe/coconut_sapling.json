@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:coconuts"
+      "tag": "c:coconuts"
     },
     {
-      "tag": "${dependent}:coconuts"
+      "tag": "c:coconuts"
     },
     {
       "tag": "minecraft:saplings"

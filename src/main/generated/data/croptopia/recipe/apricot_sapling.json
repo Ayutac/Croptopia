@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:apricots"
+      "tag": "c:apricots"
     },
     {
-      "tag": "${dependent}:apricots"
+      "tag": "c:apricots"
     },
     {
       "tag": "minecraft:saplings"

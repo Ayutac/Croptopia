@@ -16,13 +16,13 @@ import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
 public class Jam implements ItemLike {
-    private static final List<Jam> INSTANCES = new ArrayList<>();
+    public static final List<Jam> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final ItemConvertibleWithPlural crop;
     private Item item;
 
-    public Jam(String name, ItemConvertibleWithPlural crop) {
+    public Jam(final String name, final ItemConvertibleWithPlural crop) {
         Content.ITEM_REGISTER.reg(this::registerItem);
         this.name = name;
         this.crop = crop;
@@ -42,7 +42,7 @@ public class Jam implements ItemLike {
         return name;
     }
 
-    public void registerItem(RegisterFunction<Item> register) {
+    public void registerItem(final RegisterFunction<Item> register) {
         item = register.register(CroptopiaMod.createIdentifier(name), () ->
                 new Drink(createGroup().craftRemainder(Items.GLASS_BOTTLE).food(createBuilder(JAM_3).alwaysEdible().build())));
     }

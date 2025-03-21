@@ -15,12 +15,11 @@ public class RegistryDelay<E extends T, T> {
     private final List<Consumer<RegisterFunction<E>>> entries = new ArrayList<>();
     private final Map<ResourceLocation, Supplier<E>> manipulations = new HashMap<>();
 
-    public RegistryDelay(String modId) {
+    public RegistryDelay(final String modId) {
         this.modId = modId;
     }
 
-
-    public void reg(Consumer<RegisterFunction<E>> function) {
+    public void reg(final Consumer<RegisterFunction<E>> function) {
         entries.add(function);
     }
 
@@ -28,7 +27,7 @@ public class RegistryDelay<E extends T, T> {
         return entries;
     }
 
-    public void addOverride(ResourceLocation location, Supplier<E> newValue) {
+    public void addOverride(final ResourceLocation location, final Supplier<E> newValue) {
         this.manipulations.put(location, newValue);
     }
 

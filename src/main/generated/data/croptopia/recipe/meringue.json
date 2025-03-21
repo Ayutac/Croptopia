@@ -6,13 +6,13 @@
       "item": "minecraft:egg"
     },
     "2": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "3": {
       "item": "minecraft:sugar"
     },
     "4": {
-      "tag": "${dependent}:vanilla"
+      "tag": "c:vanilla"
     }
   },
   "pattern": [

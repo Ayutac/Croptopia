@@ -44,7 +44,7 @@ import java.util.Optional;
 import static com.epherical.croptopia.CroptopiaMod.*;
 
 public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
-    private static final List<Tree> TREES = new ArrayList<>();
+    public static final List<Tree> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final boolean hasPlural;
@@ -92,7 +92,7 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
         //leaves = createRegularLeavesBlock();
         //saplingBlock = new CroptopiaSaplingBlock(new CroptopiaSaplingGenerator(() -> configuredFeatureKey), createSaplingSettings().ignitedByLava());
         //sapling = new ItemNameBlockItem(saplingBlock, createGroup());
-        TREES.add(this);
+        INSTANCES.add(this);
     }
 
     @Override
@@ -167,10 +167,6 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
         return name;
     }
 
-    public static List<Tree> copy() {
-        return TREES;
-    }
-
     /*public static void registerBlocks(RegisterFunction<Block> register) {
         for (Tree tree : TREES) {
             tree.log = register.register(createIdentifier(tree.name + "_log"), tree.log);
@@ -229,7 +225,7 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
     }
 
     public static void attemptPop(BlockState state, UseOnContext context, BlockPos pos) {
-        for (Tree crop : TREES) {
+        for (Tree crop : INSTANCES) {
             if (state.getBlock().equals(crop.getLog()) || state.getBlock().equals(crop.getWood())) {
                 Block.popResource(context.getLevel(), pos, new ItemStack(crop.asItem()));
             }

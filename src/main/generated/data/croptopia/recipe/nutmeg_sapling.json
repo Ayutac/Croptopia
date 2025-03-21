@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:nutmegs"
+      "tag": "c:nutmegs"
     },
     {
-      "tag": "${dependent}:nutmegs"
+      "tag": "c:nutmegs"
     },
     {
       "tag": "minecraft:saplings"

@@ -7,16 +7,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class Soup extends Item {
 
 
-    public Soup(Properties settings) {
+    public Soup(final Properties settings) {
         super(settings);
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
-        Player playerEntity = user instanceof Player ? (Player)user : null;
+    @NotNull
+    @Override
+    public ItemStack finishUsingItem(final @NotNull ItemStack stack, final @NotNull Level world, final @NotNull LivingEntity user) {
+        final Player playerEntity = user instanceof Player ? (Player)user : null;
         if (playerEntity != null) {
             if (!playerEntity.getAbilities().instabuild) {
                 if (stack.has(DataComponents.FOOD)) {

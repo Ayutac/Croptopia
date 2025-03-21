@@ -20,14 +20,14 @@ import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
 public class Smoothie implements ItemLike {
-    private static final List<Smoothie> INSTANCES = new ArrayList<>();
+    public static final List<Smoothie> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final ItemConvertibleWithPlural crop;
     private final boolean sweet;
     private Item item;
 
-    public Smoothie(String name, ItemConvertibleWithPlural cropItemName, boolean sweet) {
+    public Smoothie(final String name, final ItemConvertibleWithPlural cropItemName, final boolean sweet) {
         this.sweet = sweet; // property not yet used, will be used in upcoming saturation overhaul
         this.name = name;
         this.crop = cropItemName;
@@ -53,7 +53,7 @@ public class Smoothie implements ItemLike {
         return item;
     }
 
-    public void registerItems(RegisterFunction<Item> register) {
+    public void registerItems(final RegisterFunction<Item> register) {
         item = register.register(CroptopiaMod.createIdentifier(name),  () -> new Drink(createGroup().food(createBuilder(JUICE_5).alwaysEdible().build()).craftRemainder(Items.GLASS_BOTTLE)));
     }
 

@@ -9,7 +9,7 @@
       "item": "minecraft:sugar"
     },
     "5": {
-      "tag": "${dependent}:almonds"
+      "tag": "c:almonds"
     },
     "6": {
       "item": "croptopia:food_press"

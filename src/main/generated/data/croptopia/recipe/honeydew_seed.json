@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:honeydew"
+      "tag": "c:honeydew"
     }
   ],
   "result": {

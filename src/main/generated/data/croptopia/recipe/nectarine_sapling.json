@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:nectarines"
+      "tag": "c:nectarines"
     },
     {
-      "tag": "${dependent}:nectarines"
+      "tag": "c:nectarines"
     },
     {
       "tag": "minecraft:saplings"

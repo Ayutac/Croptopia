@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:strawberries"
+      "tag": "c:strawberries"
     },
     {
       "item": "minecraft:sugar"
@@ -12,7 +12,7 @@
       "item": "minecraft:egg"
     },
     {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     {
       "item": "croptopia:cooking_pot"

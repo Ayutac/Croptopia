@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:melons"
+      "tag": "c:melons"
     },
     {
       "item": "croptopia:food_press"

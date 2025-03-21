@@ -4,6 +4,7 @@ import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ public enum VanillaCrops implements ItemConvertibleWithPlural {
     /**
      * @param source the vanilla crop, not <code>null</code>
      */
-    VanillaCrops(ItemLike source) {
+    VanillaCrops(final @NotNull ItemLike source) {
         Objects.requireNonNull(source);
         this.item = source.asItem();
     }

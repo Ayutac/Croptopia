@@ -11,14 +11,14 @@ public class CroptopiaSaplingItem extends ItemNameBlockItem {
     private final Block saplingFruitLeafBlock;
     private final Block vanillaLeafBlock;
 
-    public CroptopiaSaplingItem(Block block, Block saplingFruitLeafBlock, Block vanillaLeafBlock, Properties settings) {
+    public CroptopiaSaplingItem(final Block block, final Block saplingFruitLeafBlock, final Block vanillaLeafBlock, final Properties settings) {
         super(block, settings);
         this.saplingFruitLeafBlock = saplingFruitLeafBlock;
         this.vanillaLeafBlock = vanillaLeafBlock;
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public InteractionResult useOn(final UseOnContext context) {
         BlockState atPos = context.getLevel().getBlockState(context.getClickedPos());
         if (atPos.getBlock() == vanillaLeafBlock) {
             if (!context.getPlayer().isCreative()) {

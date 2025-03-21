@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:kale"
+      "tag": "c:kale"
     }
   ],
   "result": {

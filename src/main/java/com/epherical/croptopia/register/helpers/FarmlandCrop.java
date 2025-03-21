@@ -28,7 +28,7 @@ import static com.epherical.croptopia.util.FoodConstructor.createFood;
  */
 public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible {
 
-    public static final List<FarmlandCrop> FARMLAND_CROPS = new ArrayList<>();
+    public static final List<FarmlandCrop> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final String dropName;
@@ -42,11 +42,11 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     private Item seedItem;
     private final TagKey<Biome> biomes; // todo implement
 
-    public FarmlandCrop(String cropName, boolean isPlural, TagCategory category, FoodConstructor registry, TagKey<Biome> biomes) {
+    public FarmlandCrop(final String cropName, final boolean isPlural, final TagCategory category, final FoodConstructor registry, final TagKey<Biome> biomes) {
         this(cropName, cropName, isPlural, category, registry, biomes);
     }
 
-    public FarmlandCrop(String cropName, String dropName, boolean isPlural, TagCategory category, FoodConstructor registry, TagKey<Biome> biomes) {
+    public FarmlandCrop(final String cropName, final String dropName, final boolean isPlural, final TagCategory category, final FoodConstructor registry, final TagKey<Biome> biomes) {
         Objects.requireNonNull(category);
         // TERRIBLE CODE DESIGN
         Content.BLOCK_REGISTER.reg(this::registerBlock);
@@ -58,7 +58,7 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
         this.tagCategory = category;
         this.biomes = biomes;
         this.registry = registry;
-        FARMLAND_CROPS.add(this);
+        INSTANCES.add(this);
     }
 
     @Override
@@ -90,7 +90,7 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     }
 
     public static List<FarmlandCrop> copy() {
-        return FARMLAND_CROPS;
+        return INSTANCES;
     }
 
     /*public static void registerBlocks(RegisterFunction<Block> register) {

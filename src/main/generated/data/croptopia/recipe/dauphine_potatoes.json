@@ -6,19 +6,19 @@
       "item": "croptopia:frying_pan"
     },
     "2": {
-      "tag": "${dependent}:water_bottles"
+      "tag": "c:water_bottles"
     },
     "3": {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     "4": {
-      "tag": "${dependent}:butters"
+      "tag": "c:butters"
     },
     "5": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     },
     "6": {
-      "tag": "${dependent}:olive_oils"
+      "tag": "c:olive_oils"
     }
   },
   "pattern": [

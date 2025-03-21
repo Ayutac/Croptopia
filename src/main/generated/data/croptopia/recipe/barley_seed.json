@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:barley"
+      "tag": "c:barley"
     }
   ],
   "result": {

@@ -25,13 +25,12 @@ public class TreeConfiguration {
     private Set<ResourceKey<Biome>> treesAllowedInBiome;
     private ResourceKey<PlacedFeature> featureKey;
 
-    public TreeConfiguration(ResourceKey<PlacedFeature> featureKey, Collection<ResourceKey<Biome>> treesAllowedInBiome) {
+    public TreeConfiguration(final ResourceKey<PlacedFeature> featureKey, final Collection<ResourceKey<Biome>> treesAllowedInBiome) {
         this.featureKey = featureKey;
         this.treesAllowedInBiome = Set.copyOf(treesAllowedInBiome);
     }
 
-
-    public static void createSameTreeConfigs(SetMultimap<ResourceKey<PlacedFeature>, ResourceKey<Biome>> map, Collection<ResourceKey<Biome>> biomes, ResourceKey<PlacedFeature>... keys) {
+    public static void createSameTreeConfigs(final SetMultimap<ResourceKey<PlacedFeature>, ResourceKey<Biome>> map, final Collection<ResourceKey<Biome>> biomes, final ResourceKey<PlacedFeature>... keys) {
         for (ResourceKey<PlacedFeature> key : keys) {
             map.putAll(key, biomes);
         }
@@ -52,7 +51,7 @@ public class TreeConfiguration {
         private final String KEY_ACCEPTABLE_BIOMES = "acceptableBiomes";
 
         @Override
-        public TreeConfiguration deserialize(Type type, ConfigurationNode node) throws SerializationException {
+        public TreeConfiguration deserialize(final Type type, final ConfigurationNode node) throws SerializationException {
             ResourceKey<PlacedFeature> key = ResourceKey.create(Registries.PLACED_FEATURE, createIdentifier(node.node(KEY_FEATURE_NAME).getString()));
             List<ResourceLocation> ids = node.node(KEY_ACCEPTABLE_BIOMES).getList(ResourceLocation.class);
             List<ResourceKey<Biome>> biomeKeys = new ArrayList<>();
@@ -66,7 +65,7 @@ public class TreeConfiguration {
         }
 
         @Override
-        public void serialize(Type type, TreeConfiguration obj, ConfigurationNode node) throws SerializationException {
+        public void serialize(final Type type, final TreeConfiguration obj, final ConfigurationNode node) throws SerializationException {
             if (obj == null) {
                 node.raw(null);
                 return;

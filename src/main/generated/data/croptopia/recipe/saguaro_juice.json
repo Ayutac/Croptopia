@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:saguaros"
+      "tag": "c:saguaros"
     },
     {
       "item": "croptopia:food_press"

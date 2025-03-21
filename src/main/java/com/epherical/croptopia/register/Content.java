@@ -48,7 +48,6 @@ import java.util.stream.Stream;
 
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.CroptopiaMod.createIdentifier;
-import static com.epherical.croptopia.common.ItemNamesV2.*;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
 public class Content {
@@ -697,8 +696,8 @@ public class Content {
 
     public static Stream<Item> createCropStream() {
         return Stream.concat(
-                Arrays.stream(FarmlandCrop.FARMLAND_CROPS.toArray(new FarmlandCrop[0])),
-                Stream.concat(Arrays.stream(TreeCrop.TREE_CROPS.toArray(new TreeCrop[0])), Arrays.stream(Tree.copy().toArray(new Tree[0])))
+                Arrays.stream(FarmlandCrop.INSTANCES.toArray(new FarmlandCrop[0])),
+                Stream.concat(Arrays.stream(TreeCrop.INSTANCES.toArray(new TreeCrop[0])), Arrays.stream(Tree.INSTANCES.toArray(Tree[]::new)))
         ).map(ItemLike::asItem);
     }
 

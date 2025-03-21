@@ -3,16 +3,16 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:tomatoes"
+      "tag": "c:tomatoes"
     },
     "2": {
-      "tag": "${dependent}:anchovies"
+      "tag": "c:anchovies"
     },
     "3": {
-      "tag": "${dependent}:cheeses"
+      "tag": "c:cheeses"
     },
     "4": {
-      "tag": "${dependent}:doughs"
+      "tag": "c:doughs"
     },
     "7": {
       "item": "croptopia:frying_pan"

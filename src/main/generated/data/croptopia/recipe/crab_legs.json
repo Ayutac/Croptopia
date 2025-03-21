@@ -3,19 +3,19 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:butters"
+      "tag": "c:butters"
     },
     "2": {
-      "tag": "${dependent}:garlic"
+      "tag": "c:garlic"
     },
     "3": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "4": {
       "item": "croptopia:pepper"
     },
     "5": {
-      "tag": "${dependent}:crabs"
+      "tag": "c:crabs"
     },
     "7": {
       "item": "croptopia:frying_pan"

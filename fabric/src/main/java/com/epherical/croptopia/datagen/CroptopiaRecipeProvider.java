@@ -59,7 +59,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateSeeds(final RecipeOutput exporter) {
-        for (final FarmlandCrop crop : FarmlandCrop.copy()) {
+        for (final FarmlandCrop crop : FarmlandCrop.INSTANCES) {
             TagKey<Item> tag = commonTag(crop.getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, crop.getSeedItem())
                     .requires(tag)
@@ -69,7 +69,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateSaplings(final RecipeOutput exporter) {
-        for (final TreeCrop crop : TreeCrop.copy()) {
+        for (final TreeCrop crop : TreeCrop.INSTANCES) {
             TagKey<Item> tag = commonTag(crop.getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, crop.getSaplingItem())
                     .requires(tag).requires(tag).requires(ItemTags.SAPLINGS)
@@ -80,7 +80,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateBarkWood(final RecipeOutput exporter) {
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             ShapedRecipeBuilder.shaped(RecipeCategory.MISC, crop.getWood())
                     .pattern("##")
                     .pattern("##")
@@ -97,7 +97,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateJams(final RecipeOutput exporter) {
-        for (final Jam jam : Jam.copy()) {
+        for (final Jam jam : Jam.INSTANCES) {
             final TagKey<Item> tag = commonTag(jam.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, jam)
                     .requires(tag).requires(Items.SUGAR).requires(Content.COOKING_POT)
@@ -107,7 +107,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateJuices(final RecipeOutput exporter) {
-        for (final Juice juice : Juice.copy()) {
+        for (final Juice juice : Juice.INSTANCES) {
             final TagKey<Item> tag = commonTag(juice.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, juice)
                     .requires(tag).requires(Content.FOOD_PRESS).requires(Items.GLASS_BOTTLE)
@@ -117,7 +117,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateSmoothies(final RecipeOutput exporter) {
-        for (final Smoothie smoothie : Smoothie.copy()) {
+        for (final Smoothie smoothie : Smoothie.INSTANCES) {
             final TagKey<Item> tag = commonTag(smoothie.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, smoothie)
                     .requires(tag).requires(Items.ICE).requires(commonTag("milks")).requires(Items.GLASS_BOTTLE)
@@ -127,7 +127,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generateIceCream(final RecipeOutput exporter) {
-        for (final IceCream iceCream : IceCream.copy()) {
+        for (final IceCream iceCream : IceCream.INSTANCES) {
             final TagKey<Item> tag = commonTag(iceCream.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, iceCream)
                     .requires(tag).requires(Items.SUGAR).requires(Items.EGG).requires(commonTag("milks")).requires(Content.COOKING_POT)
@@ -137,7 +137,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     protected void generatePie(final RecipeOutput exporter) {
-        for (final Pie pie : Pie.copy()) {
+        for (final Pie pie : Pie.INSTANCES) {
             final TagKey<Item> tag = commonTag(pie.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pie)
                     .requires(tag).requires(Items.SUGAR).requires(Items.EGG).requires(commonTag("flour")).requires(commonTag("doughs")).requires(Content.FRYING_PAN)

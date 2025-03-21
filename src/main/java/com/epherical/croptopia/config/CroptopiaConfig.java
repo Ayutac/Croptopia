@@ -35,12 +35,12 @@ public class CroptopiaConfig extends CommonConfig {
     public boolean rightClickHarvest = true;
 
 
-    public CroptopiaConfig(AbstractConfigurationLoader.Builder<?, ?> loaderBuilder, String configName) {
+    public CroptopiaConfig(final AbstractConfigurationLoader.Builder<?, ?> loaderBuilder, final String configName) {
         super(loaderBuilder, configName);
     }
 
-    /*@Override*/
-    public void parseConfig(CommentedConfigurationNode node) {
+    @Override
+    public void parseConfig(final CommentedConfigurationNode node) {
         configVersion = node.node("version").getInt(configVersion);
         generateSaltInWorld = node.node("generateSaltInWorld").getBoolean(generateSaltInWorld);
         rightClickHarvest = node.node("rightCLickHarvest").getBoolean(rightClickHarvest);
@@ -52,26 +52,26 @@ public class CroptopiaConfig extends CommonConfig {
                     treeMap.put(biomeResourceKey, treeConfiguration);
                 }
             }
-        } catch (SerializationException e) {
-            e.printStackTrace();
+        } catch (final SerializationException ex) {
+            ex.printStackTrace();
         }
 
     }
 
-    /*@Override*/
-    public CommentedConfigurationNode generateConfig(CommentedConfigurationNode node) {
+    @Override
+    public CommentedConfigurationNode generateConfig(final CommentedConfigurationNode node) {
         try {
             node.node("version").set(configVersion).comment("Config Version, don't edit");
             node.node("generateSaltInWorld").set(generateSaltInWorld);
             node.node("rightClickHarvest").set(rightClickHarvest).set("Determines whether or not right click harvesting works (forge only)");
             generateTreeConfig(node, "treeConfig");
-        } catch (SerializationException e) {
-            e.printStackTrace();
+        } catch (final SerializationException ex) {
+            ex.printStackTrace();
         }
         return node;
     }
 
-    private void generateTreeConfig(CommentedConfigurationNode node, String nodeToAdd) {
+    private void generateTreeConfig(final CommentedConfigurationNode node, final String nodeToAdd) {
         Collection<ResourceKey<Biome>> forestBiomes = Arrays.asList(Biomes.FOREST, Biomes.WINDSWEPT_FOREST, Biomes.FLOWER_FOREST);
         Collection<ResourceKey<Biome>> jungleBiomes = Arrays.asList(Biomes.JUNGLE, Biomes.SPARSE_JUNGLE);
         Collection<ResourceKey<Biome>> plainsKeys = Arrays.asList(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS);
@@ -255,24 +255,24 @@ public class CroptopiaConfig extends CommonConfig {
                 ORANGE_TREE_PLACED_KEY,
                 NECTARINE_TREE_PLACED_KEY);
 
-        List<TreeConfiguration> allTreeConfigs = new ArrayList<>();
-        for (Map.Entry<ResourceKey<PlacedFeature>, Collection<ResourceKey<Biome>>> entry : biomes.asMap().entrySet()) {
+        final List<TreeConfiguration> allTreeConfigs = new ArrayList<>();
+        for (final var entry : biomes.asMap().entrySet()) {
             allTreeConfigs.add(new TreeConfiguration(entry.getKey(), entry.getValue()));
         }
 
-        ConfigurationNode node1 = node.node(nodeToAdd);
+        final ConfigurationNode node1 = node.node(nodeToAdd);
         try {
             node1.setList(TreeConfiguration.class, allTreeConfigs);
-        } catch (SerializationException e) {
-            e.printStackTrace();
+        } catch (final SerializationException ex) {
+            ex.printStackTrace();
         }
     }
 
-    private static ResourceLocation travID(String name) {
+    private static ResourceLocation travID(final String name) {
         return ResourceLocation.fromNamespaceAndPath("traverse", name);
     }
 
-    private static ResourceLocation bygID(String name) {
+    private static ResourceLocation bygID(final String name) {
         return ResourceLocation.fromNamespaceAndPath("byg", name);
     }
 }

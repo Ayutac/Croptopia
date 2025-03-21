@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:yams"
+      "tag": "c:yams"
     }
   ],
   "result": {

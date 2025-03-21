@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:limes"
+      "tag": "c:limes"
     },
     {
-      "tag": "${dependent}:limes"
+      "tag": "c:limes"
     },
     {
       "tag": "minecraft:saplings"

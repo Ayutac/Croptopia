@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
       "tag": "minecraft:saplings"

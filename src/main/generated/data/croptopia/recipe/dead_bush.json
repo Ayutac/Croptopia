@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     {
       "tag": "minecraft:saplings"

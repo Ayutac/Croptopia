@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:olives"
+      "tag": "c:olives"
     }
   ],
   "result": {

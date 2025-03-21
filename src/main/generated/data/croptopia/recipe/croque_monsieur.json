@@ -9,16 +9,16 @@
       "item": "minecraft:bread"
     },
     "3": {
-      "tag": "${dependent}:cheeses"
+      "tag": "c:cheeses"
     },
     "4": {
       "tag": "croptopia:pork_replacements"
     },
     "5": {
-      "tag": "${dependent}:butters"
+      "tag": "c:butters"
     },
     "6": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     }
   },
   "pattern": [

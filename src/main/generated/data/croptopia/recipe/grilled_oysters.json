@@ -3,19 +3,19 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:oysters"
+      "tag": "c:oysters"
     },
     "2": {
-      "tag": "${dependent}:cheeses"
+      "tag": "c:cheeses"
     },
     "4": {
-      "tag": "${dependent}:lemons"
+      "tag": "c:lemons"
     },
     "5": {
-      "tag": "${dependent}:garlic"
+      "tag": "c:garlic"
     },
     "6": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "7": {
       "item": "croptopia:frying_pan"

@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:garlic"
+      "tag": "c:garlic"
     }
   ],
   "result": {

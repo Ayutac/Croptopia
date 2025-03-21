@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:sweetpotatos"
+      "tag": "c:sweetpotatos"
     }
   ],
   "result": {

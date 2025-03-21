@@ -14,13 +14,13 @@ import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
 public class IceCream implements ItemLike {
-    private static final List<IceCream> INSTANCES = new ArrayList<>();
+    public static final List<IceCream> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final ItemConvertibleWithPlural crop;
     private Item item;
 
-    public IceCream(String name, ItemConvertibleWithPlural crop) {
+    public IceCream(final String name, final ItemConvertibleWithPlural crop) {
         Content.ITEM_REGISTER.reg(this::registerItem);
         this.name = name;
         this.crop = crop;
@@ -40,12 +40,8 @@ public class IceCream implements ItemLike {
         return name;
     }
 
-    public void registerItem(RegisterFunction<Item> register) {
+    public void registerItem(final RegisterFunction<Item> register) {
         this.item = register.register(CroptopiaMod.createIdentifier(name), () -> new Item(createGroup().food(createFood(ICE_CREAM_7))));
-    }
-
-    public static List<IceCream> copy() {
-        return INSTANCES;
     }
 
 }

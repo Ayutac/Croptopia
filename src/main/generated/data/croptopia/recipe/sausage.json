@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:ground_pork"
+      "tag": "c:ground_pork"
     },
     "2": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "3": {
-      "tag": "${dependent}:paprika"
+      "tag": "c:paprika"
     }
   },
   "pattern": [

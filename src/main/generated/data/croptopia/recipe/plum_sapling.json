@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:plums"
+      "tag": "c:plums"
     },
     {
-      "tag": "${dependent}:plums"
+      "tag": "c:plums"
     },
     {
       "tag": "minecraft:saplings"

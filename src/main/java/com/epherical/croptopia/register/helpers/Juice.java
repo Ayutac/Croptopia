@@ -16,14 +16,14 @@ import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
 public class Juice implements ItemLike {
-    private static final List<Juice> INSTANCES = new ArrayList<>();
+    public static final List<Juice> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final ItemConvertibleWithPlural crop;
     private final boolean sweet;
     private Item item;
 
-    public Juice(String name, ItemConvertibleWithPlural crop, boolean sweet) {
+    public Juice(final String name, final ItemConvertibleWithPlural crop, final boolean sweet) {
         Content.ITEM_REGISTER.reg(this::registerItem);
         this.sweet = sweet; // property not yet used, will be used in upcoming saturation overhaul
         this.name = name;
@@ -31,7 +31,7 @@ public class Juice implements ItemLike {
         INSTANCES.add(this);
     }
 
-    public Juice(String name, ItemConvertibleWithPlural crop) {
+    public Juice(final String name, final ItemConvertibleWithPlural crop) {
         this(name, crop, true);
     }
 
@@ -48,12 +48,8 @@ public class Juice implements ItemLike {
         return item;
     }
 
-    public void registerItem(RegisterFunction<Item> register) {
+    public void registerItem(final RegisterFunction<Item> register) {
         this.item = register.register(CroptopiaMod.createIdentifier(name), () ->
                 new Drink(createGroup().food(createBuilder(JUICE_5).alwaysEdible().build()).craftRemainder(Items.GLASS_BOTTLE)));
-    }
-
-    public static List<Juice> copy() {
-        return INSTANCES;
     }
 }

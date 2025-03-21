@@ -3,7 +3,6 @@ package com.epherical.croptopia.datagen;
 import com.epherical.croptopia.Croptopia;
 import com.epherical.croptopia.mixin.datagen.IdentifierAccessor;
 import com.epherical.croptopia.mixin.datagen.ObjectBuilderAccessor;
-import com.epherical.croptopia.mixin.datagen.PathProviderAccessor;
 import com.epherical.croptopia.mixin.datagen.TagProviderAccessor;
 import com.epherical.croptopia.register.Content;
 import com.epherical.croptopia.register.TagCategory;
@@ -19,22 +18,15 @@ import com.epherical.croptopia.register.helpers.Tree;
 import com.epherical.croptopia.register.helpers.TreeCrop;
 import com.epherical.croptopia.register.helpers.Utensil;
 import com.epherical.croptopia.util.PluralInfo;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.impl.datagen.ForcedTagEntry;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagEntry;
 import net.minecraft.tags.TagKey;
-import net.minecraft.tags.TagManager;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
@@ -64,13 +56,13 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
     }
 
     protected void generateCrops() {
-        for (final FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
+        for (final FarmlandCrop crop : FarmlandCrop.INSTANCES) {
             createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             if (crop.getTagCategory() != TagCategory.CROPS) { // don't double only-crops
                 createCategoryTag(TagCategory.CROPS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             }
         }
-        for (final TreeCrop crop : TreeCrop.TREE_CROPS) {
+        for (final TreeCrop crop : TreeCrop.INSTANCES) {
             createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             if (crop.getTagCategory() != TagCategory.CROPS) { // don't double only-crops
                 createCategoryTag(TagCategory.CROPS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
@@ -79,7 +71,7 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
                 createCategoryTag(TagCategory.FRUITS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             }
         }
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
         }
         // the following four are all done above with a category tag of crops I believe
@@ -91,44 +83,44 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
 
     protected void generateSeedsSaplings() {
         // these should be singular, they are pluralized in the method, this is because forge seed tags don't include the "seed" portion.
-        for (final FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
+        for (final FarmlandCrop crop : FarmlandCrop.INSTANCES) {
             if (crop == Content.CHILE_PEPPER) {
                 createSeedSaplingTag("seeds", "chilepepper", crop.getSeedItem());
             } else {
                 createSeedSaplingTag("seeds", crop.getLowercaseName(), crop.getSeedItem());
             }
         }
-        for (final TreeCrop crop : TreeCrop.TREE_CROPS) {
+        for (final TreeCrop crop : TreeCrop.INSTANCES) {
             createSeedSaplingTag("saplings", crop.getLowercaseName(), crop.getSaplingItem());
         }
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             createSeedSaplingTag("saplings", crop.getLowercaseName(), crop.getSapling());
         }
     }
 
     protected void generateOtherEnums() {
-        for (Seafood seafood : Seafood.copy()) {
+        for (Seafood seafood : Seafood.INSTANCES) {
             createGeneralTag(seafood.getPlural(), seafood.asItem());
         }
-        for (Furnace furnace : Furnace.copy()) {
+        for (Furnace furnace : Furnace.INSTANCES) {
             createGeneralTag(furnace.getPlural(), furnace.asItem());
         }
-        for (Juice juice : Juice.copy()) {
+        for (Juice juice : Juice.INSTANCES) {
             createCategoryTag("juices", juice.name().toLowerCase() + "s", juice.asItem());
         }
-        for (Jam jam : Jam.copy()) {
+        for (Jam jam : Jam.INSTANCES) {
             createCategoryTag("jams", jam.name().toLowerCase() + "s", jam.asItem());
         }
-        for (Smoothie smoothie : Smoothie.copy()) {
+        for (Smoothie smoothie : Smoothie.INSTANCES) {
             createGeneralTag(smoothie.name().toLowerCase() + "s", smoothie.asItem());
         }
-        for (IceCream iceCream : IceCream.copy()) {
+        for (IceCream iceCream : IceCream.INSTANCES) {
             createGeneralTag(iceCream.name().toLowerCase() + "s", iceCream.asItem());
         }
-        for (Pie pie : Pie.copy()) {
+        for (Pie pie : Pie.INSTANCES) {
             createGeneralTag(pie.name().toLowerCase() + "s", pie.asItem());
         }
-        for (Utensil utensil : Utensil.copy()) {
+        for (Utensil utensil : Utensil.INSTANCES) {
             createGeneralTag(utensil.getPlural(), utensil.asItem());
         }
     }

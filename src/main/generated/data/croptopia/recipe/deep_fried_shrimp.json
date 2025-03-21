@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:shrimp"
+      "tag": "c:shrimp"
     },
     "4": {
       "item": "minecraft:egg"

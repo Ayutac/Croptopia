@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:strawberries"
+      "tag": "c:strawberries"
     },
     {
       "item": "minecraft:ice"
     },
     {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     {
       "item": "minecraft:glass_bottle"

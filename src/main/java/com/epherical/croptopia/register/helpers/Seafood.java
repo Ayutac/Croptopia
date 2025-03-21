@@ -15,13 +15,13 @@ import java.util.List;
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
 
 public class Seafood implements ItemConvertibleWithPlural {
-    private static final List<Seafood> INSTANCES = new ArrayList<>();
+    public static final List<Seafood> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final boolean plural;
     private Item item;
 
-    public Seafood(String name, boolean plural, FoodConstructor foodConstructor) {
+    public Seafood(final String name, final boolean plural, final FoodConstructor foodConstructor) {
         Content.ITEM_REGISTER.reg(registerFunction -> this.registerItem(registerFunction, foodConstructor));
         this.name = name;
         this.plural = plural;
@@ -43,11 +43,7 @@ public class Seafood implements ItemConvertibleWithPlural {
         return item;
     }
 
-    public static List<Seafood> copy() {
-        return INSTANCES;
-    }
-
-    public void registerItem(RegisterFunction<Item> register, FoodConstructor foodConstructor) {
+    public void registerItem(final RegisterFunction<Item> register, final FoodConstructor foodConstructor) {
         item = register.register(CroptopiaMod.createIdentifier(name), () -> {
             if (name.contains("GLOWING")) {
                 return new Item(createGroup().food(FoodConstructor.createBuilder(foodConstructor)

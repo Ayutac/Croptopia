@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:turmeric"
+      "tag": "c:turmeric"
     },
     {
-      "tag": "${dependent}:turmeric"
+      "tag": "c:turmeric"
     },
     {
-      "tag": "${dependent}:turmeric"
+      "tag": "c:turmeric"
     }
   ],
   "result": {

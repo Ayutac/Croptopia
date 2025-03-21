@@ -3,22 +3,22 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:calamari"
+      "tag": "c:calamari"
     },
     "2": {
-      "tag": "${dependent}:lemons"
+      "tag": "c:lemons"
     },
     "3": {
-      "tag": "${dependent}:olive_oils"
+      "tag": "c:olive_oils"
     },
     "4": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     },
     "5": {
       "item": "croptopia:frying_pan"
     },
     "6": {
-      "tag": "${dependent}:sea_lettuce"
+      "tag": "c:sea_lettuce"
     }
   },
   "pattern": [

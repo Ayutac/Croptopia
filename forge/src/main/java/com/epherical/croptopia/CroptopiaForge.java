@@ -1,8 +1,6 @@
 package com.epherical.croptopia;
 
-import com.epherical.croptopia.biome.CropModifier;
 import com.epherical.croptopia.biome.SaltModifier;
-import com.epherical.croptopia.biome.TreeModifier;
 import com.epherical.croptopia.blocks.CroptopiaCropBlock;
 import com.epherical.croptopia.common.ItemNamesV2;
 import com.epherical.croptopia.common.MiscNames;
@@ -21,8 +19,6 @@ import com.epherical.croptopia.register.helpers.FarmlandCrop;
 import com.epherical.croptopia.register.helpers.TreeCrop;
 import com.epherical.croptopia.register.helpers.Utensil;
 import com.epherical.epherolib.libs.org.spongepowered.configurate.hocon.HoconConfigurationLoader;
-import com.google.common.collect.Sets;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -34,17 +30,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.animal.Parrot;
-import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -61,23 +52,16 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.LevelEvent;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
-import static com.epherical.croptopia.biome.TreeModifier.SERIALIZER;
 import static com.epherical.croptopia.common.MiscNames.MOD_ID;
 
 
@@ -175,10 +159,10 @@ public class CroptopiaForge {
             // not a fan of forges event compared to fabrics.
             if (event.getTab().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
                 event.getEntries().putAfter(new ItemStack(Items.MANGROVE_PROPAGULE), new ItemStack(Content.CINNAMON.getSapling()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                TreeCrop.TREE_CROPS.stream().map(TreeCrop::getSaplingItem).map(ItemStack::new).forEachOrdered(stack -> {
+                TreeCrop.INSTANCES.stream().map(TreeCrop::getSaplingItem).map(ItemStack::new).forEachOrdered(stack -> {
                     event.getEntries().putAfter(new ItemStack(Items.FLOWERING_AZALEA), stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 });
-                FarmlandCrop.FARMLAND_CROPS.stream().map(FarmlandCrop::getSeedItem).map(ItemStack::new).forEachOrdered(stack -> {
+                FarmlandCrop.INSTANCES.stream().map(FarmlandCrop::getSeedItem).map(ItemStack::new).forEachOrdered(stack -> {
                     event.getEntries().putAfter(new ItemStack(Items.NETHER_WART), stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 });
                 event.getEntries().putBefore(new ItemStack(Items.COAL_ORE), new ItemStack(Content.SALT_ORE), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

@@ -3,25 +3,25 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     "2": {
-      "tag": "${dependent}:doughs"
+      "tag": "c:doughs"
     },
     "3": {
       "item": "minecraft:egg"
     },
     "4": {
-      "tag": "${dependent}:butters"
+      "tag": "c:butters"
     },
     "5": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "6": {
       "item": "minecraft:sugar"
     },
     "7": {
-      "tag": "${dependent}:cinnamon"
+      "tag": "c:cinnamon"
     },
     "8": {
       "item": "croptopia:whipping_cream"

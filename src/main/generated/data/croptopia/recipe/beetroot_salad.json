@@ -6,16 +6,16 @@
       "item": "minecraft:beetroot"
     },
     "4": {
-      "tag": "${dependent}:cheeses"
+      "tag": "c:cheeses"
     },
     "5": {
-      "tag": "${dependent}:lemons"
+      "tag": "c:lemons"
     },
     "6": {
       "item": "croptopia:cooking_pot"
     },
     "7": {
-      "tag": "${dependent}:lettuce"
+      "tag": "c:lettuce"
     }
   },
   "pattern": [

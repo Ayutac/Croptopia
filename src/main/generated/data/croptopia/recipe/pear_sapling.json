@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:pears"
+      "tag": "c:pears"
     },
     {
-      "tag": "${dependent}:pears"
+      "tag": "c:pears"
     },
     {
       "tag": "minecraft:saplings"

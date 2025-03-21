@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Supplier;
 
+@FunctionalInterface
 public interface RegisterFunction<T> {
-    T register(ResourceLocation id, Supplier<T> object);
+    T register(final ResourceLocation id, final Supplier<T> object);
 }

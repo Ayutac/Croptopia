@@ -10,15 +10,15 @@ import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 public class Composter {
 
     public void init() {
-        for (FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
+        for (FarmlandCrop crop : FarmlandCrop.INSTANCES) {
             registerCompostableItem(0.65F, crop.asItem());
             registerCompostableItem(0.3F, crop.getSeedItem());
         }
-        for (TreeCrop crop : TreeCrop.TREE_CROPS) {
+        for (TreeCrop crop : TreeCrop.INSTANCES) {
             registerCompostableItem(0.65F, crop.asItem());
             registerCompostableItem(0.5F, crop.getSaplingItem());
         }
-        for (Tree crop : Tree.copy()) {
+        for (Tree crop : Tree.INSTANCES) {
             registerCompostableItem(0.65F, crop.asItem());
             registerCompostableItem(0.5F, crop.getSapling());
         }

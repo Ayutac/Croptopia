@@ -4,6 +4,13 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Items;
 
 public record FoodConstructor(int hunger, float satMod) {
+
+    public FoodConstructor {
+        if (hunger < 0 || satMod < 0f) {
+            throw new IllegalArgumentException("Hunger and saturation modifier cannot be negative!");
+        }
+    }
+
     public static final FoodConstructor RAW_CROP_1 = new FoodConstructor(1, 0.1F);
     public static final FoodConstructor RAW_CROP_2 = new FoodConstructor(1, 0.1F);
 
@@ -43,15 +50,15 @@ public record FoodConstructor(int hunger, float satMod) {
     public static final FoodConstructor REG_20 = new FoodConstructor(20, 1.0F);
 
 
-    public static FoodProperties.Builder createBuilder(FoodConstructor reg) {
+    public static FoodProperties.Builder createBuilder(final FoodConstructor reg) {
         return new FoodProperties.Builder().nutrition(reg.hunger).saturationModifier(reg.satMod);
     }
 
-    public static FoodProperties createFood(FoodConstructor reg) {
+    public static FoodProperties createFood(final FoodConstructor reg) {
         return createBuilder(reg).build();
     }
 
-    public static FoodProperties createFoodBowl(FoodConstructor reg) {
+    public static FoodProperties createFoodBowl(final FoodConstructor reg) {
         return createBuilder(reg).usingConvertsTo(Items.BOWL).build();
     }
 }

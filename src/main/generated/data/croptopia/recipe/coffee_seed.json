@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:coffee_beans"
+      "tag": "c:coffee_beans"
     }
   ],
   "result": {

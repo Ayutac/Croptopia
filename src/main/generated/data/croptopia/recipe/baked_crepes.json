@@ -6,16 +6,16 @@
       "item": "minecraft:egg"
     },
     "2": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     },
     "3": {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     "5": {
-      "tag": "${dependent}:spinach"
+      "tag": "c:spinach"
     },
     "6": {
-      "tag": "${dependent}:cheeses"
+      "tag": "c:cheeses"
     },
     "7": {
       "item": "croptopia:frying_pan"

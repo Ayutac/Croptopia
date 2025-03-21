@@ -38,17 +38,17 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
     protected void generateSaplings() {
         final FabricTagBuilder saplings = getOrCreateTagBuilder(ItemTags.SAPLINGS);
-        for (final TreeCrop crop : TreeCrop.copy()) {
+        for (final TreeCrop crop : TreeCrop.INSTANCES) {
             saplings.add(crop.getSaplingItem());
         }
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             saplings.add(crop.getSapling());
         }
     }
 
     protected void generateBarkLogs() {
         final FabricTagBuilder burnableLog = getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             // add different log types to log tag of this crop
             tag(crop.getLogItemTag())
                     .add()
@@ -63,10 +63,10 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
     protected void generateLeaves() {
         final FabricTagBuilder leaves = getOrCreateTagBuilder(ItemTags.LEAVES);
-        for (final TreeCrop crop : TreeCrop.copy()) {
+        for (final TreeCrop crop : TreeCrop.INSTANCES) {
             leaves.add(crop.getLeaves().asItem());
         }
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             leaves.add(crop.getLeaves().asItem());
         }
     }

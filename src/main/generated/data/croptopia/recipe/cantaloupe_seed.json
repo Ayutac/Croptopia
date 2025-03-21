@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:cantaloupes"
+      "tag": "c:cantaloupes"
     }
   ],
   "result": {

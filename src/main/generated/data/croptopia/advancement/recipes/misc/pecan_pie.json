@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#${dependent}:pecans"
+            "items": "#c:pecans"
           }
         ]
       },

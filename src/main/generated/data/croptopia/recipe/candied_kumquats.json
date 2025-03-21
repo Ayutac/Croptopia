@@ -3,28 +3,28 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:kumquats"
+      "tag": "c:kumquats"
     },
     {
-      "tag": "${dependent}:vanilla"
+      "tag": "c:vanilla"
     },
     {
       "item": "minecraft:honey_bottle"

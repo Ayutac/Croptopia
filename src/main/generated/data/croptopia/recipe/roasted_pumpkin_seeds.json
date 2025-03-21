@@ -6,7 +6,7 @@
       "item": "minecraft:pumpkin_seeds"
     },
     "2": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "3": {
       "item": "croptopia:pepper"

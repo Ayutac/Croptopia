@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:currants"
+      "tag": "c:currants"
     }
   ],
   "result": {

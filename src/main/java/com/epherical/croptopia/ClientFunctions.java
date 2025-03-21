@@ -20,7 +20,7 @@ public class ClientFunctions {
         return CroptopiaMod.LEAF_BLOCKS.toArray(Block[]::new);
     }
 
-    public void registerBlockLayers(Consumer<Block> blockConsumer) {
+    public void registerBlockLayers(final Consumer<Block> blockConsumer) {
         CroptopiaMod.CROP_BLOCKS.forEach(blockConsumer);
     }
 }

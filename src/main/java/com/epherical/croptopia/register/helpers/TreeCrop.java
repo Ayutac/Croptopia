@@ -40,7 +40,7 @@ import static com.epherical.croptopia.util.FoodConstructor.createFood;
 
 public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
 
-    public static final List<TreeCrop> TREE_CROPS = new ArrayList<>();
+    public static final List<TreeCrop> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final boolean isPlural;
@@ -78,7 +78,7 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
         this.category = category;
         this.constructor = constructor;
         this.leafType = leafType;
-        TREE_CROPS.add(this);
+        INSTANCES.add(this);
     }
 
     /**
@@ -176,10 +176,6 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
 
     private static TreeGrower createTree(ResourceKey<ConfiguredFeature<?, ?>> key) {
         return new TreeGrower(key.location().toString(), Optional.empty(), Optional.of(key), Optional.empty());
-    }
-
-    public static List<TreeCrop> copy() {
-        return TREE_CROPS;
     }
 
     public static ConfiguredFeature<TreeConfiguration, ?> createTreeGen(int i, int j, int k, Block logType, Block leafType, Block leafCrop) {

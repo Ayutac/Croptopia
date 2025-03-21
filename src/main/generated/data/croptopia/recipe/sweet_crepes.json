@@ -3,16 +3,16 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     },
     "2": {
       "item": "minecraft:egg"
     },
     "3": {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     "4": {
-      "tag": "${dependent}:jams"
+      "tag": "c:jams"
     },
     "5": {
       "item": "minecraft:sugar"

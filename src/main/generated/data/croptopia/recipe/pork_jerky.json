@@ -6,7 +6,7 @@
       "item": "minecraft:porkchop"
     },
     "2": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     }
   },
   "pattern": [

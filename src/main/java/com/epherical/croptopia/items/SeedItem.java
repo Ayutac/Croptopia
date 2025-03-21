@@ -26,19 +26,19 @@ public class SeedItem extends ItemNameBlockItem {
 
     private TagKey<Biome> category;
 
-    public SeedItem(Block block, Properties settings, TagKey<Biome> category) {
+    public SeedItem(final Block block, final Properties settings, final TagKey<Biome> category) {
         super(block, settings);
-        if (block instanceof CroptopiaCropBlock crop) {
+        if (block instanceof final CroptopiaCropBlock crop) {
             crop.setSeed(this);
         }
         this.category = category;
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
-        BlockPos hitPos = context.getClickedPos();
-        Level world = context.getLevel();
-        BlockState state = world.getBlockState(hitPos);
+    public InteractionResult useOn(final UseOnContext context) {
+        final BlockPos hitPos = context.getClickedPos();
+        final Level world = context.getLevel();
+        final BlockState state = world.getBlockState(hitPos);
         if (state.getBlock() instanceof FarmBlock && context.getClickedFace() == Direction.UP) {
             return super.useOn(context);
         }
@@ -46,7 +46,7 @@ public class SeedItem extends ItemNameBlockItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(final ItemStack stack, final TooltipContext context, final List<Component> tooltip, final TooltipFlag flag) {
         Component text = Component.translatable("info.croptopia.seed");
         String[] translated = text.getString().split("\n");
         /*if (translated.length >= 2) {

@@ -6,7 +6,7 @@
       "item": "minecraft:beef"
     },
     "2": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     }
   },
   "pattern": [

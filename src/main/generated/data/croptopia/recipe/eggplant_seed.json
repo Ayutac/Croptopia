@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:eggplants"
+      "tag": "c:eggplants"
     }
   ],
   "result": {

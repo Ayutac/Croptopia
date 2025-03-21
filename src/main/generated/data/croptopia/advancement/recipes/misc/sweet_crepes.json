@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#${dependent}:flour"
+            "items": "#c:flour"
           }
         ]
       },

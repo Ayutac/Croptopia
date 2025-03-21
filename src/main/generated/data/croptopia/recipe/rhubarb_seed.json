@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:rhubarb"
+      "tag": "c:rhubarb"
     }
   ],
   "result": {

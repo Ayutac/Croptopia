@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:chile_peppers"
+      "tag": "c:chile_peppers"
     }
   ],
   "result": {

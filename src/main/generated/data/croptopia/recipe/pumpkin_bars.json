@@ -12,19 +12,19 @@
       "item": "minecraft:pumpkin"
     },
     "4": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     },
     "5": {
       "item": "croptopia:cinnamon"
     },
     "6": {
-      "tag": "${dependent}:salts"
+      "tag": "c:salts"
     },
     "7": {
-      "tag": "${dependent}:butters"
+      "tag": "c:butters"
     },
     "8": {
-      "tag": "${dependent}:vanilla"
+      "tag": "c:vanilla"
     }
   },
   "pattern": [

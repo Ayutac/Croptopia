@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "${dependent}:crabs"
+      "tag": "c:crabs"
     },
     "2": {
-      "tag": "${dependent}:water_bottles"
+      "tag": "c:water_bottles"
     },
     "3": {
       "item": "croptopia:cooking_pot"

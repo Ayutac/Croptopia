@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:dates"
+      "tag": "c:dates"
     },
     {
-      "tag": "${dependent}:dates"
+      "tag": "c:dates"
     },
     {
       "tag": "minecraft:saplings"

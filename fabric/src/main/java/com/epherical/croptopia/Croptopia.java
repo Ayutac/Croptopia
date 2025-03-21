@@ -75,13 +75,13 @@ public class Croptopia implements ModInitializer {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.addAfter(Items.MANGROVE_PROPAGULE, Content.CINNAMON.getSapling());
             // TODO; refactor out the TREE_CROPS/FARMLAND_CROPS
-            List<ItemStack> collect = TreeCrop.TREE_CROPS.stream().map(TreeCrop::getSaplingItem).map(ItemStack::new).toList();
+            List<ItemStack> collect = TreeCrop.INSTANCES.stream().map(TreeCrop::getSaplingItem).map(ItemStack::new).toList();
             entries.addAfter(Items.FLOWERING_AZALEA, collect);
-            entries.addAfter(Items.NETHER_WART, FarmlandCrop.FARMLAND_CROPS.stream().map(FarmlandCrop::getSeedItem).map(ItemStack::new).toList());
+            entries.addAfter(Items.NETHER_WART, FarmlandCrop.INSTANCES.stream().map(FarmlandCrop::getSeedItem).map(ItemStack::new).toList());
             entries.addBefore(Items.COAL_ORE, Content.SALT_ORE);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
-            entries.addAfter(Items.FLINT_AND_STEEL, Utensil.copy().toArray(new Utensil[0]));
+            entries.addAfter(Items.FLINT_AND_STEEL, Utensil.INSTANCES.toArray(new Utensil[0]));
             if (FabricLoader.getInstance().isModLoaded("patchouli")) {
                 entries.addAfter(Items.WRITABLE_BOOK, Content.GUIDE);
             }
@@ -129,7 +129,7 @@ public class Croptopia implements ModInitializer {
     }
 
     private void modifyAxeBlockStripping() {
-        for (final Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.INSTANCES) {
             StrippableBlockRegistry.register(crop.getLog(), crop.getStrippedLog());
             StrippableBlockRegistry.register(crop.getWood(), crop.getStrippedWood());
         }

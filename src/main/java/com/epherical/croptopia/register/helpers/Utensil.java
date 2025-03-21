@@ -14,18 +14,18 @@ import static com.epherical.croptopia.CroptopiaMod.createGroup;
 
 public class Utensil implements ItemConvertibleWithPlural {
 
-    private static final List<Utensil> UTENSILS = new ArrayList<>();
+    public static final List<Utensil> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final boolean plural;
     private Item utensil;
 
 
-    public Utensil(String name, boolean plural) {
+    public Utensil(final String name, final boolean plural) {
         Content.ITEM_REGISTER.reg(this::registerItems);
         this.name = name;
         this.plural = plural;
-        UTENSILS.add(this);
+        INSTANCES.add(this);
     }
 
     @Override
@@ -43,11 +43,7 @@ public class Utensil implements ItemConvertibleWithPlural {
         return utensil;
     }
 
-    public static List<Utensil> copy() {
-        return UTENSILS;
-    }
-
-    public void registerItems(RegisterFunction<Item> register) {
+    public void registerItems(final RegisterFunction<Item> register) {
         this.utensil = register.register(CroptopiaMod.createIdentifier(name), () -> new CookingUtensil(createGroup().stacksTo(1)));
     }
 }

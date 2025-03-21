@@ -110,37 +110,46 @@ public class ItemNamesV2 {
     public static final String SALSA = "salsa";
     public static final String ARTICHOKE_DIP = "artichoke_dip";
     public static final String PEPPERONI = "pepperoni";
-    public static final String GRAPE_JUICE = "grape_juice";
-    public static final String ORANGE_JUICE = "orange_juice";
-    public static final String APPLE_JUICE = "apple_juice";
-    public static final String CRANBERRY_JUICE = "cranberry_juice";
-    public static final String SAGUARO_JUICE = "saguaro_juice";
-    public static final String TOMATO_JUICE = "tomato_juice";
-    public static final String MELON_JUICE = "melon_juice";
-    public static final String PINEAPPLE_JUICE = "pineapple_juice";
+
+    private static final String JUICE = "_juice";
+    public static final String GRAPE_JUICE = GRAPE + JUICE;
+    public static final String ORANGE_JUICE = ORANGE + JUICE;
+    public static final String APPLE_JUICE = APPLE + JUICE;
+    public static final String CRANBERRY_JUICE = CRANBERRY + JUICE;
+    public static final String SAGUARO_JUICE = SAGUARO + JUICE;
+    public static final String TOMATO_JUICE = TOMATO + JUICE;
+    public static final String MELON_JUICE = "melon" + JUICE;
+    public static final String PINEAPPLE_JUICE = PINEAPPLE + JUICE;
+
     public static final String COFFEE = "coffee";
     public static final String LEMONADE = "lemonade";
     public static final String LIMEADE = "limeade";
     public static final String SOY_MILK = "soy_milk";
-    public static final String STRAWBERRY_SMOOTHIE = "strawberry_smoothie";
-    public static final String BANANA_SMOOTHIE = "banana_smoothie";
-    public static final String KALE_SMOOTHIE = "kale_smoothie";
-    public static final String FRUIT_SMOOTHIE = "fruit_smoothie";
+
+    private static final String SMOOTHIE = "_smoothie";
+    public static final String STRAWBERRY_SMOOTHIE = STRAWBERRY + SMOOTHIE;
+    public static final String BANANA_SMOOTHIE = BANANA + SMOOTHIE;
+    public static final String KALE_SMOOTHIE = KALE + SMOOTHIE;
+    public static final String FRUIT_SMOOTHIE = "fruit" + SMOOTHIE;
+
     public static final String CHOCOLATE_MILKSHAKE = "chocolate_milkshake";
     public static final String BEER = "beer";
     public static final String WINE = "wine";
     public static final String MEAD = "mead";
     public static final String RUM = "rum";
     public static final String PUMPKIN_SPICE_LATTE = "pumpkin_spice_latte";
-    public static final String GRAPE_JAM = "grape_jam";
-    public static final String STRAWBERRY_JAM = "strawberry_jam";
-    public static final String PEACH_JAM = "peach_jam";
-    public static final String APRICOT_JAM = "apricot_jam";
-    public static final String BLACKBERRY_JAM = "blackberry_jam";
-    public static final String BLUEBERRY_JAM = "blueberry_jam";
-    public static final String CHERRY_JAM = "cherry_jam";
-    public static final String ELDERBERRY_JAM = "elderberry_jam";
-    public static final String RASPBERRY_JAM = "raspberry_jam";
+
+    private static final String JAM = "_jam";
+    public static final String GRAPE_JAM = GRAPE + JAM;
+    public static final String STRAWBERRY_JAM = STRAWBERRY + JAM;
+    public static final String PEACH_JAM = PEACH + JAM;
+    public static final String APRICOT_JAM = APRICOT + JAM;
+    public static final String BLACKBERRY_JAM = BLACKBERRY + JAM;
+    public static final String BLUEBERRY_JAM = BLUEBERRY + JAM;
+    public static final String CHERRY_JAM = CHERRY + JAM;
+    public static final String ELDERBERRY_JAM = ELDERBERRY + JAM;
+    public static final String RASPBERRY_JAM = RASPBERRY + JAM;
+
     public static final String BEEF_JERKY = "beef_jerky";
     public static final String PORK_JERKY = "pork_jerky";
     public static final String KALE_CHIPS = "kale_chips";
@@ -195,14 +204,17 @@ public class ItemNamesV2 {
     public static final String EGG_ROLL = "egg_roll";
     public static final String CASHEW_CHICKEN = "cashew_chicken";
     public static final String APPLE_PIE = "apple_pie";
-    public static final String YAM_JAM = "yam_jam";
+    public static final String YAM_JAM = YAM + JAM;
     public static final String BANANA_CREAM_PIE = "banana_cream_pie";
     public static final String CANDY_CORN = "candy_corn";
-    public static final String VANILLA_ICE_CREAM = "vanilla_ice_cream";
-    public static final String STRAWBERRY_ICE_CREAM = "strawberry_ice_cream";
-    public static final String MANGO_ICE_CREAM = "mango_ice_cream";
-    public static final String RUM_RAISIN_ICE_CREAM = "rum_raisin_ice_cream";
-    public static final String PECAN_ICE_CREAM = "pecan_ice_cream";
+
+    private static final String ICE_CREAM = "_ice_cream";
+    public static final String VANILLA_ICE_CREAM = VANILLA + ICE_CREAM;
+    public static final String STRAWBERRY_ICE_CREAM = STRAWBERRY + ICE_CREAM;
+    public static final String MANGO_ICE_CREAM = MANGO + ICE_CREAM;
+    public static final String RUM_RAISIN_ICE_CREAM = "rum_raisin" + ICE_CREAM;
+    public static final String PECAN_ICE_CREAM = PECAN + ICE_CREAM;
+
     public static final String CHERRY_PIE = "cherry_pie";
     public static final String CHEESE_CAKE = "cheese_cake";
     public static final String BROWNIES = "brownies";

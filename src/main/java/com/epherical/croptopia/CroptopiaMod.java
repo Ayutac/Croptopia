@@ -29,8 +29,7 @@ public record CroptopiaMod(PlatformAdapter<?> platform, CroptopiaConfig config) 
 
     private static CroptopiaMod mod;
 
-
-    public CroptopiaMod(PlatformAdapter<?> platform, CroptopiaConfig config) {
+    public CroptopiaMod(final PlatformAdapter<?> platform, final CroptopiaConfig config) {
         this.platform = platform;
         this.config = config;
         config.addSerializer(TreeConfiguration.class, TreeConfiguration.Serializer.INSTANCE);
@@ -52,7 +51,7 @@ public record CroptopiaMod(PlatformAdapter<?> platform, CroptopiaConfig config) 
         return new Item.Properties();
     }
 
-    public static ResourceLocation createIdentifier(String name) {
+    public static ResourceLocation createIdentifier(final String name) {
         return ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, name);
     }
 
@@ -72,7 +71,7 @@ public record CroptopiaMod(PlatformAdapter<?> platform, CroptopiaConfig config) 
         return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS);
     }
 
-    private static boolean never(BlockState state, BlockGetter world, BlockPos pos) {
+    private static boolean never(final BlockState state, final BlockGetter world, final BlockPos pos) {
         return false;
     }
 

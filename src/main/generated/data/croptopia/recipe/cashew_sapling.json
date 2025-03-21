@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "${dependent}:cashews"
+      "tag": "c:cashews"
     },
     {
-      "tag": "${dependent}:cashews"
+      "tag": "c:cashews"
     },
     {
       "tag": "minecraft:saplings"

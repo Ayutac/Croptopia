@@ -17,7 +17,7 @@ public interface PluralInfo {
      * @return the plural form of the supplied word
      * @throws NullPointerException If <code>word</code> refers to <code>null</code>.
      */
-    static String plural(String word, boolean hasPlural) {
+    static String plural(final String word, final boolean hasPlural) {
         Objects.requireNonNull(word);
         if (!hasPlural) {
             return word;

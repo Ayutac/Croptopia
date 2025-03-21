@@ -14,13 +14,13 @@ import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
 public class Pie implements ItemLike {
-    private static final List<Pie> INSTANCES = new ArrayList<>();
+    public static final List<Pie> INSTANCES = new ArrayList<>();
 
     private final String name;
     private final ItemConvertibleWithPlural crop;
     private Item item;
 
-    public Pie(String name, ItemConvertibleWithPlural crop) {
+    public Pie(final String name, final ItemConvertibleWithPlural crop) {
         Content.ITEM_REGISTER.reg(this::registerItem);
         this.name = name;
         this.crop = crop;
@@ -40,11 +40,7 @@ public class Pie implements ItemLike {
         return name;
     }
 
-    public void registerItem(RegisterFunction<Item> register) {
+    public void registerItem(final RegisterFunction<Item> register) {
         this.item = register.register(CroptopiaMod.createIdentifier(name), () -> new Item(createGroup().food(createFood(PIE_10))));
-    }
-
-    public static List<Pie> copy() {
-        return INSTANCES;
     }
 }

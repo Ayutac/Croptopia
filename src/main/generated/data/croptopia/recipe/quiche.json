@@ -6,19 +6,19 @@
       "item": "croptopia:frying_pan"
     },
     "2": {
-      "tag": "${dependent}:milks"
+      "tag": "c:milks"
     },
     "3": {
       "item": "minecraft:egg"
     },
     "4": {
-      "tag": "${dependent}:spinach"
+      "tag": "c:spinach"
     },
     "5": {
-      "tag": "${dependent}:flour"
+      "tag": "c:flour"
     },
     "6": {
-      "tag": "${dependent}:onions"
+      "tag": "c:onions"
     }
   },
   "pattern": [

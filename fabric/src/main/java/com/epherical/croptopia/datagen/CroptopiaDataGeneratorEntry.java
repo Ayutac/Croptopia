@@ -26,10 +26,10 @@ public class CroptopiaDataGeneratorEntry implements DataGeneratorEntrypoint {
     @Override
     public void buildRegistry(final RegistrySetBuilder registryBuilder) {
         registryBuilder.add(Registries.CONFIGURED_FEATURE, bootstrapContext -> {
-            for (TreeCrop treeCrop : TreeCrop.TREE_CROPS) {
+            for (TreeCrop treeCrop : TreeCrop.INSTANCES) {
                 bootstrapContext.register(treeCrop.getConfiguredFeatureKey(), treeCrop.getTreeConfig());
             }
-            for (Tree tree : Tree.copy()) {
+            for (Tree tree : Tree.INSTANCES) {
                 bootstrapContext.register(tree.getConfiguredFeatureKey(), tree.getTreeGen());
             }
             bootstrapContext.register(ConfiguredFeatureKeys.DISK_SALT_KEY, WorldGenFeatures.DISK_SALT);

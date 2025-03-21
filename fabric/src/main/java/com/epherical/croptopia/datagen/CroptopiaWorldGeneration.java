@@ -27,12 +27,12 @@ public class CroptopiaWorldGeneration extends FabricDynamicRegistryProvider {
     protected void configure(final HolderLookup.Provider registries, final Entries entries) {
         final HolderLookup.RegistryLookup<ConfiguredFeature<?, ?>> lookup = registries.lookupOrThrow(Registries.CONFIGURED_FEATURE);
         final HolderLookup.RegistryLookup<PlacedFeature> placed = registries.lookupOrThrow(Registries.PLACED_FEATURE);
-        for (final TreeCrop treeCrop : TreeCrop.TREE_CROPS) {
+        for (final TreeCrop treeCrop : TreeCrop.INSTANCES) {
             addConfiguredFeature(treeCrop.getConfiguredFeatureKey(), treeCrop.getTreeConfig(), entries);
             entries.add(treeCrop.getPlacedFeatureKey(), new PlacedFeature(lookup.getOrThrow(treeCrop.getConfiguredFeatureKey()), WorldGenFeatures.DATAGEN_MODIFIER_LISTS.get(treeCrop.getPlacedFeatureKey())));
         }
 
-        for (final Tree tree : Tree.copy()) {
+        for (final Tree tree : Tree.INSTANCES) {
             addConfiguredFeature(tree.getConfiguredFeatureKey(), tree.getTreeGen(), entries);
             entries.add(tree.getPlacedFeatureKey(), new PlacedFeature(lookup.getOrThrow(tree.getConfiguredFeatureKey()), WorldGenFeatures.DATAGEN_MODIFIER_LISTS.get(tree.getPlacedFeatureKey())));
         }

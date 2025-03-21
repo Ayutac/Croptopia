@@ -17,12 +17,12 @@ import net.minecraft.world.level.Level;
 public class Drink extends Item {
 
 
-    public Drink(Properties settings) {
+    public Drink(final Properties settings) {
         super(settings);
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public UseAnim getUseAnimation(final ItemStack stack) {
         return UseAnim.DRINK;
     }
 
@@ -33,7 +33,7 @@ public class Drink extends Item {
 
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
+    public ItemStack finishUsingItem(final ItemStack stack, final Level world, final LivingEntity user) {
         Player playerEntity = user instanceof Player ? (Player)user : null;
         if (playerEntity instanceof ServerPlayer) {
             CriteriaTriggers.CONSUME_ITEM.trigger((ServerPlayer)playerEntity, stack);
