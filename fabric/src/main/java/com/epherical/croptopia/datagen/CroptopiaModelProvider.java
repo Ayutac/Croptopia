@@ -36,6 +36,7 @@ public class CroptopiaModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(final BlockModelGenerators gens) {
         generateTreeCropModels(gens);
         generateFarmlandCropModels(gens);
+        generateMisc(gens);
     }
 
     private void generateTreeCropModels(final BlockModelGenerators gens) {
@@ -132,6 +133,10 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         createFarmlandCropBlock(gens, Content.VANILLA, CrossType.NONE);
         createFarmlandCropBlock(gens, Content.YAM, CrossType.NONE);
         createFarmlandCropBlock(gens, Content.ZUCCHINI, CrossType.NONE);
+    }
+
+    private void generateMisc(final BlockModelGenerators gens) {
+        gens.createTrivialCube(Content.SALT_ORE_BLOCK);
     }
 
     @Override
