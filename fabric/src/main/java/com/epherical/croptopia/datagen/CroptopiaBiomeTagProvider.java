@@ -1,12 +1,17 @@
 package com.epherical.croptopia.datagen;
 
+import com.epherical.croptopia.common.Tags;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.ComposterBlock;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 
@@ -16,166 +21,83 @@ public class CroptopiaBiomeTagProvider extends TagsProvider<Biome> {
         super(dataGenerator, Registries.BIOME, completableFuture);
     }
 
-    @Override
-    protected void addTags(HolderLookup.Provider provider) {
-        /*Set<BiomeTagHolding> holdingArrayList = new HashSet<>();
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_ARTICHOKE, SWAMP));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_ASPARAGUS, SWAMP));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BELLPEPPER, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BLACKBEAN, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BLACKBERRY, FOREST, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BLUEBERRY, FOREST, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BROCCOLI, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CABBAGE, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CANTALOUPE, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CAULIFLOWER, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CELERY, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_COFFEE_BEANS, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CORN, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CRANBERRY, SWAMP));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CUCUMBER, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CURRANT, SWAMP));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_EGGPLANT, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_ELDERBERRY, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_GARLIC, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_GRAPE, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_GREENBEAN, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_GREENONION, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_HONEYDEW, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_HOPS, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_KALE, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_KIWI, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_LEEK, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_LETTUCE, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_OLIVE, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_ONION, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_PEANUT, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_PINEAPPLE, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_RADISH, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_RASPBERRY, FOREST, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_RHUBARB, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_RICE, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_RUTABAGA, SAVANNA, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_SAGUARO, DESERT));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_SPINACH, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_SQUASH, SAVANNA, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_STRAWBERRY, FOREST, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_SWEETPOTATO, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_TOMATILLO, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_TOMATO, FOREST));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_TURNIP, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_YAM, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_ZUCCHINI, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_MUSTARD, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_CHILE_PEPPER, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_TURMERIC, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_GINGER, SAVANNA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BASIL, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_OAT, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_BARLEY, PLAINS, TAIGA));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_SOYBEAN, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_VANILLA, JUNGLE));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_PEPPER, PLAINS));
-        holdingArrayList.add(new BiomeTagHolding(Tags.HAS_TEA_LEAVES, FOREST));
-
-
-        for (Holder<Biome> biomeHolder : BuiltinRegistries.BIOME.asHolderIdMap()) {
-            for (BiomeTagHolding biomeTagHolding : holdingArrayList) {
-                Biome.BiomeCategory category = Biome.getBiomeCategory(biomeHolder);
-                if (biomeTagHolding.biomeCategory.contains(category)) {
-                    biomeHolder.unwrapKey().ifPresent(biomeResourceKey -> {
-                        if (biomeResourceKey.location().getNamespace().equals(ResourceLocation.DEFAULT_NAMESPACE)) {
-                            this.tag(biomeTagHolding.biomeTag).add(biomeHolder.value());
-                        } else {
-                            this.tag(biomeTagHolding.biomeTag).addOptional(biomeResourceKey.location());
-                        }
-                    });
-                }
-            }
-        }*/
-/*
-        this.tag(Tags.HAS_ARTICHOKE).add(Biomes.SWAMP)
-        this.tag(Tags.HAS_ASPARAGUS).add(Biomes.SWAMP)
-        this.tag(Tags.HAS_BELLPEPPER).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_BLACKBEAN).add(Biomes.FOREST)
-        this.tag(Tags.HAS_BLACKBERRY).add(Biomes.FOREST)
-        this.tag(Tags.HAS_BLUEBERRY).add(Biomes.FOREST)
-        this.tag(Tags.HAS_BROCCOLI).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_CABBAGE).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_CANTALOUPE).add(Biomes.FOREST)
-        this.tag(Tags.HAS_CAULIFLOWER).add(Biomes.FOREST)
-        this.tag(Tags.HAS_CELERY).add(Biomes.FOREST)
-        this.tag(Tags.HAS_COFFEE_BEANS).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_CORN).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_CRANBERRY).add(Biomes.SWAMP)
-        this.tag(Tags.HAS_CUCUMBER).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_CURRANT).add(Biomes.SWAMP)
-        this.tag(Tags.HAS_EGGPLANT).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_ELDERBERRY).add(Biomes.FOREST)
-        this.tag(Tags.HAS_GARLIC).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_GRAPE).add(Biomes.FOREST)
-        this.tag(Tags.HAS_GREENBEAN).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_GREENONION).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_HONEYDEW).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_HOPS).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_KALE).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_KIWI).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_LEEK).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_LETTUCE).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_OLIVE).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_ONION).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_PEANUT).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_PINEAPPLE).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_RADISH).add(Biomes.FOREST)
-        this.tag(Tags.HAS_RASPBERRY).add(Biomes.FOREST)
-        this.tag(Tags.HAS_RHUBARB).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_RICE).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_RUTABAGA).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_SAGUARO).add(Biomes.DESERT)
-        this.tag(Tags.HAS_SPINACH).add(Biomes.FOREST)
-        this.tag(Tags.HAS_SQUASH).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_STRAWBERRY).add(Biomes.FOREST)
-        this.tag(Tags.HAS_SWEETPOTATO).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_TOMATILLO).add(Biomes.FOREST)
-        this.tag(Tags.HAS_TOMATO).add(Biomes.FOREST)
-        this.tag(Tags.HAS_TURNIP).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_YAM).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_ZUCCHINI).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_MUSTARD).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_CHILE_PEPPER).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_TURMERIC).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_GINGER).add(Biomes.SAVANNA)
-        this.tag(Tags.HAS_BASIL).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_OAT).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_BARLEY).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_SOYBEAN).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_VANILLA).add(Biomes.JUNGLE)
-        this.tag(Tags.HAS_PEPPER).add(Biomes.PLAINS)
-        this.tag(Tags.HAS_TEA_LEAVES).add(Biomes.FOREST)*/
+    private static @NotNull Set<BiomeTagPair> getBiomeTagPairs() {
+        final Set<BiomeTagPair> set = new HashSet<>();
+        set.add(new BiomeTagPair(Tags.HAS_ARTICHOKE, ConventionalBiomeTags.IS_SWAMP));
+        set.add(new BiomeTagPair(Tags.HAS_ASPARAGUS, ConventionalBiomeTags.IS_SWAMP));
+        set.add(new BiomeTagPair(Tags.HAS_BELLPEPPER, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_BLACKBEAN, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_BLACKBERRY, ConventionalBiomeTags.IS_FOREST, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_BLUEBERRY, ConventionalBiomeTags.IS_FOREST, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_BROCCOLI, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_CABBAGE, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_CANTALOUPE, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_CAULIFLOWER, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_CELERY, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_COFFEE_BEANS, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_CORN, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_CRANBERRY, ConventionalBiomeTags.IS_SWAMP));
+        set.add(new BiomeTagPair(Tags.HAS_CUCUMBER, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_CURRANT, ConventionalBiomeTags.IS_SWAMP));
+        set.add(new BiomeTagPair(Tags.HAS_EGGPLANT, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_ELDERBERRY, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_GARLIC, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_GRAPE, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_GREENBEAN, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_GREENONION, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_HONEYDEW, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_HOPS, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_KALE, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_KIWI, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_LEEK, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_LETTUCE, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_OLIVE, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_ONION, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_PEANUT, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_PINEAPPLE, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_RADISH, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_RASPBERRY, ConventionalBiomeTags.IS_FOREST, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_RHUBARB, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_RICE, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_RUTABAGA, ConventionalBiomeTags.IS_SAVANNA, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_SAGUARO, ConventionalBiomeTags.IS_DESERT));
+        set.add(new BiomeTagPair(Tags.HAS_SPINACH, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_SQUASH, ConventionalBiomeTags.IS_SAVANNA, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_STRAWBERRY, ConventionalBiomeTags.IS_FOREST, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_SWEETPOTATO, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_TOMATILLO, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_TOMATO, ConventionalBiomeTags.IS_FOREST));
+        set.add(new BiomeTagPair(Tags.HAS_TURNIP, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_YAM, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_ZUCCHINI, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_MUSTARD, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_CHILE_PEPPER, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_TURMERIC, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_GINGER, ConventionalBiomeTags.IS_SAVANNA));
+        set.add(new BiomeTagPair(Tags.HAS_BASIL, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_OAT, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_BARLEY, ConventionalBiomeTags.IS_PLAINS, ConventionalBiomeTags.IS_TAIGA));
+        set.add(new BiomeTagPair(Tags.HAS_SOYBEAN, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_VANILLA, ConventionalBiomeTags.IS_JUNGLE));
+        set.add(new BiomeTagPair(Tags.HAS_PEPPER, ConventionalBiomeTags.IS_PLAINS));
+        set.add(new BiomeTagPair(Tags.HAS_TEA_LEAVES, ConventionalBiomeTags.IS_FOREST));
+        return set;
     }
 
-    /*public static class BiomeTagHolding {
-        private final List<Biome.BiomeCategory> biomeCategory;
-        private final TagKey<Biome> biomeTag;
+    @Override
+    protected void addTags(HolderLookup.Provider provider) {
+        final Set<BiomeTagPair> biomePairs = getBiomeTagPairs();
 
-        public BiomeTagHolding(TagKey<Biome> biome, Biome.BiomeCategory... category) {
-            this.biomeCategory = List.of(category);
-            this.biomeTag = biome;
+        for (final BiomeTagPair biomePair : biomePairs) {
+            for (final TagKey<Biome> category : biomePair.categories()) {
+                tag(biomePair.biome()).addOptionalTag(category.location());
+            }
         }
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            BiomeTagHolding that = (BiomeTagHolding) o;
-            return Objects.equals(biomeCategory, that.biomeCategory) && Objects.equals(biomeTag, that.biomeTag);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(biomeCategory, biomeTag);
-        }
-    }*/
+    public record BiomeTagPair(TagKey<Biome> biome, TagKey<Biome>... categories) {
+        // nothing else needed
+    }
 
 
 }
