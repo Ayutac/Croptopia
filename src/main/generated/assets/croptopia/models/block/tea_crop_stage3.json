@@ -1,6 +1,6 @@
 {
   "parent": "croptopia:block/crop_cross",
   "textures": {
-    "cross": "croptopia:block/tea_crop_stage1"
+    "cross": "croptopia:block/tea_leaves_crop_stage3"
   }
 }

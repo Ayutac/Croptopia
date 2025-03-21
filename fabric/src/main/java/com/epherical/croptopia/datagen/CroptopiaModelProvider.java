@@ -74,8 +74,64 @@ public class CroptopiaModelProvider extends FabricModelProvider {
     }
 
     private void generateFarmlandCropModels(final BlockModelGenerators gens) {
-//        createFarmlandCropBlock(gens, Content.ARTICHOKE, true);
-//        createFarmlandCropBlock(gens, Content.ASPARAGUS, false);
+        createFarmlandCropBlock(gens, Content.ARTICHOKE, CrossType.SIMPLE);
+        createFarmlandCropBlock(gens, Content.ASPARAGUS, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BARLEY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BASIL, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BELLPEPPER, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BLACKBEAN, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BLACKBERRY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BLUEBERRY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.BROCCOLI, CrossType.SIMPLE);
+        createFarmlandCropBlock(gens, Content.CABBAGE, CrossType.SIMPLE);
+        createFarmlandCropBlock(gens, Content.CANTALOUPE, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.CAULIFLOWER, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.CELERY, CrossType.SIMPLE);
+        createFarmlandCropBlock(gens, Content.CHILE_PEPPER, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.COFFEE_BEANS, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.CORN, CrossType.DOUBLE);
+        createFarmlandCropBlock(gens, Content.CRANBERRY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.CUCUMBER, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.CURRANT, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.EGGPLANT, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.ELDERBERRY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.GARLIC, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.GINGER, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.GRAPE, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.GREENBEAN, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.GREENONION, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.HONEYDEW, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.HOPS, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.KALE, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.KIWI, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.LEEK, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.LETTUCE, CrossType.SIMPLE);
+        createFarmlandCropBlock(gens, Content.MUSTARD, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.OAT, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.OLIVE, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.ONION, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.PEANUT, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.PEPPER, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.PINEAPPLE, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.RADISH, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.RASPBERRY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.RHUBARB, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.RICE, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.RUTABAGA, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.SAGUARO, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.SOYBEAN, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.SPINACH, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.SQUASH, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.STRAWBERRY, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.SWEETPOTATO, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.TEA_LEAVES, CrossType.SIMPLE);
+        createFarmlandCropBlock(gens, Content.TOMATILLO, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.TOMATO, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.TURMERIC, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.TURNIP, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.VANILLA, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.YAM, CrossType.NONE);
+        createFarmlandCropBlock(gens, Content.ZUCCHINI, CrossType.NONE);
     }
 
     @Override
@@ -172,22 +228,30 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         gens.createCrossBlockWithDefaultItem(treeCrop.getSaplingBlock(), BlockModelGenerators.TintState.TINTED);
     }
 
-    protected void createFarmlandCropBlock(final BlockModelGenerators gens, final FarmlandCrop farmlandCrop, final boolean cross) {
-        final TextureMapping texture0 = cross
-                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage0"))
-                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage0"));
-        final TextureMapping texture1 = cross
-                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage1"))
-                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage1"));
-        final TextureMapping texture2 = cross
-                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage2"))
-                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage2"));
-        final TextureMapping texture3 = cross
-                ? TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage3"))
-                : TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage3"));
-        final ModelTemplate modelTemplate = cross
-                ? new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/crop_cross")), Optional.empty(), TextureSlot.CROSS)
-                : ModelTemplates.CROP;
+    protected enum CrossType {
+        NONE,
+        SIMPLE,
+        DOUBLE
+    }
+
+    protected void createFarmlandCropBlock(final BlockModelGenerators gens, final FarmlandCrop farmlandCrop, final CrossType cross) {
+        final TextureMapping texture0 = cross == CrossType.NONE
+                ? TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage0"))
+                : TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage0"));
+        final TextureMapping texture1 = cross == CrossType.NONE
+                ? TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage1"))
+                : TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage1"));
+        final TextureMapping texture2 = cross == CrossType.NONE
+                ? TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage2"))
+                : TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage2"));
+        final TextureMapping texture3 = cross == CrossType.NONE
+                ? TextureMapping.crop(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage3"))
+                : TextureMapping.cross(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + farmlandCrop.name() + "_crop_stage3"));
+        final ModelTemplate modelTemplate = switch (cross) {
+            case NONE -> ModelTemplates.CROP;
+            case SIMPLE -> new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/crop_cross")), Optional.empty(), TextureSlot.CROSS);
+            case DOUBLE -> new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/crop_cross_double")), Optional.empty(), TextureSlot.CROSS);
+        };
         final Property<Integer> ageProperty = ((CroptopiaCropBlock)farmlandCrop.asBlock()).getAgeProperty();
         // the following is mainly copied from BlockModelGenerators#createCropBlock
         final Int2ObjectMap<ResourceLocation> int2ObjectMap = new Int2ObjectOpenHashMap<>();
@@ -219,6 +283,6 @@ public class CroptopiaModelProvider extends FabricModelProvider {
             return Variant.variant().with(VariantProperties.MODEL, resourceLocation);
         });
         gens.blockStateOutput.accept(MultiVariantGenerator.multiVariant(farmlandCrop.asBlock()).with(propertyDispatch));
-
+        gens.skipAutoItemBlock(farmlandCrop.asBlock());
     }
 }

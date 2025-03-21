@@ -55,7 +55,6 @@ public class Content {
     public static final RegistryDelay<Item, Item> ITEM_REGISTER = new RegistryDelay<>(MiscNames.MOD_ID);
     public static final RegistryDelay<Block, Block> BLOCK_REGISTER = new RegistryDelay<>(MiscNames.MOD_ID);
 
-
     public static final FarmlandCrop ARTICHOKE = new FarmlandCrop(ItemNamesV2.ARTICHOKE, true, TagCategory.VEGETABLES, RAW_CROP_1, Tags.HAS_ARTICHOKE);
     public static final FarmlandCrop ASPARAGUS = new FarmlandCrop(ItemNamesV2.ASPARAGUS, false, TagCategory.VEGETABLES, RAW_CROP_1, Tags.HAS_ASPARAGUS);
     public static final FarmlandCrop BARLEY = new FarmlandCrop(ItemNamesV2.BARLEY, false, TagCategory.GRAIN, RAW_CROP_1, Tags.HAS_BARLEY);
