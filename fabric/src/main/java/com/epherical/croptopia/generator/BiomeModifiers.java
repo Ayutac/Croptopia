@@ -21,19 +21,19 @@ public class BiomeModifiers {
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public static void init(Croptopia croptopia) {
+    public static void init(final Croptopia croptopia) {
 
         // generate in ALL biomes
         BiomeModifications.addFeature(context -> true,
                 GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatureKeys.RANDOM_CROP_KEY);
 
-        List<TreeConfiguration> trees = Croptopia.mod.config().treeConfigurations;
-        for (TreeConfiguration tree : trees) {
+        final List<TreeConfiguration> trees = Croptopia.mod.config().treeConfigurations;
+        for (final TreeConfiguration tree : trees) {
             BiomeModifications.addFeature(BiomeSelectors.includeByKey(tree.getTreesAllowedInBiome()),
                     GenerationStep.Decoration.VEGETAL_DECORATION, tree.getFeatureKey());
         }
 
-        Collection<ResourceKey<Biome>> exclusion = Arrays.asList(Biomes.SWAMP, Biomes.SWAMP);
+        final Collection<ResourceKey<Biome>> exclusion = Arrays.asList(Biomes.SWAMP, Biomes.SWAMP);
 
         if (Croptopia.mod.config().generateSaltInWorld) {
             BiomeModifications.addFeature(BiomeSelectors.excludeByKey(exclusion),

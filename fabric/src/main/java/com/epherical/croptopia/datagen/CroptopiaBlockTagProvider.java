@@ -22,14 +22,12 @@ import java.util.function.Function;
 
 public class CroptopiaBlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
 
-
-    public CroptopiaBlockTagProvider(PackOutput packOutput,
-                                     CompletableFuture<HolderLookup.Provider> completableFuture) {
+    public CroptopiaBlockTagProvider(final PackOutput packOutput, final CompletableFuture<HolderLookup.Provider> completableFuture) {
         super(packOutput, Registries.BLOCK, completableFuture, block -> block.builtInRegistryHolder().key());
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider arg) {
+    protected void addTags(final HolderLookup.Provider arg) {
         generateSaplings();
         generateBarkLogs();
         generateLeaves();
@@ -39,18 +37,18 @@ public class CroptopiaBlockTagProvider extends IntrinsicHolderTagsProvider<Block
     }
 
     protected void generateSaplings() {
-        IntrinsicTagAppender<Block> saplings = this.tag(BlockTags.SAPLINGS);
-        for (TreeCrop crop : TreeCrop.copy()) {
+        final IntrinsicTagAppender<Block> saplings = this.tag(BlockTags.SAPLINGS);
+        for (final TreeCrop crop : TreeCrop.copy()) {
             saplings.add(crop.getSaplingBlock());
         }
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             saplings.add(crop.getSaplingBlock());
         }
     }
 
     protected void generateBarkLogs() {
-        IntrinsicTagAppender<Block> burnableLog = this.tag(BlockTags.LOGS_THAT_BURN);
-        for (Tree crop : Tree.copy()) {
+        final IntrinsicTagAppender<Block> burnableLog = this.tag(BlockTags.LOGS_THAT_BURN);
+        for (final Tree crop : Tree.copy()) {
             // add different log types to log tag of this crop
             tag(crop.getLogBlockTag())
                     .add(crop.getLog())
@@ -63,24 +61,24 @@ public class CroptopiaBlockTagProvider extends IntrinsicHolderTagsProvider<Block
     }
 
     protected void generateLeaves() {
-        IntrinsicTagAppender<Block> leaves = this.tag(BlockTags.LEAVES);
-        IntrinsicTagAppender<Block> hoe = this.tag(BlockTags.MINEABLE_WITH_HOE);
-        for (TreeCrop crop : TreeCrop.TREE_CROPS) {
+        final IntrinsicTagAppender<Block> leaves = this.tag(BlockTags.LEAVES);
+        final IntrinsicTagAppender<Block> hoe = this.tag(BlockTags.MINEABLE_WITH_HOE);
+        for (final TreeCrop crop : TreeCrop.TREE_CROPS) {
             leaves.add(crop.getLeaves());
             hoe.add(crop.getLeaves());
         }
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             leaves.add(crop.getLeaves());
             hoe.add(crop.getLeaves());
         }
     }
 
     protected void generateCrops() {
-        IntrinsicTagAppender<Block> crops = this.tag(BlockTags.CROPS);
-        for (FarmlandCrop crop : FarmlandCrop.copy()) {
+        final IntrinsicTagAppender<Block> crops = this.tag(BlockTags.CROPS);
+        for (final FarmlandCrop crop : FarmlandCrop.copy()) {
             crops.add(crop.asBlock());
         }
-        for (TreeCrop crop : TreeCrop.copy()) {
+        for (final TreeCrop crop : TreeCrop.copy()) {
             crops.add(crop.asBlock());
         }
     }

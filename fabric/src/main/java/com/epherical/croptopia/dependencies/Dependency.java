@@ -8,7 +8,7 @@ public class Dependency {
 
     private boolean loaded;
 
-    public Dependency(String modID) {
+    public Dependency(final String modID) {
         this.loaded = FabricLoader.getInstance().isModLoaded(modID);
     }
 

@@ -42,10 +42,10 @@ import java.util.Map;
 
 public class WorldGenFeatures {
 
-    private static final Map<String, ResourceKey<PlacedFeature>> keyMap = new HashMap<>();
-    public static final Map<ResourceKey<PlacedFeature>, List<PlacementModifier>> datagenModifierLists = new HashMap<>();
+    private static final Map<String, ResourceKey<PlacedFeature>> KEY_MAP = new HashMap<>();
+    public static final Map<ResourceKey<PlacedFeature>, List<PlacementModifier>> DATAGEN_MODIFIER_LISTS = new HashMap<>();
 
-    public static final SimpleBlockConfiguration config = (new SimpleBlockConfiguration(
+    public static final SimpleBlockConfiguration CONFIG = (new SimpleBlockConfiguration(
             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(Content.ARTICHOKE.asBlock().defaultBlockState().setValue(CroptopiaCropBlock.AGE, 7), 10)
                     .add(Content.ASPARAGUS.asBlock().defaultBlockState().setValue(CroptopiaCropBlock.AGE, 7), 10)
@@ -108,7 +108,7 @@ public class WorldGenFeatures {
                     .build())));
 
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> RANDOM_CROP = register(Feature.RANDOM_PATCH,
-            FeatureUtils.simpleRandomPatchConfiguration(6, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, config)));
+            FeatureUtils.simpleRandomPatchConfiguration(6, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, CONFIG)));
 
     public static final Holder<PlacedFeature> RANDOM_CROP_PLACED = register(PlacedFeatureKeys.RANDOM_CROP_KEY, RANDOM_CROP,
             CountPlacement.of(3),
@@ -211,43 +211,43 @@ public class WorldGenFeatures {
             BiomeFilter.biome());
 
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>> ConfiguredFeature<FC, ?> register(F feature, FC config) {
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> ConfiguredFeature<FC, ?> register(final F feature, final FC config) {
         return new ConfiguredFeature<>(feature, config);
     }
 
-    public static Holder<PlacedFeature> register(ResourceLocation id, ConfiguredFeature<?, ?> holder, List<PlacementModifier> modifiers) {
+    public static Holder<PlacedFeature> register(final ResourceLocation id, final ConfiguredFeature<?, ?> holder, final List<PlacementModifier> modifiers) {
         ResourceKey<PlacedFeature> key = ResourceKey.create(Registries.PLACED_FEATURE, id);
         return register(key, holder, modifiers);
     }
 
-    public static Holder<PlacedFeature> register(ResourceKey<PlacedFeature> key, ConfiguredFeature<?, ?> holder, List<PlacementModifier> modifiers) {
-        keyMap.put(key.location().getPath(), key);
+    public static Holder<PlacedFeature> register(final ResourceKey<PlacedFeature> key, final ConfiguredFeature<?, ?> holder, final List<PlacementModifier> modifiers) {
+        KEY_MAP.put(key.location().getPath(), key);
         Holder<PlacedFeature> direct = Holder.direct(new PlacedFeature(Holder.direct(holder), modifiers));
-        datagenModifierLists.put(key, modifiers);
+        DATAGEN_MODIFIER_LISTS.put(key, modifiers);
         return direct;
     }
 
-    public static Holder<PlacedFeature> register(ResourceLocation id, ConfiguredFeature<?, ?> feature, PlacementModifier... modifiers) {
+    public static Holder<PlacedFeature> register(final ResourceLocation id, final ConfiguredFeature<?, ?> feature, final PlacementModifier... modifiers) {
         return register(id, feature, List.of(modifiers));
     }
 
-    public static Holder<PlacedFeature> register(ResourceKey<PlacedFeature> key, ConfiguredFeature<?, ?> feature, PlacementModifier... modifiers) {
+    public static Holder<PlacedFeature> register(final ResourceKey<PlacedFeature> key, final ConfiguredFeature<?, ?> feature, final PlacementModifier... modifiers) {
         return register(key, feature, List.of(modifiers));
     }
 
-    public static Holder<PlacedFeature> register(ResourceKey<PlacedFeature> key, TreeCrop crop, PlacementModifier... modifiers) {
+    public static Holder<PlacedFeature> register(final ResourceKey<PlacedFeature> key, final TreeCrop crop, final PlacementModifier... modifiers) {
         return register(key, crop.getTreeConfig(), List.of(modifiers));
     }
 
-    public static Holder<PlacedFeature> register(ResourceKey<PlacedFeature> key, Tree tree, PlacementModifier... modifiers) {
+    public static Holder<PlacedFeature> register(final ResourceKey<PlacedFeature> key, final Tree tree, final PlacementModifier... modifiers) {
         return register(key, tree.getTreeGen(), List.of(modifiers));
     }
 
-    public static Holder<PlacedFeature> register(ResourceLocation id, TreeCrop crop, PlacementModifier... modifiers) {
+    public static Holder<PlacedFeature> register(final ResourceLocation id, final TreeCrop crop, final PlacementModifier... modifiers) {
         return register(id, crop.getTreeConfig(), List.of(modifiers));
     }
 
     public static ResourceKey<PlacedFeature> getFeatureKey(String key) {
-        return keyMap.get(key);
+        return KEY_MAP.get(key);
     }
 }

@@ -11,7 +11,7 @@ import net.minecraft.core.registries.Registries;
 public class CroptopiaDataGeneratorEntry implements DataGeneratorEntrypoint {
 
     @Override
-    public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+    public void onInitializeDataGenerator(final FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack resources = fabricDataGenerator.createPack();
         resources.addProvider(CroptopiaBlockTagProvider::new);
         resources.addProvider(CroptopiaItemTagProvider::new);
@@ -24,7 +24,7 @@ public class CroptopiaDataGeneratorEntry implements DataGeneratorEntrypoint {
     }
 
     @Override
-    public void buildRegistry(RegistrySetBuilder registryBuilder) {
+    public void buildRegistry(final RegistrySetBuilder registryBuilder) {
         registryBuilder.add(Registries.CONFIGURED_FEATURE, bootstrapContext -> {
             for (TreeCrop treeCrop : TreeCrop.TREE_CROPS) {
                 bootstrapContext.register(treeCrop.getConfiguredFeatureKey(), treeCrop.getTreeConfig());

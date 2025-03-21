@@ -38,13 +38,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class CroptopiaRecipeProvider extends FabricRecipeProvider {
 
-
-    public CroptopiaRecipeProvider(FabricDataOutput output) {
+    public CroptopiaRecipeProvider(final FabricDataOutput output) {
         super(output, CompletableFuture.supplyAsync(VanillaRegistries::createLookup, Util.backgroundExecutor()));
     }
 
     @Override
-    public void buildRecipes(RecipeOutput exporter) {
+    public void buildRecipes(final RecipeOutput exporter) {
         generateSeeds(exporter);
         generateSaplings(exporter);
         generateBarkWood(exporter);
@@ -59,9 +58,9 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         generateMiscShaped(exporter);
     }
 
-    protected void generateSeeds(RecipeOutput exporter) {
-        for (FarmlandCrop crop : FarmlandCrop.copy()) {
-            TagKey<Item> tag = independentTag(crop.getPlural());
+    protected void generateSeeds(final RecipeOutput exporter) {
+        for (final FarmlandCrop crop : FarmlandCrop.copy()) {
+            TagKey<Item> tag = commonTag(crop.getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, crop.getSeedItem())
                     .requires(tag)
                     .unlockedBy("has_" + crop.getLowercaseName(), RecipeProvider.has(crop))
@@ -69,9 +68,9 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    protected void generateSaplings(RecipeOutput exporter) {
-        for (TreeCrop crop : TreeCrop.copy()) {
-            TagKey<Item> tag = independentTag(crop.getPlural());
+    protected void generateSaplings(final RecipeOutput exporter) {
+        for (final TreeCrop crop : TreeCrop.copy()) {
+            TagKey<Item> tag = commonTag(crop.getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, crop.getSaplingItem())
                     .requires(tag).requires(tag).requires(ItemTags.SAPLINGS)
                     .unlockedBy("has_" + crop.getLowercaseName(), RecipeProvider.has(crop))
@@ -80,8 +79,8 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         // Bark saplings come from the leaves, not the crop
     }
 
-    protected void generateBarkWood(RecipeOutput exporter) {
-        for (Tree crop : Tree.copy()) {
+    protected void generateBarkWood(final RecipeOutput exporter) {
+        for (final Tree crop : Tree.copy()) {
             ShapedRecipeBuilder.shaped(RecipeCategory.MISC, crop.getWood())
                     .pattern("##")
                     .pattern("##")
@@ -97,9 +96,9 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    protected void generateJams(RecipeOutput exporter) {
-        for (Jam jam : Jam.copy()) {
-            TagKey<Item> tag = independentTag(jam.getCrop().getPlural());
+    protected void generateJams(final RecipeOutput exporter) {
+        for (final Jam jam : Jam.copy()) {
+            final TagKey<Item> tag = commonTag(jam.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, jam)
                     .requires(tag).requires(Items.SUGAR).requires(Content.COOKING_POT)
                     .unlockedBy("has_" + jam.getCrop().getLowercaseName(), RecipeProvider.has(tag))
@@ -107,9 +106,9 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    protected void generateJuices(RecipeOutput exporter) {
-        for (Juice juice : Juice.copy()) {
-            TagKey<Item> tag = independentTag(juice.getCrop().getPlural());
+    protected void generateJuices(final RecipeOutput exporter) {
+        for (final Juice juice : Juice.copy()) {
+            final TagKey<Item> tag = commonTag(juice.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, juice)
                     .requires(tag).requires(Content.FOOD_PRESS).requires(Items.GLASS_BOTTLE)
                     .unlockedBy("has_" + juice.getCrop().getLowercaseName(), RecipeProvider.has(tag))
@@ -117,37 +116,37 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    protected void generateSmoothies(RecipeOutput exporter) {
-        for (Smoothie smoothie : Smoothie.copy()) {
-            TagKey<Item> tag = independentTag(smoothie.getCrop().getPlural());
+    protected void generateSmoothies(final RecipeOutput exporter) {
+        for (final Smoothie smoothie : Smoothie.copy()) {
+            final TagKey<Item> tag = commonTag(smoothie.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, smoothie)
-                    .requires(tag).requires(Items.ICE).requires(independentTag("milks")).requires(Items.GLASS_BOTTLE)
+                    .requires(tag).requires(Items.ICE).requires(commonTag("milks")).requires(Items.GLASS_BOTTLE)
                     .unlockedBy("has_" + smoothie.getCrop().getLowercaseName(), RecipeProvider.has(tag))
                     .save(exporter);
         }
     }
 
-    protected void generateIceCream(RecipeOutput exporter) {
-        for (IceCream iceCream : IceCream.copy()) {
-            TagKey<Item> tag = independentTag(iceCream.getCrop().getPlural());
+    protected void generateIceCream(final RecipeOutput exporter) {
+        for (final IceCream iceCream : IceCream.copy()) {
+            final TagKey<Item> tag = commonTag(iceCream.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, iceCream)
-                    .requires(tag).requires(Items.SUGAR).requires(Items.EGG).requires(independentTag("milks")).requires(Content.COOKING_POT)
+                    .requires(tag).requires(Items.SUGAR).requires(Items.EGG).requires(commonTag("milks")).requires(Content.COOKING_POT)
                     .unlockedBy("has_" + iceCream.getCrop().getLowercaseName(), RecipeProvider.has(tag))
                     .save(exporter);
         }
     }
 
-    protected void generatePie(RecipeOutput exporter) {
-        for (Pie pie : Pie.copy()) {
-            TagKey<Item> tag = independentTag(pie.getCrop().getPlural());
+    protected void generatePie(final RecipeOutput exporter) {
+        for (final Pie pie : Pie.copy()) {
+            final TagKey<Item> tag = commonTag(pie.getCrop().getPlural());
             ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pie)
-                    .requires(tag).requires(Items.SUGAR).requires(Items.EGG).requires(independentTag("flour")).requires(independentTag("doughs")).requires(Content.FRYING_PAN)
+                    .requires(tag).requires(Items.SUGAR).requires(Items.EGG).requires(commonTag("flour")).requires(commonTag("doughs")).requires(Content.FRYING_PAN)
                     .unlockedBy("has_" + pie.getCrop().getLowercaseName(), RecipeProvider.has(tag))
                     .save(exporter);
         }
     }
 
-    protected void offerFoodCookingRecipe(RecipeOutput exporter, ItemLike input, String inputName, ItemLike output, int time, float exp, boolean campFire) {
+    protected void offerFoodCookingRecipe(final RecipeOutput exporter, final ItemLike input, final String inputName, final ItemLike output, final int time, final float exp, final boolean campFire) {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.FOOD, output, exp, time)
                 .unlockedBy("has_" + inputName, RecipeProvider.has(input))
                 .save(exporter, RecipeProvider.getItemName(output) + "_from_" + inputName);
@@ -157,7 +156,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         // TODO campfire
     }
 
-    protected void generateFurnace(RecipeOutput exporter) {
+    protected void generateFurnace(final RecipeOutput exporter) {
         final int time = 200; // default vanilla time
         final float exp = 0.2f; // default vanilla experience
         var cookingList = new ImmutableMap.Builder<ItemConvertibleWithPlural, ItemLike>()
@@ -183,7 +182,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         offerFoodCookingRecipe(exporter, Content.WATER_BOTTLE, ItemNamesV2.WATER_BOTTLE, Content.SALT, 800, 0.1f, false);
     }
 
-    protected void generateUtensil(RecipeOutput exporter) {
+    protected void generateUtensil(final RecipeOutput exporter) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.COOKING_POT)
                 .pattern("# #")
                 .pattern("# #")
@@ -220,13 +219,13 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .save(exporter);
     }
 
-    protected void generateMiscShapeless(RecipeOutput exporter) {
-        TagKey<Item> saltTag = independentTag("salts");
+    protected void generateMiscShapeless(final RecipeOutput exporter) {
+        final TagKey<Item> saltTag = commonTag("salts");
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DEAD_BUSH)
                 .requires(saltTag).requires(ItemTags.SAPLINGS)
                 .unlockedBy("has_salts", RecipeProvider.has(saltTag))
                 .save(exporter);
-        TagKey<Item> kumquatTag = independentTag(Content.KUMQUAT.getPlural());
+        final TagKey<Item> kumquatTag = commonTag(Content.KUMQUAT.getPlural());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Content.CANDIED_KUMQUATS, 7)
                 .requires(kumquatTag)
                 .requires(kumquatTag)
@@ -235,18 +234,18 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .requires(kumquatTag)
                 .requires(kumquatTag)
                 .requires(kumquatTag)
-                .requires(independentTag("vanilla"))
+                .requires(commonTag("vanilla"))
                 .requires(Items.HONEY_BOTTLE)
                 .unlockedBy("has_kumquat", RecipeProvider.has(Content.KUMQUAT))
                 .save(exporter);
-        TagKey<Item> turmericTag = independentTag(Content.TURMERIC.getPlural());
+        final TagKey<Item> turmericTag = commonTag(Content.TURMERIC.getPlural());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.ORANGE_DYE, 2)
                 .requires(turmericTag)
                 .requires(turmericTag)
                 .requires(turmericTag)
                 .unlockedBy("has_turmeric", RecipeProvider.has(Content.TURMERIC))
                 .save(exporter);
-        TagKey<Item> grapeTag = independentTag(Content.GRAPE.getPlural());
+        final TagKey<Item> grapeTag = commonTag(Content.GRAPE.getPlural());
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.PURPLE_DYE, 2)
                 .requires(grapeTag)
                 .requires(grapeTag)
@@ -255,13 +254,13 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .save(exporter);
     }
 
-    protected void generateMiscShaped(RecipeOutput exporter) {
+    protected void generateMiscShaped(final RecipeOutput exporter) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.ROASTED_PUMPKIN_SEEDS)
                 .pattern("123")
                 .pattern(" 4 ")
                 .define('1', Items.PUMPKIN_SEEDS)
                 .define('3', Content.PEPPER.asItem())
-                .define('2', independentTag("salts"))
+                .define('2', commonTag("salts"))
                 .define('4', Content.FRYING_PAN)
                 .unlockedBy("has_pumpkin_seed", RecipeProvider.has(Items.PUMPKIN_SEEDS))
                 .save(exporter);
@@ -270,7 +269,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern(" 4 ")
                 .define('1', Items.SUNFLOWER)
                 .define('3', Content.PEPPER.asItem())
-                .define('2', independentTag("salts"))
+                .define('2', commonTag("salts"))
                 .define('4', Content.FRYING_PAN)
                 .unlockedBy("has_sunflower", RecipeProvider.has(Items.SUNFLOWER))
                 .save(exporter);
@@ -281,28 +280,28 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .define('1', Items.EGG)
                 .define('2', Items.SUGAR)
                 .define('3', Items.PUMPKIN)
-                .define('4', independentTag("flour"))
+                .define('4', commonTag("flour"))
                 .define('5', Content.CINNAMON)
-                .define('6', independentTag("salts"))
-                .define('7', independentTag("butters"))
-                .define('8', independentTag("vanilla"))
+                .define('6', commonTag("salts"))
+                .define('7', commonTag("butters"))
+                .define('8', commonTag("vanilla"))
                 .unlockedBy("has_pumpkin", RecipeProvider.has(Items.PUMPKIN))
                 .unlockedBy("has_cinnamon", RecipeProvider.has(Content.CINNAMON))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.CORN_BREAD)
                 .pattern("111")
-                .define('1', independentTag("corn"))
+                .define('1', commonTag("corn"))
                 .unlockedBy("has_corn", RecipeProvider.has(Content.CORN.asItem()))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.PUMPKIN_SOUP, 2)
                 .pattern("123")
                 .pattern(" 5 ")
                 .pattern("464")
-                .define('1', independentTag("onions"))
-                .define('2', independentTag("garlic"))
+                .define('1', commonTag("onions"))
+                .define('2', commonTag("garlic"))
                 .define('3', Content.PEPPER.asItem())
                 .define('4', Items.PUMPKIN)
-                .define('5', independentTag("salts"))
+                .define('5', commonTag("salts"))
                 .define('6', Content.COOKING_POT)
                 .unlockedBy("has_pumpkin", RecipeProvider.has(Items.PUMPKIN))
                 .save(exporter);
@@ -310,9 +309,9 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("243")
                 .pattern("111")
                 .define('1', Items.EGG)
-                .define('2', independentTag("salts"))
+                .define('2', commonTag("salts"))
                 .define('3', Items.SUGAR)
-                .define('4', independentTag("vanilla"))
+                .define('4', commonTag("vanilla"))
                 .unlockedBy("has_egg", RecipeProvider.has(Items.EGG))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.CABBAGE_ROLL, 2)
@@ -320,11 +319,11 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("456")
                 .pattern("585")
                 .define('8', Content.FRYING_PAN)
-                .define('1', croptopia("beef_replacements"))
-                .define('2', independentTag("onions"))
-                .define('6', independentTag("rice"))
-                .define('4', independentTag("salts"))
-                .define('5', independentTag("cabbage"))
+                .define('1', croptopiaTag("beef_replacements"))
+                .define('2', commonTag("onions"))
+                .define('6', commonTag("rice"))
+                .define('4', commonTag("salts"))
+                .define('5', commonTag("cabbage"))
                 .unlockedBy("has_cabbage", RecipeProvider.has(Content.CABBAGE.asItem()))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.BORSCHT, 2)
@@ -334,12 +333,12 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .define('1', Items.CARROT)
                 .define('2', Items.POTATO)
                 .define('3', Items.BEETROOT)
-                .define('4', independentTag("onions"))
-                .define('5', independentTag("tomatoes"))
-                .define('6', independentTag("water_bottles"))
+                .define('4', commonTag("onions"))
+                .define('5', commonTag("tomatoes"))
+                .define('6', commonTag("water_bottles"))
                 .define('8', Content.COOKING_POT)
-                .define('7', independentTag("cabbage"))
-                .define('9', independentTag("garlic"))
+                .define('7', commonTag("cabbage"))
+                .define('9', commonTag("garlic"))
                 .unlockedBy("has_cabbage", RecipeProvider.has(Content.CABBAGE.asItem()))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.GOULASH)
@@ -347,11 +346,11 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("454")
                 .pattern("183")
                 .define('8', Content.FRYING_PAN)
-                .define('1', croptopia("pork_replacements"))
-                .define('3', croptopia("beef_replacements"))
-                .define('2', independentTag("onions"))
-                .define('4', independentTag("cabbage"))
-                .define('5', independentTag("tomatoes"))
+                .define('1', croptopiaTag("pork_replacements"))
+                .define('3', croptopiaTag("beef_replacements"))
+                .define('2', commonTag("onions"))
+                .define('4', commonTag("cabbage"))
+                .define('5', commonTag("tomatoes"))
                 .unlockedBy("has_cabbage", RecipeProvider.has(Content.CABBAGE.asItem()))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.BEETROOT_SALAD)
@@ -359,25 +358,25 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("745")
                 .pattern(" 6 ")
                 .define('1', Items.BEETROOT)
-                .define('4', independentTag("cheeses"))
-                .define('5', independentTag("lemons"))
+                .define('4', commonTag("cheeses"))
+                .define('5', commonTag("lemons"))
                 .define('6', Content.COOKING_POT)
-                .define('7', independentTag("lettuce"))
+                .define('7', commonTag("lettuce"))
                 .unlockedBy("has_beetroot", RecipeProvider.has(Items.BEETROOT))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.STEAMED_CRAB)
                 .pattern("1")
                 .pattern("2")
                 .pattern("3")
-                .define('1', independentTag("crabs"))
-                .define('2', independentTag("water_bottles"))
+                .define('1', commonTag("crabs"))
+                .define('2', commonTag("water_bottles"))
                 .define('3', Content.COOKING_POT)
                 .unlockedBy("has_crab", RecipeProvider.has(Content.CRAB))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.DEEP_FRIED_SHRIMP, 2)
                 .pattern("111")
                 .pattern("456")
-                .define('1', independentTag("shrimp"))
+                .define('1', commonTag("shrimp"))
                 .define('4', Items.EGG)
                 .define('6', Items.BREAD)
                 .define('5', Content.FRYING_PAN)
@@ -386,31 +385,31 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.TUNA_ROLL, 2)
                 .pattern("234")
                 .pattern(" 1 ")
-                .define('1', independentTag("tuna"))
+                .define('1', commonTag("tuna"))
                 .define('2', Items.DRIED_KELP)
-                .define('3', independentTag("rice"))
-                .define('4', independentTag("onions"))
+                .define('3', commonTag("rice"))
+                .define('4', commonTag("onions"))
                 .unlockedBy("has_tuna", RecipeProvider.has(Content.TUNA))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.FRIED_CALAMARI, 2)
                 .pattern("123")
                 .pattern("456")
-                .define('1', independentTag("calamari"))
-                .define('2', independentTag("lemons"))
-                .define('3', independentTag("olive_oils"))
-                .define('4', independentTag("flour"))
+                .define('1', commonTag("calamari"))
+                .define('2', commonTag("lemons"))
+                .define('3', commonTag("olive_oils"))
+                .define('4', commonTag("flour"))
                 .define('5', Content.FRYING_PAN)
-                .define('6', independentTag("sea_lettuce"))
+                .define('6', commonTag("sea_lettuce"))
                 .unlockedBy("has_calamari", RecipeProvider.has(Content.CALAMARI))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.CRAB_LEGS, 2)
                 .pattern("123")
                 .pattern("455")
                 .pattern(" 7 ")
-                .define('5', independentTag("crabs"))
-                .define('1', independentTag("butters"))
-                .define('2', independentTag("garlic"))
-                .define('3', independentTag("salts"))
+                .define('5', commonTag("crabs"))
+                .define('1', commonTag("butters"))
+                .define('2', commonTag("garlic"))
+                .define('3', commonTag("salts"))
                 .define('4', Content.PEPPER.asItem())
                 .define('7', Content.FRYING_PAN)
                 .unlockedBy("has_crab", RecipeProvider.has(Content.CRAB))
@@ -419,10 +418,10 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("123")
                 .pattern("455")
                 .pattern(" 7 ")
-                .define('5', independentTag("clams"))
-                .define('1', independentTag("butters"))
-                .define('2', independentTag("garlic"))
-                .define('3', independentTag("salts"))
+                .define('5', commonTag("clams"))
+                .define('1', commonTag("butters"))
+                .define('2', commonTag("garlic"))
+                .define('3', commonTag("salts"))
                 .define('4', Content.PEPPER.asItem())
                 .define('7', Content.FRYING_PAN)
                 .unlockedBy("has_clams", RecipeProvider.has(Content.CLAM))
@@ -431,11 +430,11 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("121")
                 .pattern("456")
                 .pattern(" 7 ")
-                .define('1', independentTag("oysters"))
-                .define('2', independentTag("cheeses"))
-                .define('4', independentTag("lemons"))
-                .define('5', independentTag("garlic"))
-                .define('6', independentTag("salts"))
+                .define('1', commonTag("oysters"))
+                .define('2', commonTag("cheeses"))
+                .define('4', commonTag("lemons"))
+                .define('5', commonTag("garlic"))
+                .define('6', commonTag("salts"))
                 .define('7', Content.FRYING_PAN)
                 .unlockedBy("has_oysters", RecipeProvider.has(Content.GRILLED_OYSTERS))
                 .save(exporter);
@@ -443,10 +442,10 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("123")
                 .pattern(" 4 ")
                 .pattern(" 7 ")
-                .define('1', independentTag("tomatoes"))
-                .define('2', independentTag("anchovies"))
-                .define('3', independentTag("cheeses"))
-                .define('4', independentTag("doughs"))
+                .define('1', commonTag("tomatoes"))
+                .define('2', commonTag("anchovies"))
+                .define('3', commonTag("cheeses"))
+                .define('4', commonTag("doughs"))
                 .define('7', Content.FRYING_PAN)
                 .unlockedBy("has_anchovies", RecipeProvider.has(Content.ANCHOVY))
                 .save(exporter);
@@ -454,30 +453,30 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("1 ")
                 .pattern("24")
                 .pattern("3 ")
-                .define('1', independentTag("potatoes"))
-                .define('2', independentTag("salts"))
+                .define('1', commonTag("potatoes"))
+                .define('2', commonTag("salts"))
                 .define('3', Content.MORTAR_AND_PESTLE)
-                .define('4', independentTag("milks"))
+                .define('4', commonTag("milks"))
                 .unlockedBy("has_milk", RecipeProvider.has(Items.MILK_BUCKET))
                 .save(exporter);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Content.TORTILLA, 2)
-                .requires(independentTag("flour"))
+                .requires(commonTag("flour"))
                 .requires(Content.FRYING_PAN)
-                .requires(independentTag("water_bottles"))
-                .unlockedBy("took_flour", RecipeProvider.has(independentTag("flour")))
+                .requires(commonTag("water_bottles"))
+                .unlockedBy("took_flour", RecipeProvider.has(commonTag("flour")))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.SWEET_CREPES, 1)
                 .pattern("123")
                 .pattern("4 5")
                 .pattern(" 6 ")
-                .define('1', independentTag("flour"))
+                .define('1', commonTag("flour"))
                 .define('2', Items.EGG)
-                .define('3', independentTag("milks"))
-                .define('4', independentTag("jams"))
+                .define('3', commonTag("milks"))
+                .define('4', commonTag("jams"))
                 .define('5', Items.SUGAR)
                 .define('6', Content.FRYING_PAN)
-                .unlockedBy("took_flour", RecipeProvider.has(independentTag("flour")))
+                .unlockedBy("took_flour", RecipeProvider.has(commonTag("flour")))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.BAKED_CREPES, 1)
@@ -485,11 +484,11 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("356")
                 .pattern(" 7 ")
                 .define('1', Items.EGG)
-                .define('2', independentTag("flour"))
-                .define('3', independentTag("milks"))
+                .define('2', commonTag("flour"))
+                .define('3', commonTag("milks"))
                 .define('7', Content.FRYING_PAN)
-                .define('6', independentTag("cheeses"))
-                .define('5', independentTag("spinach"))
+                .define('6', commonTag("cheeses"))
+                .define('5', commonTag("spinach"))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.QUICHE, 1)
@@ -497,22 +496,22 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("234")
                 .pattern("5 6")
                 .define('1', Content.FRYING_PAN)
-                .define('5', independentTag("flour"))
-                .define('6', independentTag("onions"))
-                .define('2', independentTag("milks"))
+                .define('5', commonTag("flour"))
+                .define('6', commonTag("onions"))
+                .define('2', commonTag("milks"))
                 .define('3', Items.EGG)
-                .define('4', independentTag("spinach"))
+                .define('4', commonTag("spinach"))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.DAUPHINE_POTATOES, 1)
                 .pattern("213")
                 .pattern("456")
                 .define('1', Content.FRYING_PAN)
-                .define('2', independentTag("water_bottles"))
-                .define('3', independentTag("milks"))
-                .define('4', independentTag("butters"))
-                .define('5', independentTag("flour"))
-                .define('6', independentTag("olive_oils"))
+                .define('2', commonTag("water_bottles"))
+                .define('3', commonTag("milks"))
+                .define('4', commonTag("butters"))
+                .define('5', commonTag("flour"))
+                .define('6', commonTag("olive_oils"))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.CROQUE_MONSIEUR, 1)
@@ -521,10 +520,10 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("435")
                 .define('1', Content.FRYING_PAN)
                 .define('2', Items.BREAD)
-                .define('3', independentTag("cheeses"))
-                .define('4', croptopia("pork_replacements"))
-                .define('5', independentTag("butters"))
-                .define('6', independentTag("flour"))
+                .define('3', commonTag("cheeses"))
+                .define('4', croptopiaTag("pork_replacements"))
+                .define('5', commonTag("butters"))
+                .define('6', commonTag("flour"))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.CROQUE_MADAME, 1)
@@ -533,10 +532,10 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("435")
                 .define('1', Content.FRYING_PAN)
                 .define('2', Items.BREAD)
-                .define('3', independentTag("cheeses"))
-                .define('4', croptopia("pork_replacements"))
-                .define('5', independentTag("butters"))
-                .define('6', independentTag("flour"))
+                .define('3', commonTag("cheeses"))
+                .define('4', croptopiaTag("pork_replacements"))
+                .define('5', commonTag("butters"))
+                .define('6', commonTag("flour"))
                 .define('7', Items.EGG)
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
@@ -551,7 +550,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("565")
                 .define('1', Items.EGG)
                 .define('2', Items.SUGAR)
-                .define('5', independentTag("almonds"))
+                .define('5', commonTag("almonds"))
                 .define('6', Content.FOOD_PRESS)
                 .unlockedBy("has_food_press", RecipeProvider.has(Content.FOOD_PRESS))
                 .save(exporter);
@@ -564,14 +563,14 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .define('2', Content.RAW_BACON)
                 .define('3', Content.HASHED_BROWN)
                 .define('4', Content.BAKED_BEANS)
-                .define('5', independentTag("sausages"))
+                .define('5', commonTag("sausages"))
                 .define('6', Content.TOAST)
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.GROUND_PORK, 2)
                 .pattern("1")
                 .pattern("2")
-                .define('1', croptopia("pork_replacements"))
+                .define('1', croptopiaTag("pork_replacements"))
                 .define('2', Content.FOOD_PRESS)
                 .unlockedBy("has_food_press", RecipeProvider.has(Content.FOOD_PRESS))
                 .save(exporter);
@@ -579,22 +578,22 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("1")
                 .pattern("2")
                 .pattern("3")
-                .define('1', independentTag("ground_pork"))
-                .define('2', independentTag("salts"))
-                .define('3', independentTag("paprika"))
+                .define('1', commonTag("ground_pork"))
+                .define('2', commonTag("salts"))
+                .define('3', commonTag("paprika"))
                 .unlockedBy("has_ground_pork", RecipeProvider.has(Content.GROUND_PORK))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Content.CINNAMON_ROLL, 3)
                 .pattern("123")
                 .pattern("456")
                 .pattern("798")
-                .define('1', independentTag("milks"))
-                .define('2', independentTag("doughs"))
+                .define('1', commonTag("milks"))
+                .define('2', commonTag("doughs"))
                 .define('3', Items.EGG)
-                .define('4', independentTag("butters"))
-                .define('5', independentTag("salts"))
+                .define('4', commonTag("butters"))
+                .define('5', commonTag("salts"))
                 .define('6', Items.SUGAR)
-                .define('7', independentTag("cinnamon"))
+                .define('7', commonTag("cinnamon"))
                 .define('8', Content.WHIPPING_CREAM)
                 .define('9', Content.FRYING_PAN)
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
@@ -603,9 +602,9 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("123")
                 .pattern(" 4 ")
                 .define('4', Content.KNIFE)
-                .define('1', independentTag("potatoes"))
+                .define('1', commonTag("potatoes"))
                 .define('2', Content.FRYING_PAN)
-                .define('3', independentTag("olive_oils"))
+                .define('3', commonTag("olive_oils"))
                 .unlockedBy("has_frying_pan", RecipeProvider.has(Content.FRYING_PAN))
                 .save(exporter);
 
@@ -614,7 +613,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("121")
                 .pattern("111")
                 .define('1', Items.BEEF)
-                .define('2', independentTag("salts"))
+                .define('2', commonTag("salts"))
                 .unlockedBy("has_salt", RecipeProvider.has(Content.SALT))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Content.PORK_JERKY, 14)
@@ -622,20 +621,19 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("121")
                 .pattern("111")
                 .define('1', Items.PORKCHOP)
-                .define('2', independentTag("salts"))
+                .define('2', commonTag("salts"))
                 .unlockedBy("has_salt", RecipeProvider.has(Content.SALT))
                 .save(exporter);
         //cooked frog leg	furnace
 
     }
 
-    private TagKey<Item> croptopia(String name) {
+    private TagKey<Item> croptopiaTag(final String name) {
         return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, name));
     }
 
-    public static TagKey<Item> independentTag(String name) {
-        IdentifierAccessor accessor = (IdentifierAccessor) Croptopia.createIdentifier(name);
-        accessor.setNamespace("${dependent}"); // lmao
+    public static TagKey<Item> commonTag(final String name) {
+        IdentifierAccessor accessor = (IdentifierAccessor) Croptopia.createCommonIdentifier(name);
         return TagKey.create(Registries.ITEM, (ResourceLocation) accessor);
     }
 

@@ -42,9 +42,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
-
-
-    public CroptopiaIndependentItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
+    public CroptopiaIndependentItemTagProvider(final FabricDataOutput output, final CompletableFuture<HolderLookup.Provider> completableFuture) {
         super(output, completableFuture, null);
         ((TagProviderAccessor) this).setPathProvider(
                 new DependentPathProvider(output,
@@ -58,7 +56,7 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider arg) {
+    protected void addTags(final HolderLookup.Provider arg) {
         generateCrops();
         generateSeedsSaplings();
         generateOtherEnums();
@@ -66,13 +64,13 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
     }
 
     protected void generateCrops() {
-        for (FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
+        for (final FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
             createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             if (crop.getTagCategory() != TagCategory.CROPS) { // don't double only-crops
                 createCategoryTag(TagCategory.CROPS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             }
         }
-        for (TreeCrop crop : TreeCrop.TREE_CROPS) {
+        for (final TreeCrop crop : TreeCrop.TREE_CROPS) {
             createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             if (crop.getTagCategory() != TagCategory.CROPS) { // don't double only-crops
                 createCategoryTag(TagCategory.CROPS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
@@ -81,7 +79,7 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
                 createCategoryTag(TagCategory.FRUITS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
             }
         }
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
         }
         // the following four are all done above with a category tag of crops I believe
@@ -93,17 +91,17 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
 
     protected void generateSeedsSaplings() {
         // these should be singular, they are pluralized in the method, this is because forge seed tags don't include the "seed" portion.
-        for (FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
+        for (final FarmlandCrop crop : FarmlandCrop.FARMLAND_CROPS) {
             if (crop == Content.CHILE_PEPPER) {
                 createSeedSaplingTag("seeds", "chilepepper", crop.getSeedItem());
             } else {
                 createSeedSaplingTag("seeds", crop.getLowercaseName(), crop.getSeedItem());
             }
         }
-        for (TreeCrop crop : TreeCrop.TREE_CROPS) {
+        for (final TreeCrop crop : TreeCrop.TREE_CROPS) {
             createSeedSaplingTag("saplings", crop.getLowercaseName(), crop.getSaplingItem());
         }
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             createSeedSaplingTag("saplings", crop.getLowercaseName(), crop.getSapling());
         }
     }

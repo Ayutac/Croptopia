@@ -14,10 +14,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-
 public class CroptopiaBiomeTagProvider extends TagsProvider<Biome> {
 
-    protected CroptopiaBiomeTagProvider(PackOutput dataGenerator, CompletableFuture<HolderLookup.Provider> completableFuture) {
+    protected CroptopiaBiomeTagProvider(final PackOutput dataGenerator, final CompletableFuture<HolderLookup.Provider> completableFuture) {
         super(dataGenerator, Registries.BIOME, completableFuture);
     }
 
@@ -85,7 +84,7 @@ public class CroptopiaBiomeTagProvider extends TagsProvider<Biome> {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(final HolderLookup.Provider provider) {
         final Set<BiomeTagPair> biomePairs = getBiomeTagPairs();
 
         for (final BiomeTagPair biomePair : biomePairs) {

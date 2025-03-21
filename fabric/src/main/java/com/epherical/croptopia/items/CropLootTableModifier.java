@@ -28,9 +28,9 @@ public class CropLootTableModifier {
 
     public static void init() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
-            ResourceLocation id = key.location();
+            final ResourceLocation id = key.location();
             if (id.getNamespace().equalsIgnoreCase("minecraft")) {
-                String path = id.getPath();
+                final String path = id.getPath();
                 switch (path) {
                     case "entities/cod", "entities/salmon", "entities/tropical_fish" -> {
                         LootPool.Builder builder = LootPool.lootPool();
@@ -64,7 +64,7 @@ public class CropLootTableModifier {
                         LootPool.Builder builder = LootPool.lootPool();
                         builder.setRolls(ConstantValue.exactly(1));
                         builder.setBonusRolls(ConstantValue.exactly(0));
-                        for (Item seed : CroptopiaMod.seeds) {
+                        for (Item seed : CroptopiaMod.SEEDS) {
                             builder.add(
                                     LootItem.lootTableItem(seed)
                                             .setWeight(5)

@@ -10,18 +10,17 @@ import net.minecraft.data.models.model.ModelTemplates;
 
 public class CroptopiaModelProvider extends FabricModelProvider {
 
-
-    public CroptopiaModelProvider(FabricDataOutput output) {
+    public CroptopiaModelProvider(final FabricDataOutput output) {
         super(output);
     }
 
     @Override
-    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+    public void generateBlockStateModels(final BlockModelGenerators blockStateModelGenerator) {
 
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+    public void generateItemModels(final ItemModelGenerators itemModelGenerator) {
         itemModelGenerator.generateFlatItem(Content.ROASTED_PUMPKIN_SEEDS, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(Content.ROASTED_SUNFLOWER_SEEDS, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(Content.PUMPKIN_BARS, ModelTemplates.FLAT_ITEM);

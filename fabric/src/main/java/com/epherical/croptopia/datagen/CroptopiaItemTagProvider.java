@@ -18,7 +18,6 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
         super(output, completableFuture);
     }
 
-
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         generateSaplings();
@@ -31,26 +30,25 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
     }
 
     protected void generateSeedsEatenByTag(TagKey<Item> key) {
-        FabricTagBuilder animalFood = getOrCreateTagBuilder(key);
-        for (Item seed : CroptopiaMod.seeds) {
+        final FabricTagBuilder animalFood = getOrCreateTagBuilder(key);
+        for (final Item seed : CroptopiaMod.SEEDS) {
             animalFood.add(seed);
         }
     }
 
-
     protected void generateSaplings() {
-        FabricTagBuilder saplings = getOrCreateTagBuilder(ItemTags.SAPLINGS);
-        for (TreeCrop crop : TreeCrop.copy()) {
+        final FabricTagBuilder saplings = getOrCreateTagBuilder(ItemTags.SAPLINGS);
+        for (final TreeCrop crop : TreeCrop.copy()) {
             saplings.add(crop.getSaplingItem());
         }
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             saplings.add(crop.getSapling());
         }
     }
 
     protected void generateBarkLogs() {
-        FabricTagBuilder burnableLog = getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
-        for (Tree crop : Tree.copy()) {
+        final FabricTagBuilder burnableLog = getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
+        for (final Tree crop : Tree.copy()) {
             // add different log types to log tag of this crop
             tag(crop.getLogItemTag())
                     .add()
@@ -64,22 +62,22 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
     }
 
     protected void generateLeaves() {
-        FabricTagBuilder leaves = getOrCreateTagBuilder(ItemTags.LEAVES);
-        for (TreeCrop crop : TreeCrop.copy()) {
+        final FabricTagBuilder leaves = getOrCreateTagBuilder(ItemTags.LEAVES);
+        for (final TreeCrop crop : TreeCrop.copy()) {
             leaves.add(crop.getLeaves().asItem());
         }
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             leaves.add(crop.getLeaves().asItem());
         }
     }
 
     protected void generateMisc() {
-        FabricTagBuilder crops = getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS);
-        for (Item seed : CroptopiaMod.seeds) {
+        final FabricTagBuilder crops = getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS);
+        for (final Item seed : CroptopiaMod.SEEDS) {
             crops.add(seed);
         }
         // explicitly used as dolphin food in vanilla
-        FabricTagBuilder fishes = getOrCreateTagBuilder(ItemTags.FISHES);
+        final FabricTagBuilder fishes = getOrCreateTagBuilder(ItemTags.FISHES);
         fishes.add(Content.ANCHOVY.asItem());
         fishes.add(Content.CALAMARI.asItem());
         fishes.add(Content.GLOWING_CALAMARI.asItem());
@@ -90,7 +88,7 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
         fishes.add(Content.SHRIMP.asItem());
         fishes.add(Content.TUNA.asItem());
         // fox food: all berries added by croptopia
-        FabricTagBuilder foxFood = getOrCreateTagBuilder(ItemTags.FOX_FOOD);
+        final FabricTagBuilder foxFood = getOrCreateTagBuilder(ItemTags.FOX_FOOD);
         foxFood.add(Content.BLACKBERRY.asItem());
         foxFood.add(Content.BLUEBERRY.asItem());
         foxFood.add(Content.CRANBERRY.asItem());
@@ -98,7 +96,7 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
         foxFood.add(Content.RASPBERRY.asItem());
         foxFood.add(Content.STRAWBERRY.asItem());
         // piglin food: more cannibalism (which already happens in vanilla)
-        FabricTagBuilder piglinFood = getOrCreateTagBuilder(ItemTags.PIGLIN_FOOD);
+        final FabricTagBuilder piglinFood = getOrCreateTagBuilder(ItemTags.PIGLIN_FOOD);
         piglinFood.add(Content.HAM_SANDWICH);
         piglinFood.add(Content.PEPPERONI);
         piglinFood.add(Content.PORK_AND_BEANS);

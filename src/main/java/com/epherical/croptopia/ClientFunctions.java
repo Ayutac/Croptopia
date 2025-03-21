@@ -17,10 +17,10 @@ public class ClientFunctions {
     }
 
     public Block[] leaves() {
-        return CroptopiaMod.leafBlocks.toArray(Block[]::new);
+        return CroptopiaMod.LEAF_BLOCKS.toArray(Block[]::new);
     }
 
     public void registerBlockLayers(Consumer<Block> blockConsumer) {
-        CroptopiaMod.cropBlocks.forEach(blockConsumer);
+        CroptopiaMod.CROP_BLOCKS.forEach(blockConsumer);
     }
 }

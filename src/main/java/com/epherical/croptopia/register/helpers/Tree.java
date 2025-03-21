@@ -211,8 +211,8 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
         strippedWood = register.register(createIdentifier("stripped_" + name + "_wood"), () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).ignitedByLava().sound(SoundType.WOOD).strength(2.0F)));
         leaves = register.register(createIdentifier(name + "_leaves"), CroptopiaMod::createRegularLeavesBlock);
         saplingBlock = register.register(createIdentifier(name + "_sapling"), () -> new CroptopiaSaplingBlock(createTree(configuredFeatureKey), createSaplingSettings().ignitedByLava()));
-        leafBlocks.add(leaves);
-        cropBlocks.add(saplingBlock);
+        LEAF_BLOCKS.add(leaves);
+        CROP_BLOCKS.add(saplingBlock);
     }
 
     private static TreeGrower createTree(ResourceKey<ConfiguredFeature<?, ?>> key) {

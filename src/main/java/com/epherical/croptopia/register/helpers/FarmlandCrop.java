@@ -102,7 +102,7 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
 
     public void registerBlock(RegisterFunction<Block> register) {
         this.cropBlock = register.register(createIdentifier(this.name + "_crop"), () -> new CroptopiaCropBlock(createCropSettings()));
-        CroptopiaMod.cropBlocks.add(this.asBlock());
+        CroptopiaMod.CROP_BLOCKS.add(this.asBlock());
     }
 
     /*public static void registerItems(RegisterFunction<Item> register) {
@@ -131,8 +131,8 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
         } else {
             this.seedItem = register.register(createIdentifier(this.name + "_seed"), () -> new SeedItem(cropBlock, createGroup(), biomes));
         }
-        cropItems.add(this.asItem());
-        seeds.add(this.seedItem);
+        CROP_ITEMS.add(this.asItem());
+        SEEDS.add(this.seedItem);
     }
 
 }

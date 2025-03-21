@@ -158,7 +158,7 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
     public void registerItem(RegisterFunction<Item> register) {
         if (!Objects.equals(name(), ItemNamesV2.APPLE)) {
             item = register.register(createIdentifier(name()), () -> new CropItem(createGroup().food(createFood(constructor))));
-            CroptopiaMod.cropItems.add(asItem());
+            CroptopiaMod.CROP_ITEMS.add(asItem());
         } else {
             item = Items.APPLE;
         }
@@ -169,9 +169,9 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
         saplingBlock = register.register(createIdentifier(name() + "_sapling"), () -> new CroptopiaSaplingBlock(createTree(configuredFeatureKey), createSaplingSettings()));
         leaves = register.register(createIdentifier(name() + "_crop"), CroptopiaMod::createLeavesBlock);
 
-        cropBlocks.add(asBlock());
-        cropBlocks.add(saplingBlock);
-        leafBlocks.add(asBlock());
+        CROP_BLOCKS.add(asBlock());
+        CROP_BLOCKS.add(saplingBlock);
+        LEAF_BLOCKS.add(asBlock());
     }
 
     private static TreeGrower createTree(ResourceKey<ConfiguredFeature<?, ?>> key) {

@@ -1,9 +1,7 @@
 package com.epherical.croptopia.loot;
 
 import com.epherical.croptopia.CroptopiaMod;
-import com.epherical.croptopia.items.SeedItem;
 import com.google.common.base.Suppliers;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -43,7 +41,7 @@ public class SpawnChestModifier extends LootModifier {
         LootPool.Builder builder = new LootPool.Builder();
         builder.setRolls(ConstantValue.exactly(1));
         builder.setBonusRolls(ConstantValue.exactly(0));
-        for (Item seed : CroptopiaMod.seeds) {
+        for (Item seed : CroptopiaMod.SEEDS) {
             builder.add(LootItem.lootTableItem(seed)
                     .setWeight(2)
                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(3, 8), false))

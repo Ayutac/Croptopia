@@ -1,6 +1,7 @@
 package com.epherical.croptopia;
 
 import com.epherical.croptopia.common.ItemNamesV2;
+import com.epherical.croptopia.common.MiscNames;
 import com.epherical.croptopia.config.CroptopiaConfig;
 import com.epherical.croptopia.dependencies.Patchouli;
 import com.epherical.croptopia.generator.BiomeModifiers;
@@ -36,12 +37,11 @@ import java.util.Comparator;
 import java.util.List;
 
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
-import static com.epherical.croptopia.common.MiscNames.MOD_ID;
 
 
 public class Croptopia implements ModInitializer {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private final boolean devEnvironment = Boolean.getBoolean(MOD_ID + ".dev");
+    private final boolean devEnvironment = Boolean.getBoolean(MiscNames.MOD_ID + ".dev");
 
     public static CroptopiaMod mod;
 
@@ -50,7 +50,7 @@ public class Croptopia implements ModInitializer {
             .title(Component.translatable("itemGroup.croptopia"))
             .displayItems((featureFlagSet, output) ->
                     BuiltInRegistries.ITEM.entrySet().stream()
-                            .filter(entry -> entry.getKey().location().getNamespace().equals(MOD_ID))
+                            .filter(entry -> entry.getKey().location().getNamespace().equals(MiscNames.MOD_ID))
                             .sorted(Comparator.comparing(entry -> BuiltInRegistries.ITEM.getId(entry.getValue())))
                             .forEach(entry -> output.accept(entry.getValue())))
             .icon(() -> new ItemStack(Content.COFFEE))
@@ -61,7 +61,7 @@ public class Croptopia implements ModInitializer {
     public void onInitialize() {
         mod = new CroptopiaMod(new FabricAdapter(), new CroptopiaConfig(HoconConfigurationLoader.builder(), "croptopia_v3.conf"));
 
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MOD_ID, "croptopia"), CROPTOPIA_ITEM_GROUP);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "croptopia"), CROPTOPIA_ITEM_GROUP);
 
 
 
@@ -120,12 +120,16 @@ public class Croptopia implements ModInitializer {
         modifyVillagers();
     }
 
-    public static ResourceLocation createIdentifier(String name) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    public static ResourceLocation createIdentifier(final String name) {
+        return ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, name);
+    }
+
+    public static ResourceLocation createCommonIdentifier(final String name) {
+        return ResourceLocation.fromNamespaceAndPath(MiscNames.COMMON_TAG, name);
     }
 
     private void modifyAxeBlockStripping() {
-        for (Tree crop : Tree.copy()) {
+        for (final Tree crop : Tree.copy()) {
             StrippableBlockRegistry.register(crop.getLog(), crop.getStrippedLog());
             StrippableBlockRegistry.register(crop.getWood(), crop.getStrippedWood());
         }
@@ -135,7 +139,7 @@ public class Croptopia implements ModInitializer {
 
     private void modifyVillagers() {
         // Allow villagers to compost croptopia seeds.
-        for (Item seed : CroptopiaMod.seeds) {
+        for (Item seed : CroptopiaMod.SEEDS) {
             VillagerInteractionRegistries.registerCompostable(seed);
         }
         // Allow villagers to consume(?) harvested croptopia foods.
@@ -145,6 +149,6 @@ public class Croptopia implements ModInitializer {
                     VillagerInteractionRegistries.registerCollectable(item);
                 });
         // this is the "wanted" items for villagers.
-        CroptopiaMod.seeds.forEach(VillagerInteractionRegistries::registerCollectable);
+        CroptopiaMod.SEEDS.forEach(VillagerInteractionRegistries::registerCollectable);
     }
 }

@@ -1,7 +1,6 @@
 package com.epherical.croptopia.mixin;
 
 import com.epherical.croptopia.CroptopiaMod;
-import com.epherical.croptopia.register.Content;
 import it.unimi.dsi.fastutil.objects.Object2IntArrayMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.world.SimpleContainer;
@@ -13,8 +12,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.List;
 
 @Mixin(value = WorkAtComposter.class, priority = 999)
 public class FarmerWorkTaskMixin {
@@ -28,7 +25,7 @@ public class FarmerWorkTaskMixin {
         for (int i = 0; i < simpleInventory.getContainerSize(); ++i) {
             ItemStack inventoryItem = simpleInventory.getItem(i);
             Item regularItem = inventoryItem.getItem();
-            if (CroptopiaMod.cropItems.contains(regularItem) && inventoryItem.getCount() > 0) {
+            if (CroptopiaMod.CROP_ITEMS.contains(regularItem) && inventoryItem.getCount() > 0) {
                 if (heldCrops.containsKey(regularItem)) {
                     heldCrops.put(regularItem,heldCrops.getInt(regularItem) + inventoryItem.getCount());
                 } else {

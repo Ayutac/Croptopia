@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 public class DrinkEvent {
 
     public static final Event<Drink> DRINK = EventFactory.createArrayBacked(Drink.class, drinks -> (item, entity) -> {
-        for (Drink drink : drinks) {
+        for (final Drink drink : drinks) {
             drink.onDrink(item, entity);
         }
     });
