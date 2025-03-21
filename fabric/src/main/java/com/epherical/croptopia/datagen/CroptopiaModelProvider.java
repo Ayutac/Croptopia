@@ -1,12 +1,27 @@
 package com.epherical.croptopia.datagen;
 
+import com.epherical.croptopia.blocks.LeafCropBlock;
+import com.epherical.croptopia.common.MiscNames;
 import com.epherical.croptopia.register.Content;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import com.epherical.croptopia.register.helpers.TreeCrop;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.properties.Property;
+
+import java.util.Optional;
 
 public class CroptopiaModelProvider extends FabricModelProvider {
 
@@ -15,8 +30,43 @@ public class CroptopiaModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(final BlockModelGenerators blockStateModelGenerator) {
+    public void generateBlockStateModels(final BlockModelGenerators gens) {
+        generateTreeCropModels(gens);
+    }
 
+    private void generateTreeCropModels(final BlockModelGenerators gens) {
+        final String oakLeaves = "oak_leaves";
+        final String darkOakLeaves = "dark_oak_leaves";
+        final String jungleLeaves = "jungle_leaves";
+        final String white = "white";
+        final String yellow = "yellow";
+        final String pink = "pink";
+        createTreeCropBlock(gens, Content.ALMOND, darkOakLeaves, white);
+        createTreeCropBlock(gens, Content.APPLE, oakLeaves, white);
+        createTreeCropBlock(gens, Content.APRICOT, oakLeaves, white);
+        createTreeCropBlock(gens, Content.AVOCADO, oakLeaves, yellow);
+        createTreeCropBlock(gens, Content.BANANA, jungleLeaves, pink);
+        createTreeCropBlock(gens, Content.CASHEW, darkOakLeaves, pink);
+        createTreeCropBlock(gens, Content.CHERRY, oakLeaves, pink);
+        createTreeCropBlock(gens, Content.COCONUT, jungleLeaves, yellow);
+        createTreeCropBlock(gens, Content.DATE, jungleLeaves, yellow);
+        createTreeCropBlock(gens, Content.DRAGONFRUIT, jungleLeaves, white);
+        createTreeCropBlock(gens, Content.FIG, jungleLeaves, pink);
+        createTreeCropBlock(gens, Content.GRAPEFRUIT, jungleLeaves, white);
+        createTreeCropBlock(gens, Content.KUMQUAT, jungleLeaves, white);
+        createTreeCropBlock(gens, Content.LEMON, oakLeaves, white);
+        createTreeCropBlock(gens, Content.LIME, oakLeaves, white);
+        createTreeCropBlock(gens, Content.MANGO, jungleLeaves, yellow);
+        createTreeCropBlock(gens, Content.NECTARINE, oakLeaves, pink);
+        createTreeCropBlock(gens, Content.NUTMEG, jungleLeaves, white);
+        createTreeCropBlock(gens, Content.ORANGE, oakLeaves, white);
+        createTreeCropBlock(gens, Content.PEACH, oakLeaves, pink);
+        createTreeCropBlock(gens, Content.PEAR, oakLeaves, white);
+        createTreeCropBlock(gens, Content.PECAN, darkOakLeaves, yellow);
+        createTreeCropBlock(gens, Content.PERSIMMON, oakLeaves, yellow);
+        createTreeCropBlock(gens, Content.PLUM, oakLeaves, white);
+        createTreeCropBlock(gens, Content.STARFRUIT, oakLeaves, pink);
+        createTreeCropBlock(gens, Content.WALNUT, darkOakLeaves, yellow);
     }
 
     @Override
@@ -71,5 +121,45 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(Content.SUNNY_SIDE_EGGS, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(Content.SWEET_CREPES, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(Content.THE_BIG_BREAKFAST, ModelTemplates.FLAT_ITEM);
+    }
+
+    protected void createTreeCropBlock(final BlockModelGenerators gens, final TreeCrop treeCrop, final String vanillaLeafType, final String flowerColor) {
+        final TextureMapping texture0 = new TextureMapping();
+        texture0.put(TextureSlot.ALL, ResourceLocation.withDefaultNamespace("block/" + vanillaLeafType));
+        texture0.put(TextureSlot.CROP, ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + flowerColor + "_tree_bud"));
+        final TextureMapping texture1 = new TextureMapping();
+        texture1.put(TextureSlot.ALL, ResourceLocation.withDefaultNamespace("block/" + vanillaLeafType));
+        texture1.put(TextureSlot.CROP, ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + flowerColor + "_tree_flower"));
+        final TextureMapping texture2 = new TextureMapping();
+        texture2.put(TextureSlot.ALL, ResourceLocation.withDefaultNamespace("block/" + vanillaLeafType));
+        texture2.put(TextureSlot.CROP, ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + treeCrop.name() + "_unripe"));
+        final TextureMapping texture3 = new TextureMapping();
+        texture3.put(TextureSlot.ALL, ResourceLocation.withDefaultNamespace("block/" + vanillaLeafType));
+        texture3.put(TextureSlot.CROP, ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/" + treeCrop.name() + "_ripe"));
+        final ModelTemplate modelTemplate = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, "block/croptopia_leaves")), Optional.empty(), TextureSlot.ALL, TextureSlot.CROP);
+        final Property<Integer> ageProperty = ((LeafCropBlock)treeCrop.asBlock()).getAgeProperty();
+        // the following is mainly copied from BlockModelGenerators#createCropBlock
+        final Int2ObjectMap<ResourceLocation> int2ObjectMap = new Int2ObjectOpenHashMap<>();
+        final PropertyDispatch propertyDispatch = PropertyDispatch.property(ageProperty).generate((integer) -> {
+            final ResourceLocation resourceLocation = int2ObjectMap.computeIfAbsent(integer, (j) -> gens.createSuffixedVariant(treeCrop.asBlock(), "_stage" + integer, modelTemplate,
+                    rl -> {
+                        if (rl.getPath().endsWith("_stage0")) {
+                            return texture0;
+                        }
+                        if (rl.getPath().endsWith("_stage1")) {
+                            return texture1;
+                        }
+                        if (rl.getPath().endsWith("_stage2")) {
+                            return texture2;
+                        }
+                        if (rl.getPath().endsWith("_stage3")) {
+                            return texture3;
+                        }
+                        throw new IllegalArgumentException("Unknown Identifier: " + rl);
+                    }));
+            return Variant.variant().with(VariantProperties.MODEL, resourceLocation);
+        });
+        gens.blockStateOutput.accept(MultiVariantGenerator.multiVariant(treeCrop.asBlock()).with(propertyDispatch));
+        gens.createCrossBlockWithDefaultItem(treeCrop.getSaplingBlock(), BlockModelGenerators.TintState.TINTED);
     }
 }
