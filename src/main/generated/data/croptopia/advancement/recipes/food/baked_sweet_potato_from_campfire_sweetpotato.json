@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sweetpotato": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:sweetpotatos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:baked_sweet_potato_from_campfire_sweetpotato"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sweetpotato"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:baked_sweet_potato_from_campfire_sweetpotato"
+    ]
+  }
+}

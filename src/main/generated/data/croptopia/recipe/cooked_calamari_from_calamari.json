@@ -2,9 +2,9 @@
   "type": "minecraft:smelting",
   "category": "food",
   "cookingtime": 200,
-  "experience": 0.2,
+  "experience": 0.35,
   "ingredient": {
-    "item": "croptopia:calamari"
+    "tag": "c:calamari"
   },
   "result": {
     "id": "croptopia:cooked_calamari"

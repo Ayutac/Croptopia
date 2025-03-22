@@ -1,10 +1,12 @@
 package com.epherical.croptopia.datagen;
 
-import com.epherical.croptopia.Croptopia;
+import com.epherical.croptopia.CroptopiaMod;
 import com.epherical.croptopia.common.ItemNamesV2;
 import com.epherical.croptopia.common.MiscNames;
+import com.epherical.croptopia.common.Tags;
 import com.epherical.croptopia.mixin.datagen.IdentifierAccessor;
 import com.epherical.croptopia.register.Content;
+import com.epherical.croptopia.register.helpers.CroptopiaItem;
 import com.epherical.croptopia.register.helpers.FarmlandCrop;
 import com.epherical.croptopia.register.helpers.IceCream;
 import com.epherical.croptopia.register.helpers.Jam;
@@ -13,11 +15,11 @@ import com.epherical.croptopia.register.helpers.Pie;
 import com.epherical.croptopia.register.helpers.Smoothie;
 import com.epherical.croptopia.register.helpers.Tree;
 import com.epherical.croptopia.register.helpers.TreeCrop;
-import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.google.common.collect.ImmutableMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.Util;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -146,20 +148,8 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    protected void offerFoodCookingRecipe(final RecipeOutput exporter, final ItemLike input, final String inputName, final ItemLike output, final int time, final float exp, final boolean campFire) {
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.FOOD, output, exp, time)
-                .unlockedBy("has_" + inputName, RecipeProvider.has(input))
-                .save(exporter, RecipeProvider.getItemName(output) + "_from_" + inputName);
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), RecipeCategory.FOOD, output, exp, time / 2)
-                .unlockedBy("has_" + inputName, RecipeProvider.has(input))
-                .save(exporter, RecipeProvider.getItemName(output) + "_from_smoking_" + inputName);
-        // TODO campfire
-    }
-
     protected void generateFurnace(final RecipeOutput exporter) {
-        final int time = 200; // default vanilla time
-        final float exp = 0.2f; // default vanilla experience
-        var cookingList = new ImmutableMap.Builder<ItemConvertibleWithPlural, ItemLike>()
+        var cookingList = new ImmutableMap.Builder<CroptopiaItem, ItemLike>()
                 .put(Content.BLACKBEAN, Content.BAKED_BEANS)
                 .put(Content.SWEETPOTATO, Content.BAKED_SWEET_POTATO)
                 .put(Content.YAM, Content.BAKED_YAM)
@@ -170,16 +160,51 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
                 .put(Content.TUNA, Content.COOKED_TUNA)
                 .put(Content.CORN, Content.POPCORN)
                 .put(Content.GRAPE, Content.RAISINS)
+                .put(Content.RAW_BACON, Content.COOKED_BACON)
                 .build();
-        cookingList.forEach((input, output) -> offerFoodCookingRecipe(exporter, input, input.getLowercaseName(), output, time, exp, true));
-        // raw bacon is not yet moved
-        offerFoodCookingRecipe(exporter, Content.RAW_BACON, ItemNamesV2.RAW_BACON, Content.COOKED_BACON, time, exp, true);
+        cookingList.forEach((input, output) -> offerFoodCookingRecipe(exporter, input, output));
+        // the nuts
+        offerFoodCookingRecipe(exporter, Ingredient.of(Tags.NUTS), "nuts", Content.ROASTED_NUTS, RecipeProvider.has(Tags.NUTS));
         // now the vanilla ingredients
-        offerFoodCookingRecipe(exporter, Items.SUGAR, "sugar", Content.CARAMEL, time, exp, true);
-        offerFoodCookingRecipe(exporter, Items.SUGAR_CANE, "sugar_cane", Content.MOLASSES, time, exp, false);
-        offerFoodCookingRecipe(exporter, Items.BREAD, "bread", Content.TOAST, time, exp, false);
+        offerFoodCookingRecipe(exporter, Items.SUGAR, "sugar", Content.CARAMEL);
+        offerFoodCookingRecipe(exporter, Items.SUGAR_CANE, "sugar_cane", Content.MOLASSES);
+        offerFoodCookingRecipe(exporter, Items.BREAD, "bread", Content.TOAST);
         // only salt missing
-        offerFoodCookingRecipe(exporter, Content.WATER_BOTTLE, ItemNamesV2.WATER_BOTTLE, Content.SALT, 800, 0.1f, false);
+        offerSmeltingRecipe(exporter, Ingredient.of(Content.WATER_BOTTLE), ItemNamesV2.WATER_BOTTLE, Content.SALT, RecipeCategory.MISC, 800, 0.1f, RecipeProvider.has(Content.WATER_BOTTLE.asTag()));
+    }
+
+    protected void offerFoodCookingRecipe(final RecipeOutput exporter, final Ingredient input, final String inputName, final ItemLike output, final Criterion<?> criterion) {
+        final int time = 200; // default vanilla time
+        final float exp = 0.35f; // default vanilla experience
+        offerSmeltingRecipe(exporter, input, inputName, output, RecipeCategory.FOOD, time, exp, criterion);
+        offerSmokerRecipe(exporter, input, inputName, output, time / 2, exp, criterion);
+        offerCampfireRecipe(exporter, input, inputName, output, time * 3, exp, criterion);
+    }
+
+    protected void offerFoodCookingRecipe(final RecipeOutput exporter, final CroptopiaItem input, final ItemLike output) {
+        offerFoodCookingRecipe(exporter, Ingredient.of(input.asTag()), input.getLowercaseName(), output, RecipeProvider.has(input.asTag()));
+    }
+
+    protected void offerFoodCookingRecipe(final RecipeOutput exporter, final Item input, final String inputName, final ItemLike output) {
+        offerFoodCookingRecipe(exporter, Ingredient.of(input), inputName, output, RecipeProvider.has(input));
+    }
+
+    protected void offerSmeltingRecipe(final RecipeOutput exporter, final Ingredient input, final String inputName, final ItemLike output, final RecipeCategory category, final int time, final float exp, final Criterion<?> criterion) {
+        SimpleCookingRecipeBuilder.smelting(input, category, output, exp, time)
+                .unlockedBy("has_" + inputName, criterion)
+                .save(exporter, RecipeProvider.getItemName(output) + "_from_" + inputName);
+    }
+
+    protected void offerSmokerRecipe(final RecipeOutput exporter, final Ingredient input, final String inputName, final ItemLike output, final int time, final float exp, final Criterion<?> criterion) {
+        SimpleCookingRecipeBuilder.smoking(input, RecipeCategory.FOOD, output, exp, time)
+                .unlockedBy("has_" + inputName, criterion)
+                .save(exporter, RecipeProvider.getItemName(output) + "_from_smoking_" + inputName);
+    }
+
+    protected void offerCampfireRecipe(final RecipeOutput exporter, final Ingredient input, final String inputName, final ItemLike output, final int time, final float exp, final Criterion<?> criterion) {
+        SimpleCookingRecipeBuilder.campfireCooking(input, RecipeCategory.FOOD, output, exp, time)
+                .unlockedBy("has_" + inputName, criterion)
+                .save(exporter, RecipeProvider.getItemName(output) + "_from_campfire_" + inputName);
     }
 
     protected void generateUtensil(final RecipeOutput exporter) {
@@ -633,7 +658,7 @@ public class CroptopiaRecipeProvider extends FabricRecipeProvider {
     }
 
     public static TagKey<Item> commonTag(final String name) {
-        IdentifierAccessor accessor = (IdentifierAccessor) Croptopia.createCommonIdentifier(name);
+        IdentifierAccessor accessor = (IdentifierAccessor) CroptopiaMod.createCommonIdentifier(name);
         return TagKey.create(Registries.ITEM, (ResourceLocation) accessor);
     }
 

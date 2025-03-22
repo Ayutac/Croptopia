@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "croptopia:glowing_calamari"
+            "items": "#c:glowing_calamari"
           }
         ]
       },

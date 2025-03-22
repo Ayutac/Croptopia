@@ -2,9 +2,9 @@
   "type": "minecraft:smoking",
   "category": "food",
   "cookingtime": 100,
-  "experience": 0.2,
+  "experience": 0.35,
   "ingredient": {
-    "item": "croptopia:sweetpotato"
+    "tag": "c:sweetpotatos"
   },
   "result": {
     "id": "croptopia:baked_sweet_potato"
