@@ -12,13 +12,13 @@
       "tag": "c:salts"
     },
     "4": {
-      "item": "croptopia:pepper"
+      "tag": "c:pepper"
     },
     "5": {
       "tag": "c:crabs"
     },
     "7": {
-      "item": "croptopia:frying_pan"
+      "tag": "c:frying_pans"
     }
   },
   "pattern": [

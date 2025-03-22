@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_clams": {
+    "has_clam": {
       "conditions": {
         "items": [
           {
-            "items": "croptopia:clam"
+            "items": "#c:clams"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_clams"
+      "has_clam"
     ]
   ],
   "rewards": {

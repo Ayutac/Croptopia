@@ -24,10 +24,10 @@
       "tag": "c:cinnamon"
     },
     "8": {
-      "item": "croptopia:whipping_cream"
+      "tag": "c:whipping_cream"
     },
     "9": {
-      "item": "croptopia:frying_pan"
+      "tag": "c:frying_pans"
     }
   },
   "pattern": [

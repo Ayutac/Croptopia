@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_anchovies": {
+    "has_anchovy": {
       "conditions": {
         "items": [
           {
-            "items": "croptopia:anchovy"
+            "items": "#c:anchovies"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_anchovies"
+      "has_anchovy"
     ]
   ],
   "rewards": {

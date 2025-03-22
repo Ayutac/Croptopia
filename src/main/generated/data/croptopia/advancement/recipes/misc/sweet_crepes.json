@@ -5,7 +5,17 @@
       "conditions": {
         "items": [
           {
-            "items": "croptopia:frying_pan"
+            "items": "#c:frying_pans"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_jam": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:jams"
           }
         ]
       },
@@ -16,22 +26,12 @@
         "recipe": "croptopia:sweet_crepes"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "took_flour": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#c:flour"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "took_flour",
+      "has_jam",
       "has_frying_pan"
     ]
   ],

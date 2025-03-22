@@ -6,22 +6,22 @@
       "item": "minecraft:egg"
     },
     "2": {
-      "item": "croptopia:bacon"
+      "tag": "c:bacon"
     },
     "3": {
-      "item": "croptopia:hashed_brown"
+      "tag": "c:hashed_brown"
     },
     "4": {
-      "item": "croptopia:baked_beans"
+      "tag": "c:baked_beans"
     },
     "5": {
       "tag": "c:sausages"
     },
     "6": {
-      "item": "croptopia:toast"
+      "tag": "c:toasts"
     },
     "7": {
-      "item": "croptopia:frying_pan"
+      "tag": "c:frying_pans"
     }
   },
   "pattern": [

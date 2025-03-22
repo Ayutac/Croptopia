@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_oysters": {
+    "has_oyster": {
       "conditions": {
         "items": [
           {
-            "items": "croptopia:grilled_oysters"
+            "items": "#c:grilled_oysters"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_oysters"
+      "has_oyster"
     ]
   ],
   "rewards": {

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_frying_pan": {
+    "has_sausage": {
       "conditions": {
         "items": [
           {
-            "items": "croptopia:frying_pan"
+            "items": "#c:frying_pans"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_frying_pan"
+      "has_sausage"
     ]
   ],
   "rewards": {

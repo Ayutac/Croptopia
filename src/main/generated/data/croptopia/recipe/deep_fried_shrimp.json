@@ -9,7 +9,7 @@
       "item": "minecraft:egg"
     },
     "5": {
-      "item": "croptopia:frying_pan"
+      "tag": "c:frying_pans"
     },
     "6": {
       "item": "minecraft:bread"

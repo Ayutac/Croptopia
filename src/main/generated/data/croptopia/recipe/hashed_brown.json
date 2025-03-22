@@ -6,13 +6,13 @@
       "tag": "c:potatoes"
     },
     "2": {
-      "item": "croptopia:frying_pan"
+      "tag": "c:frying_pans"
     },
     "3": {
       "tag": "c:olive_oils"
     },
     "4": {
-      "item": "croptopia:knife"
+      "tag": "c:knives"
     }
   },
   "pattern": [

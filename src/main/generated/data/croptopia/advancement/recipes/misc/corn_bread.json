@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "croptopia:corn"
+            "items": "#c:corn"
           }
         ]
       },

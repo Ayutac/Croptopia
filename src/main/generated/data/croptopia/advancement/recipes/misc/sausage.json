@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "croptopia:ground_pork"
+            "items": "#c:ground_pork"
           }
         ]
       },

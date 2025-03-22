@@ -6,7 +6,7 @@
       "item": "minecraft:egg"
     },
     "2": {
-      "item": "croptopia:frying_pan"
+      "tag": "c:frying_pans"
     }
   },
   "pattern": [

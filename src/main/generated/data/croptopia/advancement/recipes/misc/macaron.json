@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "croptopia:food_press"
+            "items": "#c:food_press"
           }
         ]
       },
