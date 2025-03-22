@@ -177,6 +177,9 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         gens.generateFlatItem(Content.BELLPEPPER.getSeedItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.BLACKBEAN.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.BLACKBEAN.getSeedItem(), ModelTemplates.FLAT_ITEM);
+        gens.generateFlatItem(Content.BLACKBERRY.asItem(), ModelTemplates.FLAT_ITEM);
+        gens.generateFlatItem(Content.BLACKBERRY.getSeedItem(), ModelTemplates.FLAT_ITEM);
+        gens.generateFlatItem(Content.BLACKBERRY_JAM.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.BLT, ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.BLUEBERRY.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.BLUEBERRY.getSeedItem(), ModelTemplates.FLAT_ITEM);
@@ -238,6 +241,7 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         gens.generateFlatItem(Content.CREMA, ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.CUCUMBER.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.CUCUMBER.getSeedItem(), ModelTemplates.FLAT_ITEM);
+        gens.generateFlatItem(Content.CUCUMBER_SALAD, ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.CURRANT.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.CURRANT.getSeedItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.DATE.asItem(), ModelTemplates.FLAT_ITEM);
@@ -370,6 +374,7 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         gens.generateFlatItem(Content.RAISINS.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.RASPBERRY.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.RASPBERRY.getSeedItem(), ModelTemplates.FLAT_ITEM);
+        gens.generateFlatItem(Content.RASPBERRY_JAM.asItem(), ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.RATATOUILLE, ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.RAVIOLI, ModelTemplates.FLAT_ITEM);
         gens.generateFlatItem(Content.REFRIED_BEANS, ModelTemplates.FLAT_ITEM);
