@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "Semences de cantaloup",
   "item.croptopia.cauliflower_seed": "Semences de chou-fleur",
   "item.croptopia.celery_seed": "Semences de céleri",
-  "item.croptopia.coffee_seed": "Semences de café",
+  "item.croptopia.coffee_beans_seed": "Semences de café",
   "item.croptopia.corn_seed": "Semences de maïs",
   "item.croptopia.cranberry_seed": "Semences de canneberge",
   "item.croptopia.cucumber_seed": "Semences de concombre",
@@ -330,7 +330,7 @@
   "item.croptopia.water_bottle": "Bouteille d'eau",
   "item.croptopia.milk_bottle": "Bouteille de lait",
   "item.croptopia.tea_leaves": "Feuilles de thé",
-  "item.croptopia.tea_seed": "Semences de thé",
+  "item.croptopia.tea_leaves_seed": "Semences de thé",
 
   "item.croptopia.ajvar": "Ajvar",
   "item.croptopia.ajvar_toast": "Toast à l'Ajvar",

@@ -9,7 +9,6 @@ import com.epherical.croptopia.items.CroptopiaSaplingItem;
 import com.epherical.croptopia.register.Content;
 import com.epherical.croptopia.util.BlockConvertible;
 import com.epherical.croptopia.util.FoodConstructor;
-import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
@@ -38,12 +37,10 @@ import java.util.Optional;
 import static com.epherical.croptopia.CroptopiaMod.*;
 import static com.epherical.croptopia.util.FoodConstructor.createFood;
 
-public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
+public class TreeCrop extends CroptopiaItem implements BlockConvertible {
 
     public static final List<TreeCrop> INSTANCES = new ArrayList<>();
 
-    private final String name;
-    private final boolean isPlural;
     private final TagKey<Item> category;
     private Item item;
     private Block leaves;
@@ -61,6 +58,7 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
 
     public TreeCrop(String name, boolean plural, Block logType, Block leafType, TagKey<Item> category, FoodConstructor constructor, int base, int randA, int randB,
                     ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, ResourceKey<PlacedFeature> placedFeatureKey) {
+        super(name, plural);
         Objects.requireNonNull(leafType);
         Objects.requireNonNull(category);
         Objects.requireNonNull(logType);
@@ -73,8 +71,6 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
         // TERRIBLE CODE DESIGN
         this.configuredFeatureKey = configuredFeatureKey;
         this.placedFeatureKey = placedFeatureKey;
-        this.name = name;
-        this.isPlural = plural;
         this.category = category;
         this.constructor = constructor;
         this.leafType = leafType;
@@ -87,16 +83,6 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
     @Override
     public Block asBlock() {
         return leaves;
-    }
-
-    @Override
-    public String name() {
-        return name;
-    }
-
-    @Override
-    public boolean hasPlural() {
-        return isPlural;
     }
 
     /**

@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "Cantaloupe-Melonensamen",
   "item.croptopia.cauliflower_seed": "Blumenkohlsamen",
   "item.croptopia.celery_seed": "Selleriesamen",
-  "item.croptopia.coffee_seed": "Kaffeesamen",
+  "item.croptopia.coffee_beans_seed": "Kaffeesamen",
   "item.croptopia.corn_seed": "Maissamen",
   "item.croptopia.cranberry_seed": "Cranberrysamen",
   "item.croptopia.cucumber_seed": "Gurkensamen",
@@ -330,7 +330,7 @@
   "item.croptopia.water_bottle": "Wasserflasche",
   "item.croptopia.milk_bottle": "Milchflasche",
   "item.croptopia.tea_leaves": "Teeblätter",
-  "item.croptopia.tea_seed": "Teesamen",
+  "item.croptopia.tea_leaves_seed": "Teesamen",
 
   "item.croptopia.baked_crepes": "Baked Crêpes",
   "item.croptopia.cinnamon_roll": "Cinnamon Roll",

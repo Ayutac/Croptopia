@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "Hạt dưa vàng",
   "item.croptopia.cauliflower_seed": "Hạt súp lơ",
   "item.croptopia.celery_seed": "Hạt cần tây",
-  "item.croptopia.coffee_seed": "Hạt cà phê",
+  "item.croptopia.coffee_beans_seed": "Hạt cà phê",
   "item.croptopia.corn_seed": "Hạt bắp",
   "item.croptopia.cranberry_seed": "Hạt nam việt quất",
   "item.croptopia.cucumber_seed": "Hạt dưa chuột",
@@ -347,7 +347,7 @@
   "item.croptopia.water_bottle": "Chai nước",
   "item.croptopia.milk_bottle": "Chai sữa",
   "item.croptopia.tea_leaves": "Lá Trà",
-  "item.croptopia.tea_seed": "Hạt giống Trà",
+  "item.croptopia.tea_leaves_seed": "Hạt giống Trà",
 
   "item.croptopia.ajvar": "Sốt rau quả",
   "item.croptopia.ajvar_toast": "Bánh mì nướng phủ sốt rau quả",

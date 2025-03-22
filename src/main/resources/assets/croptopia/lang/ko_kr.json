@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "캔털루프 멜론 씨앗",
   "item.croptopia.cauliflower_seed": "콜리플라워 씨앗",
   "item.croptopia.celery_seed": "샐러리 씨앗",
-  "item.croptopia.coffee_seed": "커피 씨앗",
+  "item.croptopia.coffee_beans_seed": "커피 씨앗",
   "item.croptopia.corn_seed": "옥수수 씨앗",
   "item.croptopia.cranberry_seed": "크랜베리 씨앗",
   "item.croptopia.cucumber_seed": "오이 씨앗",
@@ -330,7 +330,7 @@
   "item.croptopia.water_bottle": "병에 담긴 물",
   "item.croptopia.milk_bottle": "병에 담긴 우유",
   "item.croptopia.tea_leaves": "찻잎",
-  "item.croptopia.tea_seed": "차나무 씨앗",
+  "item.croptopia.tea_leaves_seed": "차나무 씨앗",
 
   "item.croptopia.ajvar": "아이바르",
   "item.croptopia.ajvar_toast": "아이바르 토스트",

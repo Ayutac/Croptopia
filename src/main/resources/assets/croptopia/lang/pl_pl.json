@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "Nasiona kantalupy",
   "item.croptopia.cauliflower_seed": "Nasiona kalafiora",
   "item.croptopia.celery_seed": "Nasiona selera",
-  "item.croptopia.coffee_seed": "Nasiona kawy",
+  "item.croptopia.coffee_beans_seed": "Nasiona kawy",
   "item.croptopia.corn_seed": "Nasiona kukurydzy",
   "item.croptopia.cranberry_seed": "Nasiona żurawiny",
   "item.croptopia.cucumber_seed": "Nasiona ogórka",
@@ -330,7 +330,7 @@
   "item.croptopia.water_bottle": "Butelka wody",
   "item.croptopia.milk_bottle": "Butelka mleka",
   "item.croptopia.tea_leaves": "Liście herbaty",
-  "item.croptopia.tea_seed": "Nasiona herbaty",
+  "item.croptopia.tea_leaves_seed": "Nasiona herbaty",
 
   "item.croptopia.food_press": "Uniwersalna prasa do żywności",
   "item.croptopia.frying_pan": "Patelnia",

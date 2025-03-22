@@ -17,7 +17,7 @@ public enum VanillaCrops implements ItemConvertibleWithPlural {
     PUMPKIN(Items.PUMPKIN),
     WHEAT(Items.WHEAT);
 
-    private Item item;
+    private final Item item;
 
     /**
      * @param source the vanilla crop, not <code>null</code>
@@ -27,6 +27,7 @@ public enum VanillaCrops implements ItemConvertibleWithPlural {
         this.item = source.asItem();
     }
 
+    @NotNull
     @Override
     public Item asItem() {
         return item;

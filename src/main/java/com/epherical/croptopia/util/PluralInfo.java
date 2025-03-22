@@ -31,7 +31,7 @@ public interface PluralInfo {
         if (word.endsWith("knife")) {
             return word.substring(0, word.length()-2) + "ves";
         }
-        if (word.endsWith("sh") || word.endsWith("tomato") || word.endsWith("ch")) {
+        if (word.endsWith("sh") || word.endsWith("tomato") || word.endsWith("mix") || word.endsWith("ch")) {
             return word + "es";
         }
         return word + "s";

@@ -5,7 +5,6 @@ import com.epherical.croptopia.register.Content;
 import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +12,15 @@ import java.util.List;
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
-public class Pie implements ItemLike {
+public class Pie extends CroptopiaItem {
     public static final List<Pie> INSTANCES = new ArrayList<>();
 
-    private final String name;
     private final ItemConvertibleWithPlural crop;
     private Item item;
 
     public Pie(final String name, final ItemConvertibleWithPlural crop) {
+        super(name, true);
         Content.ITEM_REGISTER.reg(this::registerItem);
-        this.name = name;
         this.crop = crop;
         INSTANCES.add(this);
     }
@@ -34,10 +32,6 @@ public class Pie implements ItemLike {
 
     public ItemConvertibleWithPlural getCrop() {
         return crop;
-    }
-
-    public String name() {
-        return name;
     }
 
     public void registerItem(final RegisterFunction<Item> register) {

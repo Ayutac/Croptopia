@@ -14,9 +14,9 @@ import java.util.List;
 
 public class Tags {
 
-    private static final List<TagKey<Item>> CROPTOPIA_GROUP_TAGS = new ArrayList<>();
-    private static final List<TagKey<Item>> CROPTOPIA_CROP_TAGS = new ArrayList<>();
-    private static final List<TagKey<Biome>> CROPTOPIA_BIOME_TAGS = new ArrayList<>();
+    public static final List<TagKey<Item>> CROPTOPIA_GROUP_TAGS = new ArrayList<>();
+    public static final List<TagKey<Item>> CROPTOPIA_CROP_TAGS = new ArrayList<>();
+    public static final List<TagKey<Biome>> CROPTOPIA_BIOME_TAGS = new ArrayList<>();
 
     public static final TagKey<Item> CROPS = createGroupTag(MiscNames.CROPS);
     public static final TagKey<Item> FRUITS = createGroupTag(MiscNames.FRUITS);
@@ -89,7 +89,7 @@ public class Tags {
     private static TagKey<Item> createGroupTag(final String key) {
         return create(key, Registries.ITEM, CROPTOPIA_GROUP_TAGS, true);
     }
-    private static TagKey<Item> createCropTag(final String key) {
+    public static TagKey<Item> createCropTag(final String key) {
         return create(key, Registries.ITEM, CROPTOPIA_CROP_TAGS, true);
     }
 

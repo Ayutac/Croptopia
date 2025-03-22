@@ -127,7 +127,7 @@
               },
               {
                 "data": {
-                  "Name": "croptopia:coffee_crop",
+                  "Name": "croptopia:coffee_beans_crop",
                   "Properties": {
                     "age": "7"
                   }
@@ -523,7 +523,7 @@
               },
               {
                 "data": {
-                  "Name": "croptopia:tea_crop",
+                  "Name": "croptopia:tea_leaves_crop",
                   "Properties": {
                     "age": "7"
                   }

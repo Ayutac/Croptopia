@@ -97,11 +97,11 @@ public class CroptopiaItemTagProvider extends FabricTagProvider.ItemTagProvider 
         foxFood.add(Content.STRAWBERRY.asItem());
         // piglin food: more cannibalism (which already happens in vanilla)
         final FabricTagBuilder piglinFood = getOrCreateTagBuilder(ItemTags.PIGLIN_FOOD);
-        piglinFood.add(Content.HAM_SANDWICH);
-        piglinFood.add(Content.PEPPERONI);
-        piglinFood.add(Content.PORK_AND_BEANS);
-        piglinFood.add(Content.PORK_JERKY);
-        piglinFood.add(Content.RAW_BACON);
+        piglinFood.add(Content.HAM_SANDWICH.asItem());
+        piglinFood.add(Content.PEPPERONI.asItem());
+        piglinFood.add(Content.PORK_AND_BEANS.asItem());
+        piglinFood.add(Content.PORK_JERKY.asItem());
+        piglinFood.add(Content.RAW_BACON.asItem());
         piglinFood.add(Content.COOKED_BACON.asItem());
     }
 

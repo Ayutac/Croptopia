@@ -14,16 +14,15 @@ import java.util.List;
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
-public class Jam implements ItemConvertibleWithPlural {
+public class Jam extends CroptopiaItem {
     public static final List<Jam> INSTANCES = new ArrayList<>();
 
-    private final String name;
     private final ItemConvertibleWithPlural crop;
     private Item item;
 
     public Jam(final String name, final ItemConvertibleWithPlural crop) {
+        super(name, true);
         Content.ITEM_REGISTER.reg(this::registerItem);
-        this.name = name;
         this.crop = crop;
         INSTANCES.add(this);
     }
@@ -35,10 +34,6 @@ public class Jam implements ItemConvertibleWithPlural {
 
     public ItemConvertibleWithPlural getCrop() {
         return crop;
-    }
-
-    public String name() {
-        return name;
     }
 
     public void registerItem(final RegisterFunction<Item> register) {

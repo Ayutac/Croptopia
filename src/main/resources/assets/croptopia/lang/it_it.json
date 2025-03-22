@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "Semi di cantalupo",
   "item.croptopia.cauliflower_seed": "Semi di cavolfiore",
   "item.croptopia.celery_seed": "Semi di sedano",
-  "item.croptopia.coffee_seed": "Semi di caffè",
+  "item.croptopia.coffee_beans_seed": "Semi di caffè",
   "item.croptopia.corn_seed": "Semi di mais",
   "item.croptopia.cranberry_seed": "Semi di mirtillo rosso",
   "item.croptopia.cucumber_seed": "Semi di cetriolo",
@@ -330,7 +330,7 @@
   "item.croptopia.water_bottle": "Bottiglia d'acqua",
   "item.croptopia.milk_bottle": "Bottiglia di latte",
   "item.croptopia.tea_leaves": "Foglie di tè",
-  "item.croptopia.tea_seed": "Semi di tè",
+  "item.croptopia.tea_leaves_seed": "Semi di tè",
 
   "item.croptopia.food_press": "Pressa alimentare",
   "item.croptopia.frying_pan": "Padella",

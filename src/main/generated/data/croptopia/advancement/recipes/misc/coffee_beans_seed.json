@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_tea_leaves": {
+    "has_coffee_beans": {
       "conditions": {
         "items": [
           {
-            "items": "croptopia:tea_leaves"
+            "items": "croptopia:coffee_beans"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "croptopia:tea_seed"
+        "recipe": "croptopia:coffee_beans_seed"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_tea_leaves"
+      "has_coffee_beans"
     ]
   ],
   "rewards": {
     "recipes": [
-      "croptopia:tea_seed"
+      "croptopia:coffee_beans_seed"
     ]
   }
 }

@@ -14,18 +14,17 @@ import java.util.List;
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
-public class Juice implements ItemConvertibleWithPlural {
+public class Juice extends CroptopiaItem {
     public static final List<Juice> INSTANCES = new ArrayList<>();
 
-    private final String name;
     private final ItemConvertibleWithPlural crop;
     private final boolean sweet;
     private Item item;
 
     public Juice(final String name, final ItemConvertibleWithPlural crop, final boolean sweet) {
+        super(name, true);
         Content.ITEM_REGISTER.reg(this::registerItem);
         this.sweet = sweet; // property not yet used, will be used in upcoming saturation overhaul
-        this.name = name;
         this.crop = crop;
         INSTANCES.add(this);
     }
@@ -38,10 +37,6 @@ public class Juice implements ItemConvertibleWithPlural {
         return crop;
     }
 
-    public String name() {
-        return name;
-    }
-
     @Override
     public Item asItem() {
         return item;
@@ -50,10 +45,5 @@ public class Juice implements ItemConvertibleWithPlural {
     public void registerItem(final RegisterFunction<Item> register) {
         this.item = register.register(CroptopiaMod.createIdentifier(name), () ->
                 new Drink(createGroup().food(createBuilder(JUICE_5).alwaysEdible().build()).craftRemainder(Items.GLASS_BOTTLE)));
-    }
-
-    @Override
-    public boolean hasPlural() {
-        return true;
     }
 }

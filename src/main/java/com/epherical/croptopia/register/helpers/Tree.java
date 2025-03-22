@@ -5,7 +5,6 @@ import com.epherical.croptopia.blocks.CroptopiaSaplingBlock;
 import com.epherical.croptopia.common.MiscNames;
 import com.epherical.croptopia.register.Content;
 import com.epherical.croptopia.util.BlockConvertible;
-import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -42,11 +41,9 @@ import java.util.Optional;
 
 import static com.epherical.croptopia.CroptopiaMod.*;
 
-public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
+public class Tree extends CroptopiaItem implements BlockConvertible {
     public static final List<Tree> INSTANCES = new ArrayList<>();
 
-    private final String name;
-    private final boolean hasPlural;
     private final TagKey<Item> tagCategory;
     private Item item;
     private Block log;
@@ -62,8 +59,9 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
     private final ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey;
     private final ResourceKey<PlacedFeature> placedFeatureKey;
 
-    public Tree(String name, boolean hasPlural, TagKey<Item> category, int iTreeGen, int jTreeGen, int kTreeGen,
-                ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, ResourceKey<PlacedFeature> placedFeatureKey) {
+    public Tree(final String name, final boolean plural, final TagKey<Item> category, final int iTreeGen, final int jTreeGen, final int kTreeGen,
+                final ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, final ResourceKey<PlacedFeature> placedFeatureKey) {
+        super(name, plural);
         Objects.requireNonNull(category);
         // TERRIBLE CODE DESIGN
         Content.BLOCK_REGISTER.reg(register -> {
@@ -74,9 +72,7 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
         // TERRIBLE CODE DESIGN
         this.configuredFeatureKey = configuredFeatureKey;
         this.placedFeatureKey = placedFeatureKey;
-        this.hasPlural = hasPlural;
         this.tagCategory = category;
-        this.name = name;
 
         // in the following we use registerItem because of AliasedBlockItem
         //log = new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).ignitedByLava().sound(SoundType.WOOD).strength(2.0F));
@@ -92,11 +88,6 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
         //saplingBlock = new CroptopiaSaplingBlock(new CroptopiaSaplingGenerator(() -> configuredFeatureKey), createSaplingSettings().ignitedByLava());
         //sapling = new ItemNameBlockItem(saplingBlock, createGroup());
         INSTANCES.add(this);
-    }
-
-    @Override
-    public boolean hasPlural() {
-        return hasPlural;
     }
 
     public TagKey<Item> getTagCategory() {
@@ -159,11 +150,6 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
 
     public ResourceKey<PlacedFeature> getPlacedFeatureKey() {
         return placedFeatureKey;
-    }
-
-    @Override
-    public String name() {
-        return name;
     }
 
     /*public static void registerBlocks(RegisterFunction<Block> register) {

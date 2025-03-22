@@ -57,7 +57,7 @@
   "item.croptopia.cantaloupe_seed": "哈密瓜种子",
   "item.croptopia.cauliflower_seed": "花椰菜种子",
   "item.croptopia.celery_seed": "芹菜种子",
-  "item.croptopia.coffee_seed": "咖啡种子",
+  "item.croptopia.coffee_beans_seed": "咖啡种子",
   "item.croptopia.corn_seed": "玉米种子",
   "item.croptopia.cranberry_seed": "蔓越莓种子",
   "item.croptopia.cucumber_seed": "黄瓜种子",
@@ -330,7 +330,7 @@
   "item.croptopia.water_bottle": "水瓶",
   "item.croptopia.milk_bottle": "牛奶瓶",
   "item.croptopia.tea_leaves": "茶叶",
-  "item.croptopia.tea_seed": "茶种子",
+  "item.croptopia.tea_leaves_seed": "茶种子",
 
   "item.croptopia.ajvar": "辣椒酱",
   "item.croptopia.ajvar_toast": "辣椒酱吐司",

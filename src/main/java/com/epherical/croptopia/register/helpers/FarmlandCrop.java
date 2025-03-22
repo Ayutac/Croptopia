@@ -8,7 +8,6 @@ import com.epherical.croptopia.items.SeedItem;
 import com.epherical.croptopia.register.Content;
 import com.epherical.croptopia.util.BlockConvertible;
 import com.epherical.croptopia.util.FoodConstructor;
-import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -25,13 +24,10 @@ import static com.epherical.croptopia.util.FoodConstructor.createFood;
 /**
  * FarmlandCrop represents the Item, Block, and Item seed that creates a croptopia crop.
  */
-public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible {
+public class FarmlandCrop extends CroptopiaItem implements BlockConvertible {
 
     public static final List<FarmlandCrop> INSTANCES = new ArrayList<>();
 
-    private final String name;
-    private final String dropName;
-    private final boolean plural;
     private final TagKey<Item> tagCategory;
 
     private final FoodConstructor registry;
@@ -41,19 +37,13 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     private Item seedItem;
     private final TagKey<Biome> biomes; // todo implement
 
-    public FarmlandCrop(final String cropName, final boolean isPlural, final TagKey<Item> category, final FoodConstructor registry, final TagKey<Biome> biomes) {
-        this(cropName, cropName, isPlural, category, registry, biomes);
-    }
-
-    public FarmlandCrop(final String cropName, final String dropName, final boolean isPlural, final TagKey<Item> category, final FoodConstructor registry, final TagKey<Biome> biomes) {
+    public FarmlandCrop(final String cropName, final boolean plural, final TagKey<Item> category, final FoodConstructor registry, final TagKey<Biome> biomes) {
+        super(cropName, plural);
         Objects.requireNonNull(category);
         // TERRIBLE CODE DESIGN
         Content.BLOCK_REGISTER.reg(this::registerBlock);
         Content.ITEM_REGISTER.reg(this::registerItem);
         // TERRIBLE CODE DESIGN
-        this.name = cropName;
-        this.dropName = dropName;
-        this.plural = isPlural;
         this.tagCategory = category;
         this.biomes = biomes;
         this.registry = registry;
@@ -63,16 +53,6 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     @Override
     public Block asBlock() {
         return cropBlock;
-    }
-
-    @Override
-    public String name() {
-        return dropName;
-    }
-
-    @Override
-    public boolean hasPlural() {
-        return plural;
     }
 
     @Override
@@ -118,14 +98,20 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     }*/
 
     public void registerItem(RegisterFunction<Item> register) {
-        this.cropItem = register.register(createIdentifier(this.dropName), () -> {
+        final String dropName = name();
+//        switch (name()) {
+//            case ItemNamesV2.COFFEE_BEANS -> "coffe";
+//            case ItemNamesV2.TEA_LEAVES -> "tea";
+//            default -> name();
+//        };
+        this.cropItem = register.register(createIdentifier(dropName), () -> {
             if (registry == null) {
                 return new CropItem(createGroup());
             } else {
                 return new CropItem(createGroup().food(createFood(registry)));
             }
         });
-        if (this.name().equals(ItemNamesV2.VANILLA)) {
+        if (name().equals(ItemNamesV2.VANILLA)) {
             this.seedItem = register.register(createIdentifier(this.name + "_seeds"), () -> new SeedItem(cropBlock, createGroup(), biomes));
         } else {
             this.seedItem = register.register(createIdentifier(this.name + "_seed"), () -> new SeedItem(cropBlock, createGroup(), biomes));
@@ -133,5 +119,4 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
         CROP_ITEMS.add(this.asItem());
         SEEDS.add(this.seedItem);
     }
-
 }
