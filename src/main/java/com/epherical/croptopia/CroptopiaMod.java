@@ -55,6 +55,10 @@ public record CroptopiaMod(PlatformAdapter<?> platform, CroptopiaConfig config) 
         return ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, name);
     }
 
+    public static ResourceLocation createCommonIdentifier(final String name) {
+        return ResourceLocation.fromNamespaceAndPath(MiscNames.COMMON_TAG, name);
+    }
+
     public static BlockBehaviour.Properties createCropSettings() {
         return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP);
     }

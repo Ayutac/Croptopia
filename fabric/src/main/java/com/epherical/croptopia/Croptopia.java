@@ -120,12 +120,14 @@ public class Croptopia implements ModInitializer {
         modifyVillagers();
     }
 
+    @Deprecated
     public static ResourceLocation createIdentifier(final String name) {
-        return ResourceLocation.fromNamespaceAndPath(MiscNames.MOD_ID, name);
+        return CroptopiaMod.createIdentifier(name);
     }
 
+    @Deprecated
     public static ResourceLocation createCommonIdentifier(final String name) {
-        return ResourceLocation.fromNamespaceAndPath(MiscNames.COMMON_TAG, name);
+        return CroptopiaMod.createCommonIdentifier(name);
     }
 
     private void modifyAxeBlockStripping() {
@@ -134,8 +136,6 @@ public class Croptopia implements ModInitializer {
             StrippableBlockRegistry.register(crop.getWood(), crop.getStrippedWood());
         }
     }
-
-
 
     private void modifyVillagers() {
         // Allow villagers to compost croptopia seeds.
