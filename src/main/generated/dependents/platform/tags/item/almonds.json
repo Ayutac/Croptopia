@@ -1,10 +1,10 @@
 {
   "values": [
     "croptopia:almond",
-    "#${dependent}:nuts/almond",
+    "#c:nuts/almond",
     "croptopia:almond",
-    "#${dependent}:crops/almond",
+    "#c:crops/almond",
     "croptopia:almond",
-    "#${dependent}:fruits/almond"
+    "#c:fruits/almond"
   ]
 }

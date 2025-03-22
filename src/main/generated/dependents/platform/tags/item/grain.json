@@ -1,8 +1,8 @@
 {
   "values": [
-    "#${dependent}:barley",
-    "#${dependent}:corn",
-    "#${dependent}:oat",
-    "#${dependent}:rice"
+    "#c:barley",
+    "#c:corn",
+    "#c:oat",
+    "#c:rice"
   ]
 }

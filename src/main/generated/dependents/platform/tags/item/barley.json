@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:barley",
-    "#${dependent}:grain/barley",
+    "#c:grain/barley",
     "croptopia:barley",
-    "#${dependent}:crops/barley"
+    "#c:crops/barley"
   ]
 }

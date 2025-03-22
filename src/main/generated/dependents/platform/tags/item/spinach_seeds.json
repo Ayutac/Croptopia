@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:spinach_seed",
-    "#${dependent}:seeds/spinach"
+    "#c:seeds/spinach"
   ]
 }

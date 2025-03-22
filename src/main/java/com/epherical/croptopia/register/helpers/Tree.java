@@ -4,7 +4,6 @@ import com.epherical.croptopia.CroptopiaMod;
 import com.epherical.croptopia.blocks.CroptopiaSaplingBlock;
 import com.epherical.croptopia.common.MiscNames;
 import com.epherical.croptopia.register.Content;
-import com.epherical.croptopia.register.TagCategory;
 import com.epherical.croptopia.util.BlockConvertible;
 import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
@@ -48,7 +47,7 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
 
     private final String name;
     private final boolean hasPlural;
-    private final TagCategory tagCategory;
+    private final TagKey<Item> tagCategory;
     private Item item;
     private Block log;
     private Block strippedLog;
@@ -63,7 +62,7 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
     private final ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey;
     private final ResourceKey<PlacedFeature> placedFeatureKey;
 
-    public Tree(String name, boolean hasPlural, TagCategory category, int iTreeGen, int jTreeGen, int kTreeGen,
+    public Tree(String name, boolean hasPlural, TagKey<Item> category, int iTreeGen, int jTreeGen, int kTreeGen,
                 ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, ResourceKey<PlacedFeature> placedFeatureKey) {
         Objects.requireNonNull(category);
         // TERRIBLE CODE DESIGN
@@ -100,7 +99,7 @@ public class Tree implements ItemConvertibleWithPlural, BlockConvertible {
         return hasPlural;
     }
 
-    public TagCategory getTagCategory() {
+    public TagKey<Item> getTagCategory() {
         return tagCategory;
     }
 

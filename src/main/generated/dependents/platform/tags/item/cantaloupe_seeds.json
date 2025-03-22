@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:cantaloupe_seed",
-    "#${dependent}:seeds/cantaloupe"
+    "#c:seeds/cantaloupe"
   ]
 }

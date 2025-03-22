@@ -6,7 +6,6 @@ import com.epherical.croptopia.common.ItemNamesV2;
 import com.epherical.croptopia.items.CropItem;
 import com.epherical.croptopia.items.SeedItem;
 import com.epherical.croptopia.register.Content;
-import com.epherical.croptopia.register.TagCategory;
 import com.epherical.croptopia.util.BlockConvertible;
 import com.epherical.croptopia.util.FoodConstructor;
 import com.epherical.croptopia.util.ItemConvertibleWithPlural;
@@ -33,7 +32,7 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     private final String name;
     private final String dropName;
     private final boolean plural;
-    private final TagCategory tagCategory;
+    private final TagKey<Item> tagCategory;
 
     private final FoodConstructor registry;
 
@@ -42,11 +41,11 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
     private Item seedItem;
     private final TagKey<Biome> biomes; // todo implement
 
-    public FarmlandCrop(final String cropName, final boolean isPlural, final TagCategory category, final FoodConstructor registry, final TagKey<Biome> biomes) {
+    public FarmlandCrop(final String cropName, final boolean isPlural, final TagKey<Item> category, final FoodConstructor registry, final TagKey<Biome> biomes) {
         this(cropName, cropName, isPlural, category, registry, biomes);
     }
 
-    public FarmlandCrop(final String cropName, final String dropName, final boolean isPlural, final TagCategory category, final FoodConstructor registry, final TagKey<Biome> biomes) {
+    public FarmlandCrop(final String cropName, final String dropName, final boolean isPlural, final TagKey<Item> category, final FoodConstructor registry, final TagKey<Biome> biomes) {
         Objects.requireNonNull(category);
         // TERRIBLE CODE DESIGN
         Content.BLOCK_REGISTER.reg(this::registerBlock);
@@ -81,7 +80,7 @@ public class FarmlandCrop implements ItemConvertibleWithPlural, BlockConvertible
         return cropItem;
     }
 
-    public TagCategory getTagCategory() {
+    public TagKey<Item> getTagCategory() {
         return tagCategory;
     }
 

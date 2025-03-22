@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:peach_jam",
-    "#${dependent}:jams/peach_jam"
+    "#c:jams/peach_jam"
   ]
 }

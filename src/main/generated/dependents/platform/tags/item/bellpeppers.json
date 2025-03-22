@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:bellpepper",
-    "#${dependent}:fruits/bellpepper",
+    "#c:fruits/bellpepper",
     "croptopia:bellpepper",
-    "#${dependent}:crops/bellpepper"
+    "#c:crops/bellpepper"
   ]
 }

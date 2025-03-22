@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:rutabaga_seed",
-    "#${dependent}:seeds/rutabaga"
+    "#c:seeds/rutabaga"
   ]
 }

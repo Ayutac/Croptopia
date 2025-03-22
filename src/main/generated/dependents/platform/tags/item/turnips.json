@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:turnip",
-    "#${dependent}:vegetables/turnip",
+    "#c:vegetables/turnip",
     "croptopia:turnip",
-    "#${dependent}:crops/turnip"
+    "#c:crops/turnip"
   ]
 }

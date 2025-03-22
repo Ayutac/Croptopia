@@ -1,11 +1,10 @@
 package com.epherical.croptopia.datagen;
 
-import com.epherical.croptopia.Croptopia;
-import com.epherical.croptopia.mixin.datagen.IdentifierAccessor;
+import com.epherical.croptopia.CroptopiaMod;
+import com.epherical.croptopia.common.Tags;
 import com.epherical.croptopia.mixin.datagen.ObjectBuilderAccessor;
 import com.epherical.croptopia.mixin.datagen.TagProviderAccessor;
 import com.epherical.croptopia.register.Content;
-import com.epherical.croptopia.register.TagCategory;
 import com.epherical.croptopia.register.helpers.FarmlandCrop;
 import com.epherical.croptopia.register.helpers.Furnace;
 import com.epherical.croptopia.register.helpers.IceCream;
@@ -17,13 +16,14 @@ import com.epherical.croptopia.register.helpers.Smoothie;
 import com.epherical.croptopia.register.helpers.Tree;
 import com.epherical.croptopia.register.helpers.TreeCrop;
 import com.epherical.croptopia.register.helpers.Utensil;
-import com.epherical.croptopia.util.PluralInfo;
+import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.impl.datagen.ForcedTagEntry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagEntry;
 import net.minecraft.tags.TagKey;
@@ -57,22 +57,26 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
 
     protected void generateCrops() {
         for (final FarmlandCrop crop : FarmlandCrop.INSTANCES) {
-            createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
-            if (crop.getTagCategory() != TagCategory.CROPS) { // don't double only-crops
-                createCategoryTag(TagCategory.CROPS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
+            createCategoryTag(crop.getTagCategory(), crop);
+            if (crop.getTagCategory() != Tags.CROPS) { // don't double only-crops
+                createCategoryTag(Tags.CROPS, crop);
             }
+
         }
         for (final TreeCrop crop : TreeCrop.INSTANCES) {
-            createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
-            if (crop.getTagCategory() != TagCategory.CROPS) { // don't double only-crops
-                createCategoryTag(TagCategory.CROPS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
+            createCategoryTag(crop.getTagCategory(), crop);
+            if (crop.getTagCategory() != Tags.CROPS) { // don't double only-crops
+                createCategoryTag(Tags.CROPS, crop);
             }
-            if (crop.getTagCategory() == TagCategory.NUTS) { // nuts are fruits
-                createCategoryTag(TagCategory.FRUITS.getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
+            if (crop.getTagCategory() == Tags.NUTS) { // nuts are fruits
+                createCategoryTag(Tags.FRUITS, crop);
             }
         }
         for (final Tree crop : Tree.INSTANCES) {
-            createCategoryTag(crop.getTagCategory().getLowerCaseName(), PluralInfo.plural(crop.getLowercaseName(), crop.hasPlural()), crop.asItem());
+            createCategoryTag(crop.getTagCategory(), crop);
+            if (crop.getTagCategory() != Tags.CROPS) { // don't double only-crops
+                createCategoryTag(Tags.CROPS, crop);
+            }
         }
         // the following four are all done above with a category tag of crops I believe
         /*createGeneralTag("saguaros", Content.saguaro);
@@ -106,10 +110,10 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
             createGeneralTag(furnace.getPlural(), furnace.asItem());
         }
         for (Juice juice : Juice.INSTANCES) {
-            createCategoryTag("juices", juice.name().toLowerCase() + "s", juice.asItem());
+            createCategoryTag(Tags.JUICES, juice);
         }
         for (Jam jam : Jam.INSTANCES) {
-            createCategoryTag("jams", jam.name().toLowerCase() + "s", jam.asItem());
+            createCategoryTag(Tags.JAMS, jam);
         }
         for (Smoothie smoothie : Smoothie.INSTANCES) {
             createGeneralTag(smoothie.name().toLowerCase() + "s", smoothie.asItem());
@@ -272,21 +276,25 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
     }
 
     private static TagKey<Item> register(String id) {
-        return TagKey.create(Registries.ITEM, Croptopia.createIdentifier(id));
+        return TagKey.create(Registries.ITEM, CroptopiaMod.createIdentifier(id));
     }
 
-    private void createCategoryTag(String category, String name, Item item) {
-        String path = reverseLookup(item).location().getPath();
-        TagKey<Item> forgeFriendlyTag = register(category + "/" + path);
-        ResourceLocation independentEntry = independentTag(category + "/" + path);
-        this.tag(forgeFriendlyTag).add(reverseLookup(item));
-        ObjectBuilderAccessor fabricGeneralTag = (ObjectBuilderAccessor) this.tag(register(name)).add(reverseLookup(item));
+    private void createCategoryTag(final TagKey<Item> category, final ItemConvertibleWithPlural item) {
+        final String plural = item.getPlural();
+        final ResourceKey<Item> key = reverseLookup(item.asItem());
+        final String path = key.location().getPath();
+        final String categoryPath = category.location().getPath();
+        final TagKey<Item> forgeFriendlyTag = register(categoryPath + "/" + path);
+
+        final ResourceLocation independentEntry = independentTag(categoryPath + "/" + path);
+        this.tag(forgeFriendlyTag).add(key);
+        final ObjectBuilderAccessor fabricGeneralTag = (ObjectBuilderAccessor) this.tag(register(plural)).add(key);
         fabricGeneralTag.getBuilder().add(new ForcedTagEntry(TagEntry.tag(independentEntry)));
 
         // this is the group i.e vegetables.json encompassing all the vegetables in the mod. it should pull from zucchini.json and not vegetables/zucchini.json
-        ObjectBuilderAccessor group = (ObjectBuilderAccessor) this.tag(register(category));
+        final ObjectBuilderAccessor group = (ObjectBuilderAccessor) this.tag(register(categoryPath));
         // we need a new independentEntry
-        ResourceLocation entryForGroup = independentTag(name);
+        final ResourceLocation entryForGroup = independentTag(plural);
         group.getBuilder().add(new ForcedTagEntry(TagEntry.tag(entryForGroup)));
     }
 
@@ -325,8 +333,6 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
     }
 
     private ResourceLocation independentTag(String name) {
-        IdentifierAccessor accessor = (IdentifierAccessor) Croptopia.createIdentifier(name);
-        accessor.setNamespace("${dependent}"); // lmao
-        return (ResourceLocation) accessor;
+        return CroptopiaMod.createCommonIdentifier(name);
     }
 }

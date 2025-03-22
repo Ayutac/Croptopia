@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:cauliflower",
-    "#${dependent}:vegetables/cauliflower",
+    "#c:vegetables/cauliflower",
     "croptopia:cauliflower",
-    "#${dependent}:crops/cauliflower"
+    "#c:crops/cauliflower"
   ]
 }

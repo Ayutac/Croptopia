@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:nectarine_sapling",
-    "#${dependent}:saplings/nectarine"
+    "#c:saplings/nectarine"
   ]
 }

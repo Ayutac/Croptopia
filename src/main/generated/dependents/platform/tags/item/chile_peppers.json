@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:chile_pepper",
-    "#${dependent}:crops/chile_pepper"
+    "#c:crops/chile_pepper"
   ]
 }

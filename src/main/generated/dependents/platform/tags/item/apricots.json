@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:apricot",
-    "#${dependent}:fruits/apricot",
+    "#c:fruits/apricot",
     "croptopia:apricot",
-    "#${dependent}:crops/apricot"
+    "#c:crops/apricot"
   ]
 }

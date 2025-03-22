@@ -7,12 +7,12 @@ import com.epherical.croptopia.common.ItemNamesV2;
 import com.epherical.croptopia.items.CropItem;
 import com.epherical.croptopia.items.CroptopiaSaplingItem;
 import com.epherical.croptopia.register.Content;
-import com.epherical.croptopia.register.TagCategory;
 import com.epherical.croptopia.util.BlockConvertible;
 import com.epherical.croptopia.util.FoodConstructor;
 import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.item.Item;
@@ -44,7 +44,7 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
 
     private final String name;
     private final boolean isPlural;
-    private final TagCategory category;
+    private final TagKey<Item> category;
     private Item item;
     private Block leaves;
 
@@ -59,7 +59,7 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
     private final ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey;
     private final ResourceKey<PlacedFeature> placedFeatureKey;
 
-    public TreeCrop(String name, boolean plural, Block logType, Block leafType, TagCategory category, FoodConstructor constructor, int base, int randA, int randB,
+    public TreeCrop(String name, boolean plural, Block logType, Block leafType, TagKey<Item> category, FoodConstructor constructor, int base, int randA, int randB,
                     ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey, ResourceKey<PlacedFeature> placedFeatureKey) {
         Objects.requireNonNull(leafType);
         Objects.requireNonNull(category);
@@ -123,7 +123,7 @@ public class TreeCrop implements ItemConvertibleWithPlural, BlockConvertible {
         return leaves;
     }
 
-    public TagCategory getTagCategory() {
+    public TagKey<Item> getTagCategory() {
         return category;
     }
 

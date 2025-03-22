@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:eggplant",
-    "#${dependent}:vegetables/eggplant",
+    "#c:vegetables/eggplant",
     "croptopia:eggplant",
-    "#${dependent}:crops/eggplant"
+    "#c:crops/eggplant"
   ]
 }

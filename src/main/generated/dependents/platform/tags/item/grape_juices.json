@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:grape_juice",
-    "#${dependent}:juices/grape_juice"
+    "#c:juices/grape_juice"
   ]
 }

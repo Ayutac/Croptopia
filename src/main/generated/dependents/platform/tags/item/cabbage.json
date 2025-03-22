@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:cabbage",
-    "#${dependent}:vegetables/cabbage",
+    "#c:vegetables/cabbage",
     "croptopia:cabbage",
-    "#${dependent}:crops/cabbage"
+    "#c:crops/cabbage"
   ]
 }

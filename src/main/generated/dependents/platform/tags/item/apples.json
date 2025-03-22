@@ -1,8 +1,8 @@
 {
   "values": [
     "minecraft:apple",
-    "#${dependent}:fruits/apple",
+    "#c:fruits/apple",
     "minecraft:apple",
-    "#${dependent}:crops/apple"
+    "#c:crops/apple"
   ]
 }

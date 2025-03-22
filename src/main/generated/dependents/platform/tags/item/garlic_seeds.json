@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:garlic_seed",
-    "#${dependent}:seeds/garlic"
+    "#c:seeds/garlic"
   ]
 }

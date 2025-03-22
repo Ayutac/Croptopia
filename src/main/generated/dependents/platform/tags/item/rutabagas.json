@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:rutabaga",
-    "#${dependent}:vegetables/rutabaga",
+    "#c:vegetables/rutabaga",
     "croptopia:rutabaga",
-    "#${dependent}:crops/rutabaga"
+    "#c:crops/rutabaga"
   ]
 }

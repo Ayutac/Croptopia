@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:cashew",
-    "#${dependent}:crops/cashew"
+    "#c:crops/cashew"
   ]
 }

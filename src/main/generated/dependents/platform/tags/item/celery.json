@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:celery",
-    "#${dependent}:vegetables/celery",
+    "#c:vegetables/celery",
     "croptopia:celery",
-    "#${dependent}:crops/celery"
+    "#c:crops/celery"
   ]
 }

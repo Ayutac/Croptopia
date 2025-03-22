@@ -7,7 +7,6 @@ import com.epherical.croptopia.util.ItemConvertibleWithPlural;
 import com.epherical.croptopia.util.RegisterFunction;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
 import static com.epherical.croptopia.CroptopiaMod.createGroup;
 import static com.epherical.croptopia.util.FoodConstructor.*;
 
-public class Jam implements ItemLike {
+public class Jam implements ItemConvertibleWithPlural {
     public static final List<Jam> INSTANCES = new ArrayList<>();
 
     private final String name;
@@ -47,7 +46,8 @@ public class Jam implements ItemLike {
                 new Drink(createGroup().craftRemainder(Items.GLASS_BOTTLE).food(createBuilder(JAM_3).alwaysEdible().build())));
     }
 
-    public static List<Jam> copy() {
-        return INSTANCES;
+    @Override
+    public boolean hasPlural() {
+        return true;
     }
 }

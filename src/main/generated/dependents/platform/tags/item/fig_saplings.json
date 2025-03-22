@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:fig_sapling",
-    "#${dependent}:saplings/fig"
+    "#c:saplings/fig"
   ]
 }

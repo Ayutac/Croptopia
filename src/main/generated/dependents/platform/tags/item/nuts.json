@@ -1,7 +1,7 @@
 {
   "values": [
-    "#${dependent}:almonds",
-    "#${dependent}:pecans",
-    "#${dependent}:walnuts"
+    "#c:almonds",
+    "#c:pecans",
+    "#c:walnuts"
   ]
 }

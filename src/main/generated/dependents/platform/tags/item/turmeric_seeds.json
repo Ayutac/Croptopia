@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:turmeric_seed",
-    "#${dependent}:seeds/turmeric"
+    "#c:seeds/turmeric"
   ]
 }

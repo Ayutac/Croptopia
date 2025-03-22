@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:apricot_jam",
-    "#${dependent}:jams/apricot_jam"
+    "#c:jams/apricot_jam"
   ]
 }

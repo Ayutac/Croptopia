@@ -1,10 +1,10 @@
 {
   "values": [
     "croptopia:walnut",
-    "#${dependent}:nuts/walnut",
+    "#c:nuts/walnut",
     "croptopia:walnut",
-    "#${dependent}:crops/walnut",
+    "#c:crops/walnut",
     "croptopia:walnut",
-    "#${dependent}:fruits/walnut"
+    "#c:fruits/walnut"
   ]
 }

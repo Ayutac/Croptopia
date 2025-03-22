@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:mustard",
-    "#${dependent}:vegetables/mustard",
+    "#c:vegetables/mustard",
     "croptopia:mustard",
-    "#${dependent}:crops/mustard"
+    "#c:crops/mustard"
   ]
 }

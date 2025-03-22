@@ -1,6 +1,6 @@
 {
   "values": [
     "croptopia:blackbean",
-    "#${dependent}:crops/blackbean"
+    "#c:crops/blackbean"
   ]
 }

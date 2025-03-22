@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:yam",
-    "#${dependent}:vegetables/yam",
+    "#c:vegetables/yam",
     "croptopia:yam",
-    "#${dependent}:crops/yam"
+    "#c:crops/yam"
   ]
 }

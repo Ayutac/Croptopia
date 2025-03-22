@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:kumquat",
-    "#${dependent}:fruits/kumquat",
+    "#c:fruits/kumquat",
     "croptopia:kumquat",
-    "#${dependent}:crops/kumquat"
+    "#c:crops/kumquat"
   ]
 }

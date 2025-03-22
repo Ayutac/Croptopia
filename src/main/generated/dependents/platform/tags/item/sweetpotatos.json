@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:sweetpotato",
-    "#${dependent}:vegetables/sweetpotato",
+    "#c:vegetables/sweetpotato",
     "croptopia:sweetpotato",
-    "#${dependent}:crops/sweetpotato"
+    "#c:crops/sweetpotato"
   ]
 }

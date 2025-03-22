@@ -1,8 +1,8 @@
 {
   "values": [
     "croptopia:garlic",
-    "#${dependent}:vegetables/garlic",
+    "#c:vegetables/garlic",
     "croptopia:garlic",
-    "#${dependent}:crops/garlic"
+    "#c:crops/garlic"
   ]
 }
