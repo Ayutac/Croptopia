@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:milks"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:vanilla"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "croptopia:whipping_cream"
+  }
+}

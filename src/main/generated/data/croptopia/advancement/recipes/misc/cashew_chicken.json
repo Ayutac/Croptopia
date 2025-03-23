@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cashew": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:cashews"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:cashew_chicken"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cashew"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:cashew_chicken"
+    ]
+  }
+}

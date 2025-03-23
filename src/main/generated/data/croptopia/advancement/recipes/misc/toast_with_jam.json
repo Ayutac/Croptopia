@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:toast_with_jam"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_toast": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:toasts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_toast"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:toast_with_jam"
+    ]
+  }
+}

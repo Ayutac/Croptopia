@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:raisins"
+    },
+    {
+      "tag": "c:rums"
+    },
+    {
+      "tag": "c:milks"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "tag": "c:cooking_pots"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:rum_raisin_ice_cream"
+  }
+}

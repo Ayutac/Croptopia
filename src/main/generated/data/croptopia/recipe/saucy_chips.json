@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "croptopia:sauces"
+    },
+    {
+      "tag": "c:potato_chips"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:saucy_chips"
+  }
+}

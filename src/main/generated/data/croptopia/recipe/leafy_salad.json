@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "c:lettuce"
+    },
+    {
+      "tag": "c:spinach"
+    },
+    {
+      "tag": "c:kale"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:leafy_salad"
+  }
+}

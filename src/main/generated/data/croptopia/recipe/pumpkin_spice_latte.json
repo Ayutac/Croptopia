@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "c:paprika"
+    },
+    {
+      "tag": "c:milks"
+    },
+    {
+      "item": "minecraft:pumpkin"
+    },
+    {
+      "tag": "c:coffees"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:pumpkin_spice_latte"
+  }
+}

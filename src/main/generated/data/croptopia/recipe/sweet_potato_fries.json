@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:sweetpotatos"
+    },
+    {
+      "tag": "c:cooking_pots"
+    },
+    {
+      "tag": "c:salts"
+    },
+    {
+      "tag": "c:olive_oils"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:sweet_potato_fries"
+  }
+}

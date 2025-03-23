@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:nuts"
+    },
+    {
+      "tag": "c:nuts"
+    },
+    {
+      "tag": "c:nuts"
+    },
+    {
+      "tag": "c:raisins"
+    },
+    {
+      "tag": "c:salts"
+    },
+    {
+      "tag": "c:chocolates"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:trail_mix"
+  }
+}

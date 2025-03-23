@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "croptopia:pork_replacements"
+    },
+    {
+      "tag": "c:tortillas"
+    },
+    {
+      "tag": "c:cabbage"
+    },
+    {
+      "tag": "c:onions"
+    },
+    {
+      "tag": "c:frying_pans"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:carnitas"
+  }
+}

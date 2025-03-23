@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:chile_peppers"
+    },
+    {
+      "tag": "c:mortar_and_pestles"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:paprika"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:yams"
+    },
+    {
+      "tag": "c:vanilla"
+    },
+    {
+      "tag": "c:milks"
+    },
+    {
+      "tag": "c:milks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:yam_jam"
+  }
+}

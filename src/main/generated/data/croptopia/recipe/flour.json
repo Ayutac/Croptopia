@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "croptopia:flourable"
+    },
+    {
+      "tag": "croptopia:flourable"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:flour"
+  }
+}

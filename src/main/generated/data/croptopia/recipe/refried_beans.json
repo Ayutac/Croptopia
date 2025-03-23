@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:blackbeans"
+    },
+    {
+      "tag": "c:blackbeans"
+    },
+    {
+      "tag": "c:chile_peppers"
+    },
+    {
+      "tag": "c:cheeses"
+    },
+    {
+      "tag": "c:frying_pans"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "croptopia:refried_beans"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "c:blackbeans"
+    },
+    {
+      "tag": "croptopia:pork_replacement"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:pork_and_beans"
+  }
+}

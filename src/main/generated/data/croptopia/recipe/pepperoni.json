@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "croptopia:beef_replacement"
+    },
+    {
+      "tag": "croptopia:pork_replacement"
+    },
+    {
+      "tag": "c:paprika"
+    },
+    {
+      "tag": "c:chile_peppers"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "croptopia:pepperoni"
+  }
+}
