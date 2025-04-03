@@ -3,7 +3,6 @@ package com.epherical.croptopia.datagen;
 import com.epherical.croptopia.CroptopiaMod;
 import com.epherical.croptopia.common.Tags;
 import com.epherical.croptopia.mixin.datagen.ObjectBuilderAccessor;
-import com.epherical.croptopia.mixin.datagen.TagProviderAccessor;
 import com.epherical.croptopia.register.Content;
 import com.epherical.croptopia.register.helpers.CroptopiaItem;
 import com.epherical.croptopia.register.helpers.FarmlandCrop;
@@ -23,7 +22,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.impl.datagen.ForcedTagEntry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagEntry;
@@ -37,10 +35,6 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
 
     public CroptopiaIndependentItemTagProvider(final FabricDataOutput output, final CompletableFuture<HolderLookup.Provider> completableFuture) {
         super(output, completableFuture, null);
-        ((TagProviderAccessor) this).setPathProvider(
-                new DependentPathProvider(output,
-                        PackOutput.Target.DATA_PACK,
-                        Registries.tagsDirPath(Registries.ITEM)));
     }
 
     @Override
