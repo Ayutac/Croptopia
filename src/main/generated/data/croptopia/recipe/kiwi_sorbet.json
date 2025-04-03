@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "c:kiwis"
+    },
+    "2": {
+      "item": "minecraft:honey_bottle"
+    }
+  },
+  "pattern": [
+    "1",
+    "2"
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:kiwi_sorbet"
+  }
+}

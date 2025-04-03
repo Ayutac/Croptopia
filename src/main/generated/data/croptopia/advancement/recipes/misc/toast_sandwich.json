@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_buttered_toast": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:buttered_toasts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:toast_sandwich"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_buttered_toast"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:toast_sandwich"
+    ]
+  }
+}

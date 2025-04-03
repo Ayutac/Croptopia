@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:egg"
+    },
+    "2": {
+      "tag": "c:water_bottles"
+    },
+    "3": {
+      "tag": "c:whipping_cream"
+    },
+    "4": {
+      "tag": "c:dates"
+    },
+    "5": {
+      "tag": "c:figs"
+    },
+    "6": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "456",
+    "123"
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:figgy_pudding"
+  }
+}

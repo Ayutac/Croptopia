@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_squash": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:squashes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:ratatouille"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zucchini": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:zucchini"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_squash",
+      "has_zucchini"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:ratatouille"
+    ]
+  }
+}

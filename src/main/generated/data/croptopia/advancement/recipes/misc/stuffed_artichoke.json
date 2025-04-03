@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_artichoke": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:artichokes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:stuffed_artichoke"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_artichoke"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:stuffed_artichoke"
+    ]
+  }
+}

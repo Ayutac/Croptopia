@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "c:asparagus"
+    },
+    "2": {
+      "tag": "c:olive_oils"
+    },
+    "3": {
+      "tag": "c:cheeses"
+    },
+    "4": {
+      "tag": "c:pepper"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "324"
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:cheesy_asparagus"
+  }
+}

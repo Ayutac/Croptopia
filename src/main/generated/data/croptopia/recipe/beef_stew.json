@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:carrot"
+    },
+    "2": {
+      "tag": "croptopia:beef_replacement"
+    },
+    "3": {
+      "item": "minecraft:potato"
+    },
+    "4": {
+      "item": "minecraft:carrot"
+    },
+    "5": {
+      "tag": "c:flour"
+    }
+  },
+  "pattern": [
+    "1 4",
+    "253"
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:beef_stew"
+  }
+}

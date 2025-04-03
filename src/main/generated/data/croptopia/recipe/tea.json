@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "c:water_bottles"
+    },
+    "2": {
+      "tag": "c:tea_leaves"
+    }
+  },
+  "pattern": [
+    "2",
+    "1"
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:tea"
+  }
+}

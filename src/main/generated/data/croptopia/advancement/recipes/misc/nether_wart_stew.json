@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crimson_fungus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:crimson_fungus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nether_wart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_wart"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:nether_wart_stew"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_fungus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:warped_fungus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nether_wart",
+      "has_crimson_fungus",
+      "has_warped_fungus"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:nether_wart_stew"
+    ]
+  }
+}

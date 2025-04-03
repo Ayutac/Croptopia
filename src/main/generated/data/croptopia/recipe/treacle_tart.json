@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:bread"
+    },
+    "2": {
+      "item": "minecraft:honey_bottle"
+    },
+    "3": {
+      "tag": "c:lemons"
+    },
+    "4": {
+      "tag": "c:whipping_cream"
+    }
+  },
+  "pattern": [
+    "234",
+    "111"
+  ],
+  "result": {
+    "count": 3,
+    "id": "croptopia:treacle_tart"
+  }
+}

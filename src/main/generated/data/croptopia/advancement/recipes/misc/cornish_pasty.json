@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rutabaga": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:rutabagas"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "croptopia:cornish_pasty"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rutabaga"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "croptopia:cornish_pasty"
+    ]
+  }
+}

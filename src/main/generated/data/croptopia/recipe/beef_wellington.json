@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "croptopia:beef_replacement"
+    },
+    "2": {
+      "tag": "c:mustard"
+    },
+    "3": {
+      "tag": "c:pepper"
+    },
+    "4": {
+      "tag": "c:onions"
+    },
+    "5": {
+      "item": "minecraft:egg"
+    },
+    "6": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "9": {
+      "item": "minecraft:carrot"
+    },
+    "F": {
+      "tag": "c:frying_pans"
+    }
+  },
+  "pattern": [
+    "94 ",
+    "2F3",
+    "516"
+  ],
+  "result": {
+    "count": 1,
+    "id": "croptopia:beef_wellington"
+  }
+}
