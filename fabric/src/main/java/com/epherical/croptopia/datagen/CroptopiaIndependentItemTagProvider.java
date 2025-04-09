@@ -175,7 +175,7 @@ public class CroptopiaIndependentItemTagProvider extends FabricTagProvider.ItemT
         }
 
         // Forge tags use seed/cropname, but not including seed name. artichoke good artichoke_seed bad.
-        TagKey<Item> forgeFriendlyTag = register(category + "/" + name);
+        TagKey<Item> forgeFriendlyTag = TagKey.create(Registries.ITEM, independentTag(category + "/" + name));
         ResourceLocation independentEntry = independentTag(category + "/" + name);
 
         this.tag(forgeFriendlyTag).add(reverseLookup(item));
