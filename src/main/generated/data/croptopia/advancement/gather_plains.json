@@ -1,0 +1,216 @@
+{
+  "parent": "croptopia:getseed",
+  "criteria": {
+    "has_barley_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:barley_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bellpepper_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:bellpepper_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_broccoli_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:broccoli_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cabbage_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cabbage_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_chile_pepper_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:chile_pepper_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_corn_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:corn_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cucumber_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cucumber_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_greenbean_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:greenbean_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kale_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:kale_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lettuce_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:lettuce_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mustard_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:mustard_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_oat_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:oat_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pepper_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:pepper_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_soybean_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:soybean_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sweetpotato_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:sweetpotato_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_plains.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:broccoli_seed"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_plains.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_sweetpotato_seed"
+    ],
+    [
+      "has_kale_seed"
+    ],
+    [
+      "has_oat_seed"
+    ],
+    [
+      "has_chile_pepper_seed"
+    ],
+    [
+      "has_cucumber_seed"
+    ],
+    [
+      "has_broccoli_seed"
+    ],
+    [
+      "has_corn_seed"
+    ],
+    [
+      "has_lettuce_seed"
+    ],
+    [
+      "has_greenbean_seed"
+    ],
+    [
+      "has_barley_seed"
+    ],
+    [
+      "has_bellpepper_seed"
+    ],
+    [
+      "has_mustard_seed"
+    ],
+    [
+      "has_pepper_seed"
+    ],
+    [
+      "has_soybean_seed"
+    ],
+    [
+      "has_cabbage_seed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

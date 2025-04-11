@@ -1,0 +1,151 @@
+{
+  "parent": "croptopia:gather_tree_dark_forest",
+  "criteria": {
+    "has_banana_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:banana_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cinnamon_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cinnamon_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_coconut_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:coconut_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_date_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:date_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dragonfruit_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:dragonfruit_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_fig_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:fig_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_grapefruit_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:grapefruit_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kumquat_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:kumquat_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mango_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:mango_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nutmeg_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:nutmeg_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_tree_jungle.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:banana_sapling"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_tree_jungle.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_fig_sapling"
+    ],
+    [
+      "has_banana_sapling"
+    ],
+    [
+      "has_mango_sapling"
+    ],
+    [
+      "has_nutmeg_sapling"
+    ],
+    [
+      "has_grapefruit_sapling"
+    ],
+    [
+      "has_coconut_sapling"
+    ],
+    [
+      "has_dragonfruit_sapling"
+    ],
+    [
+      "has_date_sapling"
+    ],
+    [
+      "has_cinnamon_sapling"
+    ],
+    [
+      "has_kumquat_sapling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

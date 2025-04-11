@@ -38,6 +38,7 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
 
+// when changing/adding recipes, remember to change the eatbig advancement as well!!
 public class CroptopiaRecipeProvider extends FabricRecipeProvider {
 
     public CroptopiaRecipeProvider(final FabricDataOutput output) {

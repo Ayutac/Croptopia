@@ -1,0 +1,73 @@
+{
+  "parent": "croptopia:gather_jungle",
+  "criteria": {
+    "has_artichoke_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:artichoke_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_asparagus_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:asparagus_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cranberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cranberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_currant_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:currant_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_swamp.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:cranberry_seed"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_swamp.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cranberry_seed"
+    ],
+    [
+      "has_asparagus_seed"
+    ],
+    [
+      "has_artichoke_seed"
+    ],
+    [
+      "has_currant_seed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

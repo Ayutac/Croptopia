@@ -1,0 +1,34 @@
+{
+  "parent": "croptopia:knife",
+  "criteria": {
+    "has_cooking_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cooking_pot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.pot.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:cooking_pot"
+    },
+    "title": {
+      "translate": "advancements.croptopia.pot.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cooking_pot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

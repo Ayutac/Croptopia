@@ -20,7 +20,7 @@ public class CroptopiaBiomeTagProvider extends TagsProvider<Biome> {
         super(dataGenerator, Registries.BIOME, completableFuture);
     }
 
-    private static @NotNull Set<BiomeTagPair> getBiomeTagPairs() {
+    public static @NotNull Set<BiomeTagPair> getBiomeTagPairs() {
         final Set<BiomeTagPair> set = new HashSet<>();
         set.add(new BiomeTagPair(Tags.HAS_ARTICHOKE, ConventionalBiomeTags.IS_SWAMP));
         set.add(new BiomeTagPair(Tags.HAS_ASPARAGUS, ConventionalBiomeTags.IS_SWAMP));
@@ -94,7 +94,7 @@ public class CroptopiaBiomeTagProvider extends TagsProvider<Biome> {
         }
     }
 
-    protected record BiomeTagPair(TagKey<Biome> biome, TagKey<Biome>... categories) {
+    public record BiomeTagPair(TagKey<Biome> biome, TagKey<Biome>... categories) {
         // nothing else needed
     }
 

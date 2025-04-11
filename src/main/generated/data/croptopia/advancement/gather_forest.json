@@ -1,0 +1,216 @@
+{
+  "parent": "croptopia:gather_desert",
+  "criteria": {
+    "has_blackbean_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:blackbean_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blackberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:blackberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blueberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:blueberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cantaloupe_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cantaloupe_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cauliflower_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cauliflower_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_celery_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:celery_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_elderberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:elderberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_grape_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:grape_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_radish_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:radish_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raspberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:raspberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spinach_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:spinach_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_strawberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:strawberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tea_leaves_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:tea_leaves_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tomatillo_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:tomatillo_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tomato_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:tomato_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_forest.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:celery_seed"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_forest.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_blackbean_seed"
+    ],
+    [
+      "has_raspberry_seed"
+    ],
+    [
+      "has_cauliflower_seed"
+    ],
+    [
+      "has_tomatillo_seed"
+    ],
+    [
+      "has_grape_seed"
+    ],
+    [
+      "has_radish_seed"
+    ],
+    [
+      "has_celery_seed"
+    ],
+    [
+      "has_tomato_seed"
+    ],
+    [
+      "has_blackberry_seed"
+    ],
+    [
+      "has_strawberry_seed"
+    ],
+    [
+      "has_blueberry_seed"
+    ],
+    [
+      "has_cantaloupe_seed"
+    ],
+    [
+      "has_spinach_seed"
+    ],
+    [
+      "has_tea_leaves_seed"
+    ],
+    [
+      "has_elderberry_seed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

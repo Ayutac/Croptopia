@@ -1,0 +1,34 @@
+{
+  "parent": "croptopia:frying_pan",
+  "criteria": {
+    "has_food_press": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:food_press"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.food_press.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:food_press"
+    },
+    "title": {
+      "translate": "advancements.croptopia.food_press.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_food_press"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

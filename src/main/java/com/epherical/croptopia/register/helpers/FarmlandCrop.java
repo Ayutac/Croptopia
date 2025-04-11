@@ -68,6 +68,10 @@ public class FarmlandCrop extends CroptopiaItem implements BlockConvertible {
         return seedItem;
     }
 
+    public TagKey<Biome> biomes() {
+        return biomes;
+    }
+
     public static List<FarmlandCrop> copy() {
         return INSTANCES;
     }

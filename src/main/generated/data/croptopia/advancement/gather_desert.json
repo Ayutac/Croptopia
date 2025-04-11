@@ -1,0 +1,34 @@
+{
+  "parent": "croptopia:gather_plains",
+  "criteria": {
+    "has_saguaro_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:saguaro_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_desert.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:saguaro_seed"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_desert.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_saguaro_seed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

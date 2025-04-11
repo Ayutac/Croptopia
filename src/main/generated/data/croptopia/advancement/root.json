@@ -1,0 +1,131 @@
+{
+  "criteria": {
+    "has_cinnamon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cinnamon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cooking_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cooking_pot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_food_press": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:food_press"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_frying_pan": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:frying_pan"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:hoes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_knife": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:knife"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mortar_and_pestle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:mortar_and_pestle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_salt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:salt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_saplings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#croptopia:saplings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#croptopia:seeds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "croptopia:textures/block/salt_ore.png",
+    "description": {
+      "translate": "advancements.croptopia.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:coffee"
+    },
+    "title": "Croptopia"
+  },
+  "requirements": [
+    [
+      "has_hoe",
+      "has_seeds",
+      "has_saplings",
+      "has_salt",
+      "has_cinnamon",
+      "has_mortar_and_pestle",
+      "has_knife",
+      "has_cooking_pot",
+      "has_frying_pan",
+      "has_food_press"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

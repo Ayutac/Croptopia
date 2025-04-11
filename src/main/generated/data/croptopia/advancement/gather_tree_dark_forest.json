@@ -1,0 +1,73 @@
+{
+  "parent": "croptopia:getsapling",
+  "criteria": {
+    "has_almond_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:almond_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cashew_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cashew_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pecan_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:pecan_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_walnut_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:walnut_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_tree_dark_forest.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:cashew_sapling"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_tree_dark_forest.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cashew_sapling"
+    ],
+    [
+      "has_walnut_sapling"
+    ],
+    [
+      "has_almond_sapling"
+    ],
+    [
+      "has_pecan_sapling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

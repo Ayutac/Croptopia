@@ -1,0 +1,776 @@
+{
+  "parent": "croptopia:gather_swamp",
+  "criteria": {
+    "has_artichoke_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:artichoke_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_asparagus_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:asparagus_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_barley_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:barley_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_basil_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:basil_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bellpepper_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:bellpepper_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blackbean_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:blackbean_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blackberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:blackberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blueberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:blueberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_broccoli_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:broccoli_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cabbage_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cabbage_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cantaloupe_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cantaloupe_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cauliflower_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cauliflower_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_celery_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:celery_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_chile_pepper_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:chile_pepper_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_coffee_beans_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:coffee_beans_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_corn_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:corn_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cranberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cranberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cucumber_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:cucumber_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_currant_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:currant_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_eggplant_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:eggplant_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_elderberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:elderberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_garlic_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:garlic_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ginger_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:ginger_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_grape_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:grape_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_greenbean_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:greenbean_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_greenonion_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:greenonion_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_honeydew_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:honeydew_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hops_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:hops_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kale_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:kale_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kiwi_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:kiwi_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_leek_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:leek_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lettuce_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:lettuce_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mustard_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:mustard_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_oat_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:oat_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_olive_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:olive_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_onion_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:onion_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_peanut_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:peanut_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pepper_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:pepper_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pineapple_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:pineapple_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_radish_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:radish_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raspberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:raspberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rhubarb_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:rhubarb_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rice_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:rice_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_rutabaga_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:rutabaga_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_saguaro_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:saguaro_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_soybean_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:soybean_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spinach_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:spinach_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_squash_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:squash_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_strawberry_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:strawberry_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sweetpotato_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:sweetpotato_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tea_leaves_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:tea_leaves_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tomatillo_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:tomatillo_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tomato_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:tomato_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_turmeric_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:turmeric_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_turnip_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:turnip_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_vanilla_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:vanilla_seeds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_yam_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:yam_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_zucchini_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:zucchini_seed"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.gather_all.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "croptopia:turnip_seed"
+    },
+    "title": {
+      "translate": "advancements.croptopia.gather_all.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_artichoke_seed"
+    ],
+    [
+      "has_asparagus_seed"
+    ],
+    [
+      "has_barley_seed"
+    ],
+    [
+      "has_basil_seed"
+    ],
+    [
+      "has_bellpepper_seed"
+    ],
+    [
+      "has_blackbean_seed"
+    ],
+    [
+      "has_blackberry_seed"
+    ],
+    [
+      "has_blueberry_seed"
+    ],
+    [
+      "has_broccoli_seed"
+    ],
+    [
+      "has_cabbage_seed"
+    ],
+    [
+      "has_cantaloupe_seed"
+    ],
+    [
+      "has_cauliflower_seed"
+    ],
+    [
+      "has_celery_seed"
+    ],
+    [
+      "has_chile_pepper_seed"
+    ],
+    [
+      "has_coffee_beans_seed"
+    ],
+    [
+      "has_corn_seed"
+    ],
+    [
+      "has_cranberry_seed"
+    ],
+    [
+      "has_cucumber_seed"
+    ],
+    [
+      "has_currant_seed"
+    ],
+    [
+      "has_eggplant_seed"
+    ],
+    [
+      "has_elderberry_seed"
+    ],
+    [
+      "has_garlic_seed"
+    ],
+    [
+      "has_ginger_seed"
+    ],
+    [
+      "has_grape_seed"
+    ],
+    [
+      "has_greenbean_seed"
+    ],
+    [
+      "has_greenonion_seed"
+    ],
+    [
+      "has_honeydew_seed"
+    ],
+    [
+      "has_hops_seed"
+    ],
+    [
+      "has_kale_seed"
+    ],
+    [
+      "has_kiwi_seed"
+    ],
+    [
+      "has_leek_seed"
+    ],
+    [
+      "has_lettuce_seed"
+    ],
+    [
+      "has_mustard_seed"
+    ],
+    [
+      "has_oat_seed"
+    ],
+    [
+      "has_olive_seed"
+    ],
+    [
+      "has_onion_seed"
+    ],
+    [
+      "has_peanut_seed"
+    ],
+    [
+      "has_pepper_seed"
+    ],
+    [
+      "has_pineapple_seed"
+    ],
+    [
+      "has_radish_seed"
+    ],
+    [
+      "has_raspberry_seed"
+    ],
+    [
+      "has_rhubarb_seed"
+    ],
+    [
+      "has_rice_seed"
+    ],
+    [
+      "has_rutabaga_seed"
+    ],
+    [
+      "has_saguaro_seed"
+    ],
+    [
+      "has_soybean_seed"
+    ],
+    [
+      "has_spinach_seed"
+    ],
+    [
+      "has_squash_seed"
+    ],
+    [
+      "has_strawberry_seed"
+    ],
+    [
+      "has_sweetpotato_seed"
+    ],
+    [
+      "has_tea_leaves_seed"
+    ],
+    [
+      "has_tomatillo_seed"
+    ],
+    [
+      "has_tomato_seed"
+    ],
+    [
+      "has_turmeric_seed"
+    ],
+    [
+      "has_turnip_seed"
+    ],
+    [
+      "has_vanilla_seed"
+    ],
+    [
+      "has_yam_seed"
+    ],
+    [
+      "has_zucchini_seed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

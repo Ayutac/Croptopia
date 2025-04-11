@@ -1,0 +1,34 @@
+{
+  "parent": "croptopia:root",
+  "criteria": {
+    "has_mortar_and_pestle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "croptopia:mortar_and_pestle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancements.croptopia.mortar_and_pestle.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "croptopia:mortar_and_pestle"
+    },
+    "title": {
+      "translate": "advancements.croptopia.mortar_and_pestle.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_mortar_and_pestle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
