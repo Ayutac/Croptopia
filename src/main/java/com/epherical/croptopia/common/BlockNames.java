@@ -43,7 +43,7 @@ public class BlockNames {
     public static final String CANTALOUPE_CROP = CANTALOUPE + CROP;
     public static final String CAULIFLOWER_CROP = CAULIFLOWER + CROP;
     public static final String CELERY_CROP = CELERY + CROP;
-    public static final String COFFEE_CROP = COFFEE + CROP;
+    public static final String COFFEE_CROP = COFFEE_BEANS + CROP;
     public static final String CORN_CROP = CORN + CROP;
     public static final String CRANBERRY_CROP = CRANBERRY + CROP;
     public static final String CUCUMBER_CROP = CUCUMBER + CROP;

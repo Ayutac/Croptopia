@@ -12,17 +12,17 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "croptopia:coffee_crop",
+                  "block": "croptopia:tea_leaves_crop",
                   "properties": {
                     "age": "7"
                   }
                 }
               ],
-              "name": "croptopia:coffee_beans"
+              "name": "croptopia:tea_leaves"
             },
             {
               "type": "minecraft:item",
-              "name": "croptopia:coffee_seed"
+              "name": "croptopia:tea_leaves_seed"
             }
           ]
         }
@@ -44,13 +44,13 @@
               }
             }
           ],
-          "name": "croptopia:coffee_seed"
+          "name": "croptopia:tea_leaves_seed"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "croptopia:coffee_crop",
+          "block": "croptopia:tea_leaves_crop",
           "properties": {
             "age": "7"
           }
