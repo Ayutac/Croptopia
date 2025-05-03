@@ -13,6 +13,7 @@ import com.epherical.croptopia.register.helpers.Pie;
 import com.epherical.croptopia.register.helpers.Seafood;
 import com.epherical.croptopia.register.helpers.SimpleItemWrapper;
 import com.epherical.croptopia.register.helpers.Smoothie;
+import com.epherical.croptopia.register.helpers.Tree;
 import com.epherical.croptopia.register.helpers.TreeCrop;
 import com.epherical.croptopia.register.helpers.Utensil;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -29,7 +30,9 @@ import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.Property;
 
 import java.util.Optional;
@@ -146,6 +149,12 @@ public class CroptopiaModelProvider extends FabricModelProvider {
 
     private void generateMisc(final BlockModelGenerators gens) {
         gens.createTrivialCube(Content.SALT_ORE_BLOCK);
+        for (final Tree tree : Tree.INSTANCES) {
+            gens.createCrossBlockWithDefaultItem(tree.getSaplingBlock(), BlockModelGenerators.TintState.NOT_TINTED);
+            gens.createTrivialBlock(tree.getLeaves(), TexturedModel.LEAVES);
+            gens.woodProvider(tree.getLog()).logWithHorizontal(tree.getLog()).wood(tree.getWood());
+            gens.woodProvider(tree.getStrippedLog()).logWithHorizontal(tree.getStrippedLog()).wood(tree.getStrippedWood());
+        }
     }
 
     @Override
@@ -187,6 +196,7 @@ public class CroptopiaModelProvider extends FabricModelProvider {
         for (final SimpleItemWrapper wrapper : SimpleItemWrapper.INSTANCES) {
             gens.generateFlatItem(wrapper.asItem(), ModelTemplates.FLAT_ITEM);
         }
+        gens.generateFlatItem(Content.CINNAMON.asItem(), ModelTemplates.FLAT_ITEM);
     }
 
     protected void createTreeCropBlock(final BlockModelGenerators gens, final TreeCrop treeCrop, final String vanillaLeafType, final String flowerColor) {
@@ -226,7 +236,7 @@ public class CroptopiaModelProvider extends FabricModelProvider {
             return Variant.variant().with(VariantProperties.MODEL, resourceLocation);
         });
         gens.blockStateOutput.accept(MultiVariantGenerator.multiVariant(treeCrop.asBlock()).with(propertyDispatch));
-        gens.createCrossBlockWithDefaultItem(treeCrop.getSaplingBlock(), BlockModelGenerators.TintState.TINTED);
+        gens.createCrossBlockWithDefaultItem(treeCrop.getSaplingBlock(), BlockModelGenerators.TintState.NOT_TINTED);
     }
 
     protected enum CrossType {
